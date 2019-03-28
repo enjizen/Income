@@ -15,7 +15,6 @@ object AccountTableHelper {
     }
 
     fun updateAccount(id: Int, accountNumber: String, name: String, balance: Double, onSuccess: () -> Unit){
-
     }
 
 }
