@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="EditText">
+        <attr name="android:text" format="string" />
+        <attr name="labelText" format="string" />
+        <attr name="labelTextSize" format="string"/>
+        <attr name="android:inputType" />
+        <attr name="required" format="boolean" />
+        <attr name="maxLength" format="integer" />
+        <attr name="labelColor" format="color" />
+        <attr name="inputTextColor" format="color" />
+        <attr name="inputTextLayoutHeight" format="string"/>
+        <attr name="inputErrorText" format="string" />
+        <attr name="valid" format="boolean"/>
+        <attr name="inputColor" format="color" />
+        <attr name="labelSize" format="float"/>
+        <attr name="inputTextSize" format="float"/>
+        <attr name="errorMessageSize" format="float"/>
+        <attr name="android:hint" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="Toolbar">
+        <attr name="android:text" format="string"/>
+        <attr name="showBackButton" format="boolean"/>
+        <attr name="showCloseButton" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="CimbProfileItem">
+        <attr name="android:text" format="string"/>
+        <attr name="showIconNext" format="boolean"/>
+        <attr name="setTitleMessage" format="string"/>
+        <attr name="setMessage" format="string" />
+    </declare-styleable>
+
+</resources>

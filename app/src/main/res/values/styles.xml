@@ -1,0 +1,191 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="FullScreenDialogStyle" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+
+        <!-- Set this to true if you want Full Screen without status bar -->
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="android:windowIsFloating">false</item>
+
+        <!-- This is important! Don't forget to set window background -->
+        <!--<item name="android:windowBackground">@android:color/white</item>-->
+
+        <!-- Additionally if you want animations when dialog opening -->
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+
+
+    <style name="CimbTextView">
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+
+    <style name="CimbTextView.Medium">
+        <item name="android:textSize">@dimen/default_text_size_large</item>
+    </style>
+
+    <style name="CimbTextView.Large">
+        <item name="android:textSize">@dimen/default_text_size_extra_large</item>
+    </style>
+
+    <style name="CimbTextView.Small">
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+    </style>
+
+    <style name="CimbTextView.Smaller">
+        <item name="android:textSize">@dimen/default_text_size_smaller</item>
+    </style>
+
+    <style name="CimbTextView.ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_small</item>
+    </style>
+
+    <style name="CimbTextView.ExtraExtraSmallNoBack">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
+    </style>
+    <style name="CimbTextView.ExtraExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
+    </style>
+    <style name="CimbTextView.ExtraExtraExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
+    </style>
+
+    <style name="CimbTextView.Black">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="CimbTextView.Black.Extra_Large">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_large</item>
+    </style>
+
+    <style name="CimbTextView.Black.Large">
+        <item name="android:textSize">@dimen/default_text_size_extra_large</item>
+    </style>
+
+    <style name="CimbTextView.Black.Small">
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+    </style>
+
+    <style name="CimbTextView.Black.Smaller">
+        <item name="android:textSize">@dimen/default_text_size_smaller</item>
+    </style>
+
+    <style name="CimbTextView.Black.ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_small</item>
+    </style>
+
+
+    <style name="CimbTextView.Black.Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_small</item>
+    </style>
+
+    <style name="CimbTextView.Black.Extra_Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
+    </style>
+
+
+    <style name="CimbTextView.Black.Extra_Extra_Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
+    </style>
+
+
+
+
+    <style name="CimbTextView.BrownGrey">
+        <item name="android:textColor">@color/brownGrey</item>
+    </style>
+
+    <style name="CimbTextView.BrownGrey.Extra_Large">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_large</item>
+    </style>
+
+    <style name="CimbTextView.BrownGrey.Large">
+        <item name="android:textSize">@dimen/default_text_size_extra_large</item>
+    </style>
+
+    <style name="CimbTextView.BrownGrey.Small">
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+    </style>
+
+    <style name="CimbTextView.BrownGrey.Smaller">
+        <item name="android:textSize">@dimen/default_text_size_smaller</item>
+    </style>
+
+    <style name="CimbTextView.BrownGrey.ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_small</item>
+    </style>
+
+
+    <style name="CimbTextView.BrownGrey.Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_small</item>
+    </style>
+
+    <style name="CimbTextView.BrownGrey.Extra_Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
+    </style>
+
+    <style name="CimbTextView.BrownGrey.Extra_Extra_Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
+    </style>
+
+
+
+    <style name="CimbTextView.PumpkinOrange">
+        <item name="android:textColor">@color/pumpkinOrange</item>
+    </style>
+
+    <style name="CimbTextView.PumpkinOrange.Extra_Large">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_large</item>
+    </style>
+
+    <style name="CimbTextView.PumpkinOrange.Large">
+        <item name="android:textSize">@dimen/default_text_size_extra_large</item>
+    </style>
+
+    <style name="CimbTextView.PumpkinOrange.Small">
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+    </style>
+
+    <style name="CimbTextView.PumpkinOrange.Smaller">
+        <item name="android:textSize">@dimen/default_text_size_smaller</item>
+    </style>
+
+    <style name="CimbTextView.PumpkinOrange.ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_small</item>
+    </style>
+
+
+    <style name="CimbTextView.PumpkinOrange.Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_small</item>
+    </style>
+
+    <style name="CimbTextView.PumpkinOrange.Extra_Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
+    </style>
+
+    <style name="CimbTextView.PumpkinOrange.Extra_Extra_Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
+    </style>
+
+
+
+
+
+    <style name="CimbButtonCompat" parent="CimbTextView" />
+
+
+    <style name="TextAppearance.Font.Number" parent="android:TextAppearance">
+    </style>
+
+</resources>
