@@ -1,9 +1,8 @@
-package cockatoo.enjizen.income.ui.activity
+package cockatoo.enjizen.income.ui.account.account
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import cockatoo.enjizen.income.R
-import cockatoo.enjizen.income.ui.fragment.AccountFragment
 
 class AccountActivity : AppCompatActivity() {
 

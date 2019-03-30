@@ -4,7 +4,9 @@ import android.content.ContentValues
 import cockatoo.enjizen.income.constant.DBContract
 import cockatoo.enjizen.income.manger.Contextor
 import cockatoo.enjizen.income.manger.KeyEncryptData
+import net.sqlcipher.Cursor
 import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SQLiteException
 import net.sqlcipher.database.SQLiteOpenHelper
 
 /**
@@ -31,6 +33,8 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
             return emails
         }*/
 
+
+
     override fun onCreate(sqLiteDatabase: SQLiteDatabase) {
         sqLiteDatabase.execSQL(SQL_CREATE_ACCOUNT_TABLE)
     }
@@ -54,7 +58,7 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
 
       /*  val values = ContentValues()
         values.put(COLUMN_EMAIL, newEmail)*/
-        db.update(tableName, values, "$columnsValue='$id'", null)
+        db.update(tableName, values, "id= ?", arrayOf(id))
         db.close()
 
     }
@@ -69,6 +73,27 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
 
     }
 
+    fun getAll(): Cursor? {
+        val db = instance!!.getWritableDatabase(PASS_PHARSE)
+
+        return try {
+            val cursor = db.query(
+                DBContract.AccountEntry.TABLE_NAME.columns
+                , null// columns - null will give all
+                , null// selection
+                , null// selection arguments
+                , null// groupBy
+                , null// having
+                , null// no need or order by for now;
+            )
+
+            cursor
+        }catch (ex: SQLiteException){
+            null
+        }
+    }
+
+
     companion object {
 
         private var instance: DBHelper? = null
@@ -79,13 +104,13 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
 
         private val PASS_PHARSE = KeyEncryptData.getInstance().key // password encrypt
 
-        private val SQL_CREATE_ACCOUNT_TABLE = "CREATE TABLE ${DBContract.AccountEntry.TABLE_NAME} ( " +
-                "${DBContract.AccountEntry.COLUMN_ID} INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "${DBContract.AccountEntry.COLUMN_ACCOUNT_NUMBER} TEXT," +
-                "${DBContract.AccountEntry.COLUMN_NAME} TEXT," +
-                "${DBContract.AccountEntry.COLUMN_BALANCE} NUMERIC(10,2) NOT NULL DEFAULT 0.00)"
+        private val SQL_CREATE_ACCOUNT_TABLE = "CREATE TABLE ${DBContract.AccountEntry.TABLE_NAME.columns} ( " +
+                "${DBContract.AccountEntry.COLUMN_ID.columns} INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "${DBContract.AccountEntry.COLUMN_ACCOUNT_NUMBER.columns} TEXT," +
+                "${DBContract.AccountEntry.COLUMN_NAME.columns} TEXT," +
+                "${DBContract.AccountEntry.COLUMN_BALANCE.columns} NUMERIC(10,2) NOT NULL DEFAULT 0.00)"
 
-        private val SQL_DELETE_ACCOUNT_TABLE = "DROP TABLE IF EXISTS ${DBContract.AccountEntry.TABLE_NAME}"
+        private val SQL_DELETE_ACCOUNT_TABLE = "DROP TABLE IF EXISTS ${DBContract.AccountEntry.TABLE_NAME.columns}"
 
         @Synchronized
         fun getInstance(): DBHelper {

@@ -1,4 +1,4 @@
-package cockatoo.enjizen.income.ui.fragment
+package cockatoo.enjizen.income.ui.base
 
 import androidx.fragment.app.DialogFragment
 import cockatoo.enjizen.income.custom.view.Toolbar

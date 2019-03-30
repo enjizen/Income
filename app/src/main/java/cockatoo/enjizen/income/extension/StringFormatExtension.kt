@@ -1,7 +1,9 @@
 package cockatoo.enjizen.income.extension
 
+import java.text.DecimalFormat
 
-    fun String.citizenIdFormat(): String{
+
+fun String.citizenIdFormat(): String{
         var result = ""
 
         for (i in 0 until this.length) {
@@ -15,5 +17,10 @@ package cockatoo.enjizen.income.extension
         }
 
         return result
+    }
+
+    fun Double.numberAccountBalanceFormat(): String{
+        val formatter = DecimalFormat("#,###.00")
+        return formatter.format(this)
     }
 

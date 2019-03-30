@@ -27,154 +27,154 @@
     </style>
 
 
-    <style name="CimbTextView">
+    <style name="TextView">
         <item name="android:textSize">@dimen/default_text_size</item>
     </style>
 
-    <style name="CimbTextView.Medium">
+    <style name="TextView.Medium">
         <item name="android:textSize">@dimen/default_text_size_large</item>
     </style>
 
-    <style name="CimbTextView.Large">
+    <style name="TextView.Large">
         <item name="android:textSize">@dimen/default_text_size_extra_large</item>
     </style>
 
-    <style name="CimbTextView.Small">
+    <style name="TextView.Small">
         <item name="android:textSize">@dimen/default_text_size_small</item>
     </style>
 
-    <style name="CimbTextView.Smaller">
+    <style name="TextView.Smaller">
         <item name="android:textSize">@dimen/default_text_size_smaller</item>
     </style>
 
-    <style name="CimbTextView.ExtraSmall">
+    <style name="TextView.ExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_small</item>
     </style>
 
-    <style name="CimbTextView.ExtraExtraSmallNoBack">
+    <style name="TextView.ExtraExtraSmallNoBack">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
     </style>
-    <style name="CimbTextView.ExtraExtraSmall">
+    <style name="TextView.ExtraExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
     </style>
-    <style name="CimbTextView.ExtraExtraExtraSmall">
+    <style name="TextView.ExtraExtraExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
     </style>
 
-    <style name="CimbTextView.Black">
+    <style name="TextView.Black">
         <item name="android:textColor">@android:color/black</item>
     </style>
 
-    <style name="CimbTextView.Black.Extra_Large">
+    <style name="TextView.Black.Extra_Large">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_large</item>
     </style>
 
-    <style name="CimbTextView.Black.Large">
+    <style name="TextView.Black.Large">
         <item name="android:textSize">@dimen/default_text_size_extra_large</item>
     </style>
 
-    <style name="CimbTextView.Black.Small">
+    <style name="TextView.Black.Small">
         <item name="android:textSize">@dimen/default_text_size_small</item>
     </style>
 
-    <style name="CimbTextView.Black.Smaller">
+    <style name="TextView.Black.Smaller">
         <item name="android:textSize">@dimen/default_text_size_smaller</item>
     </style>
 
-    <style name="CimbTextView.Black.ExtraSmall">
+    <style name="TextView.Black.ExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_small</item>
     </style>
 
 
-    <style name="CimbTextView.Black.Extra_ExtraSmall">
+    <style name="TextView.Black.Extra_ExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_small</item>
     </style>
 
-    <style name="CimbTextView.Black.Extra_Extra_ExtraSmall">
+    <style name="TextView.Black.Extra_Extra_ExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
     </style>
 
 
-    <style name="CimbTextView.Black.Extra_Extra_Extra_ExtraSmall">
+    <style name="TextView.Black.Extra_Extra_Extra_ExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
     </style>
 
 
 
 
-    <style name="CimbTextView.BrownGrey">
+    <style name="TextView.BrownGrey">
         <item name="android:textColor">@color/brownGrey</item>
     </style>
 
-    <style name="CimbTextView.BrownGrey.Extra_Large">
+    <style name="TextView.BrownGrey.Extra_Large">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_large</item>
     </style>
 
-    <style name="CimbTextView.BrownGrey.Large">
+    <style name="TextView.BrownGrey.Large">
         <item name="android:textSize">@dimen/default_text_size_extra_large</item>
     </style>
 
-    <style name="CimbTextView.BrownGrey.Small">
+    <style name="TextView.BrownGrey.Small">
         <item name="android:textSize">@dimen/default_text_size_small</item>
     </style>
 
-    <style name="CimbTextView.BrownGrey.Smaller">
+    <style name="TextView.BrownGrey.Smaller">
         <item name="android:textSize">@dimen/default_text_size_smaller</item>
     </style>
 
-    <style name="CimbTextView.BrownGrey.ExtraSmall">
+    <style name="TextView.BrownGrey.ExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_small</item>
     </style>
 
 
-    <style name="CimbTextView.BrownGrey.Extra_ExtraSmall">
+    <style name="TextView.BrownGrey.Extra_ExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_small</item>
     </style>
 
-    <style name="CimbTextView.BrownGrey.Extra_Extra_ExtraSmall">
+    <style name="TextView.BrownGrey.Extra_Extra_ExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
     </style>
 
-    <style name="CimbTextView.BrownGrey.Extra_Extra_Extra_ExtraSmall">
+    <style name="TextView.BrownGrey.Extra_Extra_Extra_ExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
     </style>
 
 
 
-    <style name="CimbTextView.PumpkinOrange">
+    <style name="TextView.PumpkinOrange">
         <item name="android:textColor">@color/pumpkinOrange</item>
     </style>
 
-    <style name="CimbTextView.PumpkinOrange.Extra_Large">
+    <style name="TextView.PumpkinOrange.Extra_Large">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_large</item>
     </style>
 
-    <style name="CimbTextView.PumpkinOrange.Large">
+    <style name="TextView.PumpkinOrange.Large">
         <item name="android:textSize">@dimen/default_text_size_extra_large</item>
     </style>
 
-    <style name="CimbTextView.PumpkinOrange.Small">
+    <style name="TextView.PumpkinOrange.Small">
         <item name="android:textSize">@dimen/default_text_size_small</item>
     </style>
 
-    <style name="CimbTextView.PumpkinOrange.Smaller">
+    <style name="TextView.PumpkinOrange.Smaller">
         <item name="android:textSize">@dimen/default_text_size_smaller</item>
     </style>
 
-    <style name="CimbTextView.PumpkinOrange.ExtraSmall">
+    <style name="TextView.PumpkinOrange.ExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_small</item>
     </style>
 
 
-    <style name="CimbTextView.PumpkinOrange.Extra_ExtraSmall">
+    <style name="TextView.PumpkinOrange.Extra_ExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_small</item>
     </style>
 
-    <style name="CimbTextView.PumpkinOrange.Extra_Extra_ExtraSmall">
+    <style name="TextView.PumpkinOrange.Extra_Extra_ExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
     </style>
 
-    <style name="CimbTextView.PumpkinOrange.Extra_Extra_Extra_ExtraSmall">
+    <style name="TextView.PumpkinOrange.Extra_Extra_Extra_ExtraSmall">
         <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
     </style>
 
@@ -182,10 +182,45 @@
 
 
 
-    <style name="CimbButtonCompat" parent="CimbTextView" />
+    <style name="ButtonCompat" parent="TextView" />
 
 
     <style name="TextAppearance.Font.Number" parent="android:TextAppearance">
+    </style>
+
+
+    <style name="IncomeButton" parent="ButtonCompat">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:height">16dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:paddingTop">@dimen/default_margin_padding</item>
+        <item name="android:paddingBottom">@dimen/default_margin_padding</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+
+    <style name="IncomeButton.default">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/default_text_size_smaller</item>
+    </style>
+
+
+    <style name="CardView">
+        <item name="cardBackgroundColor">@color/cardview_light_background</item>
+        <item name="cardCornerRadius">@dimen/cardview_default_radius</item>
+        <item name="cardElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardMaxElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardUseCompatPadding">false</item>
+        <item name="cardPreventCornerOverlap">true</item>
+    </style>
+    <style name="CardView.Light">
+        <item name="cardBackgroundColor">@color/cardview_light_background</item>
+    </style>
+    <style name="CardView.Dark">
+        <item name="cardBackgroundColor">@color/cardview_dark_background</item>
     </style>
 
 </resources>

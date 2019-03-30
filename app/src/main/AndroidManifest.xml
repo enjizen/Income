@@ -15,9 +15,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.activity.AccountActivity">
+        <activity android:name=".ui.account.account.AccountActivity">
         </activity>
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

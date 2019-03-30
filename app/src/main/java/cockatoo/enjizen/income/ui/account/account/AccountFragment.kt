@@ -1,0 +1,93 @@
+package cockatoo.enjizen.income.ui.account.account
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+
+import cockatoo.enjizen.income.R
+import cockatoo.enjizen.income.manger.RecyclerTouchListener
+import cockatoo.enjizen.income.model.Account
+import cockatoo.enjizen.income.ui.adapter.recyclerview.AccountRecyclerViewAdapter
+import cockatoo.enjizen.income.ui.account.add.AddAccountFragment
+import cockatoo.enjizen.income.ui.service.AccountService
+import kotlinx.android.synthetic.main.fragment_account.*
+
+
+
+
+class AccountFragment : Fragment(), AddAccountFragment.AddAccountListener , AccountView{
+
+    private val accounts =  ArrayList<Account>()
+    private lateinit var accountRecyclerViewAdapter: AccountRecyclerViewAdapter
+    private lateinit var presenter: AccountPresenter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        presenter = AccountPresenter(this, AccountService())
+    }
+
+        override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_account, container, false)
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setAccountRecycleViewAdapter()
+        presenter.getAllAccount()
+
+        addAccount.setOnClickListener {
+            val dialog = AddAccountFragment()
+            val ft = fragmentManager!!.beginTransaction()
+            dialog.setListener(this)
+            dialog.show(ft, AddAccountFragment.TAG)
+        }
+
+    }
+
+    private fun setAccountRecycleViewAdapter() {
+        accountRecyclerView.layoutManager =  LinearLayoutManager(context)
+        accountRecyclerView.itemAnimator = DefaultItemAnimator()
+        accountRecyclerViewAdapter = AccountRecyclerViewAdapter(accounts)
+        accountRecyclerView.adapter = accountRecyclerViewAdapter
+        accountRecyclerView.addOnItemTouchListener(RecyclerTouchListener(context!!, accountRecyclerView, object : RecyclerTouchListener.ClickListener {
+            override fun onClick(view: View, position: Int) {
+
+            }
+
+            override fun onLongClick(view: View?, position: Int) {
+
+            }
+        }))
+    }
+
+    override fun onDismissAddAccount() {
+        presenter.getAllAccount()
+    }
+
+    override fun setDataAccount(accounts: ArrayList<Account>) {
+        this.accounts.clear()
+        this.accounts.addAll(accounts)
+        accountRecyclerViewAdapter.notifyDataSetChanged()
+    }
+
+    override fun onShowLoading() {
+
+    }
+
+    override fun onHideLoading() {
+
+    }
+
+    companion object {
+
+        @JvmStatic
+        fun newInstance() =
+            AccountFragment()
+    }
+}

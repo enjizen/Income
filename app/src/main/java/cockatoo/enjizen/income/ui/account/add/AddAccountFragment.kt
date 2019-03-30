@@ -1,4 +1,4 @@
-package cockatoo.enjizen.income.ui.fragment
+package cockatoo.enjizen.income.ui.account.add
 
 
 import android.graphics.drawable.ColorDrawable
@@ -10,25 +10,26 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 
 import cockatoo.enjizen.income.R
-import cockatoo.enjizen.income.model.Account
-import cockatoo.enjizen.income.ui.presenter.AddAccountPresenter
-import cockatoo.enjizen.income.ui.router.AddAccountRouter
 import cockatoo.enjizen.income.ui.service.AccountService
-import cockatoo.enjizen.income.ui.view.AddAccountView
 import com.valdesekamdem.library.mdtoast.MDToast
 import kotlinx.android.synthetic.main.fragment_add_acount.*
+import android.content.DialogInterface
+import cockatoo.enjizen.income.ui.base.BaseDialogFragment
 
-class AddAccountFragment : BaseDialogFragment(), AddAccountView{
 
+class AddAccountFragment : BaseDialogFragment(), AddAccountView {
 
     private lateinit var presenter: AddAccountPresenter
-
+    private lateinit var listener: AddAccountListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(DialogFragment.STYLE_NORMAL, R.style.FullScreenDialogStyle)
 
-        presenter = AddAccountPresenter(this, AccountService(), AddAccountRouter(activity = activity!!))
+        presenter = AddAccountPresenter(
+            this,
+            AccountService()
+        )
 
     }
     override fun onCreateView(
@@ -40,9 +41,7 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView{
         super.onViewCreated(view, savedInstanceState)
 
         setToolbarListener(toolBar)
-
         btnSave.setOnClickListener {
-
             presenter.addAccount(etAccountNumber.getText().toString()
                                 , etAccountName.getText().toString()
                                 , etAccountBalance.getText().toString().toDouble())
@@ -66,6 +65,12 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView{
         dismiss()
     }
 
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        listener.onDismissAddAccount()
+    }
+
+
     override fun onShowLoading() {
        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -74,9 +79,17 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView{
        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+
+    fun setListener(listener: AddAccountListener) {
+        this.listener = listener
+
+    }
+
+    interface AddAccountListener {
+        fun onDismissAddAccount()
+    }
+
     companion object {
         var TAG = "AddAccountFragment"
     }
-
-
 }
