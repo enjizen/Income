@@ -1,4 +1,4 @@
-package cockatoo.enjizen.income.ui.view
+package cockatoo.enjizen.income.ui.account.add
 
 interface AddAccountView {
     fun onShowLoading()

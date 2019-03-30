@@ -10,7 +10,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textViewLabel"
-            style="@style/CimbTextView.BrownGrey.Extra_ExtraSmall"
+            style="@style/TextView.BrownGrey.Extra_ExtraSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="13dp"
@@ -20,7 +20,7 @@
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/editText"
-            style="@style/CimbTextView.Black.ExtraSmall"
+            style="@style/TextView.Black.ExtraSmall"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/edit_text_normal"
@@ -30,7 +30,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textViewErrorMessage"
-            style="@style/CimbTextView.PumpkinOrange.Extra_ExtraSmall"
+            style="@style/TextView.PumpkinOrange.Extra_ExtraSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="invisible"

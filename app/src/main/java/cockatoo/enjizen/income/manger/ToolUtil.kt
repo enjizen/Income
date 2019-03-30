@@ -1,5 +1,6 @@
 package cockatoo.enjizen.income.manger
 
+import android.annotation.SuppressLint
 import android.provider.Settings
 import android.util.Log
 import cockatoo.enjizen.income.BuildConfig
@@ -7,6 +8,7 @@ import cockatoo.enjizen.income.constant.KeyConstant
 
 object ToolUtil {
 
+     @SuppressLint("HardwareIds")
      fun createKeyEncryptData() {
 
         checkAndCreateSalt()
