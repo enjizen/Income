@@ -17,20 +17,34 @@ class AccountService {
         onSuccess()
     }
 
+    fun get(id: Int): Account?{
+        val selection =arrayOf(DBContract.AccountEntry.COLUMN_ID.columns)
+        val valueSelection = arrayOf(id.toString())
+
+        val cursor =   DBHelper.getInstance().get(DBContract.AccountEntry.TABLE_NAME.columns, selection, valueSelection)
+        return if(cursor != null){
+            cursor.moveToFirst()
+            val accountNumber = cursor.getString(cursor.getColumnIndex(DBContract.AccountEntry.COLUMN_ACCOUNT_NUMBER.columns))
+            Account(id= id, accountNumber = accountNumber, name = "", balance = 0.00)
+        } else{
+            null
+        }
+    }
+
 
     fun getAllAccount() : ArrayList<Account>{
         val accounts = ArrayList<Account>()
-        val cursor = DBHelper.getInstance().getAll()
+        val cursor = DBHelper.getInstance().getAll(DBContract.AccountEntry.TABLE_NAME.columns)
         if(cursor != null){
             while (cursor.moveToNext()) {
-                accounts.add(readAccount(cursor))
+                accounts.add(readAccounts(cursor))
             }
         }
         cursor?.close()
         return accounts
     }
 
-    private fun readAccount(cursor: Cursor): Account {
+    private fun readAccounts(cursor: Cursor): Account {
 
         val id = cursor.getInt(cursor.getColumnIndex( DBContract.AccountEntry.COLUMN_ID.columns))
         val accountNumber = cursor.getString(cursor.getColumnIndex(DBContract.AccountEntry.COLUMN_ACCOUNT_NUMBER.columns))

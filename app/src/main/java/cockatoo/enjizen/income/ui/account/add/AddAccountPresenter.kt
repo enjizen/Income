@@ -7,9 +7,12 @@ class AddAccountPresenter(
     private val service: AccountService
 ) {
 
-    fun addAccount(accountNumber: String, accountName: String, balance: Double){
-        service.insertAccount(accountNumber = accountNumber, name = accountName, balance = balance, onSuccess = {
-            view.onAddAccountSuccess(accountNumber = accountName)
-        })
+    fun addAccount(){
+        service.insertAccount(accountNumber = view.getAccountNumber()
+                            , name = view.getAccountName()
+                            , balance = view.getBalance()
+                            , onSuccess = {
+                                view.onAddAccountSuccess(accountNumber = view.getAccountNumber())
+                            })
     }
 }

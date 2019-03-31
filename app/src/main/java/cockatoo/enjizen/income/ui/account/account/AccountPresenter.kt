@@ -11,4 +11,13 @@ class AccountPresenter(
         view.onHideLoading()
         view.setDataAccount(accounts)
     }
+
+    fun get(position: Int){
+        val account = service.get(view.getAccountId(position))
+        view.goToUpdate(account?.id)
+    }
+
+    fun addAccount(){
+        view.goToAdd()
+    }
 }

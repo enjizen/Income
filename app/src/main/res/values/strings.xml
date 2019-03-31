@@ -23,4 +23,6 @@
     <string name="message_account_number">เพิ่มบัญชีเลขที่</string>
     <string name="finish">เสร็จสิ้น</string>
     <string name="total_currency_in_account">จำนวนเงินในบัญชี (บาท)</string>
+    <string name="edit">แก้ไข</string>
+    <string name="delete">ลบ</string>
 </resources>

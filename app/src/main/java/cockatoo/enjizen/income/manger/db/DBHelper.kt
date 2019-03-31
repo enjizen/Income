@@ -73,15 +73,43 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
 
     }
 
-    fun getAll(): Cursor? {
+
+    fun getAll(tableName: String): Cursor? {
         val db = instance!!.getWritableDatabase(PASS_PHARSE)
 
         return try {
             val cursor = db.query(
-                DBContract.AccountEntry.TABLE_NAME.columns
+                tableName
                 , null// columns - null will give all
                 , null// selection
                 , null// selection arguments
+                , null// groupBy
+                , null// having
+                , null// no need or order by for now;
+            )
+
+            cursor
+        }catch (ex: SQLiteException){
+            null
+        }
+    }
+
+
+    fun get(tableName: String, columnsValue: Array<String>, value: Array<String>): Cursor? {
+        val db = instance!!.getWritableDatabase(PASS_PHARSE)
+
+        var selection = ""
+
+        columnsValue.forEach {
+            selection += "$it = ?"
+        }
+
+        return try {
+            val cursor = db.query(
+                tableName
+                , null// columns - null will give all
+                , selection// selection
+                , value// selection arguments
                 , null// groupBy
                 , null// having
                 , null// no need or order by for now;

@@ -26,10 +26,7 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView {
         super.onCreate(savedInstanceState)
         setStyle(DialogFragment.STYLE_NORMAL, R.style.FullScreenDialogStyle)
 
-        presenter = AddAccountPresenter(
-            this,
-            AccountService()
-        )
+        presenter = AddAccountPresenter(this, AccountService())
 
     }
     override fun onCreateView(
@@ -42,9 +39,7 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView {
 
         setToolbarListener(toolBar)
         btnSave.setOnClickListener {
-            presenter.addAccount(etAccountNumber.getText().toString()
-                                , etAccountName.getText().toString()
-                                , etAccountBalance.getText().toString().toDouble())
+            presenter.addAccount()
         }
     }
 
@@ -70,13 +65,18 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView {
         listener.onDismissAddAccount()
     }
 
+    override fun getAccountNumber(): String = etAccountNumber.getText().toString()
+
+    override fun getAccountName(): String = etAccountName.getText().toString()
+
+    override fun getBalance(): Double = etAccountBalance.getText().toString().toDouble()
 
     override fun onShowLoading() {
-       // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+       showLoading()
     }
 
     override fun onHideLoading() {
-       // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+      hideLoading()
     }
 
 

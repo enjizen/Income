@@ -9,4 +9,10 @@ interface AccountView
     fun onHideLoading()
 
     fun setDataAccount(accounts: ArrayList<Account>)
+
+    fun getAccountId(position: Int): Int
+
+    fun goToUpdate(id: Int?)
+
+    fun goToAdd()
 }

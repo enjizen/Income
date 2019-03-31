@@ -1,23 +1,16 @@
 package cockatoo.enjizen.income.ui.base
 
-import androidx.fragment.app.DialogFragment
-import cockatoo.enjizen.income.custom.view.Toolbar
+import android.os.Bundle
+import androidx.fragment.app.Fragment
 import com.kaopiz.kprogresshud.KProgressHUD
 
-open class BaseDialogFragment : DialogFragment(), Toolbar.ToolbarListener {
+open class BaseFragment: Fragment() {
 
     private lateinit var progressDialog : KProgressHUD
 
-    override fun onClose() {
-        dismiss()
-    }
-
-    override fun onBack() {
-
-    }
-
-     fun setToolbarListener(toolbar: Toolbar) {
-        toolbar.setListener(this)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        progressDialog = KProgressHUD.create(context)
     }
 
     protected fun showLoading() {
@@ -32,4 +25,5 @@ open class BaseDialogFragment : DialogFragment(), Toolbar.ToolbarListener {
     protected fun hideLoading() {
         progressDialog.dismiss()
     }
+
 }
