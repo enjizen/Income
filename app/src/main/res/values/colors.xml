@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#4083C5</color>
+    <color name="colorPrimaryDark">#4083C5</color>
     <color name="colorAccent">#D81B60</color>
     <color name="brownGrey">#999999</color>
     <color name="pumpkinOrange">#FB8508</color>
     <color name="veryLightPinkTwo">#E6E6E6</color>
+    <color name="button_disable">#999999</color>
+    <color name="button_default_normal">#4083C5</color>
+    <color name="button_default_pressed">#52A0EB</color>
+    <color name="account_view">#5A6C9B</color>
 </resources>

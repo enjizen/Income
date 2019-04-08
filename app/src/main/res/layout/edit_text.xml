@@ -13,7 +13,7 @@
             style="@style/TextView.BrownGrey.Extra_ExtraSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="13dp"
+            android:layout_marginBottom="@dimen/default_margin_padding_8dp"
             android:textStyle="bold"
             tools:text="อีเมล์"
             />
@@ -22,10 +22,11 @@
             android:id="@+id/editText"
             style="@style/TextView.Black.ExtraSmall"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/default_margin_padding_44dp"
             android:background="@drawable/edit_text_normal"
             android:textStyle="bold"
             android:textColorHint="@color/brownGrey"
+            tools:text="อีเมล์"
         />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -34,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="invisible"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="@dimen/default_margin_padding_8dp"
             />
 
 

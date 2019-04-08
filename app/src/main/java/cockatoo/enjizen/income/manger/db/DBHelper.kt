@@ -9,52 +9,35 @@ import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SQLiteException
 import net.sqlcipher.database.SQLiteOpenHelper
 
-/**
- * Created by reale on 10/26/2017.
- */
-
 class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME, null, DATABASE_VERSION) {
-   /* val allEmail: List<String>
-        get() {
-            val db = instance!!.getWritableDatabase(PASS_PHARSE)
-
-            val cursor = db.rawQuery(String.format("SELECT * FROM '%s';", TABLE_NAME), null)
-            val emails = ArrayList<String>()
-            if (cursor.moveToFirst()) {
-                while (!cursor.isAfterLast) {
-                    val email = cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL))
-                    emails.add(email)
-                    cursor.moveToNext()
-                }
-            }
-            cursor.close()
-            db.close()
-
-            return emails
-        }*/
-
-
-
     override fun onCreate(sqLiteDatabase: SQLiteDatabase) {
         sqLiteDatabase.execSQL(SQL_CREATE_ACCOUNT_TABLE)
+        sqLiteDatabase.execSQL(SQL_CREATE_BANK_TABLE)
     }
 
     override fun onUpgrade(sqLiteDatabase: SQLiteDatabase, i: Int, i1: Int) {
-        sqLiteDatabase.execSQL(SQL_DELETE_ACCOUNT_TABLE)
-        onCreate(sqLiteDatabase)
+
     }
 
-
-    //CRUD Method
     fun insert(tableName: String, values: ContentValues ) {
-        val db = instance!!.getWritableDatabase(PASS_PHARSE)
+        val db = instance!!.getWritableDatabase(pass)
         db.insert(tableName, null, values)
         db.close()
 
     }
 
+    fun insert(tableName: String, values:  ArrayList<ContentValues> ) {
+        val db = instance!!.getWritableDatabase(pass)
+        values.forEach {
+            db.insert(tableName, null, it)
+        }
+
+        db.close()
+
+    }
+
     fun update(tableName: String, values: ContentValues, columnsValue: String, id: String) {
-        val db = instance!!.getWritableDatabase(PASS_PHARSE)
+        val db = instance!!.getWritableDatabase(pass)
 
       /*  val values = ContentValues()
         values.put(COLUMN_EMAIL, newEmail)*/
@@ -64,7 +47,7 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
     }
 
     fun delete(tableName: String, columnsValue: String, id: String) {
-        val db = instance!!.getWritableDatabase(PASS_PHARSE)
+        val db = instance!!.getWritableDatabase(pass)
 
         val values = ContentValues()
         values.put(id, id)
@@ -75,12 +58,12 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
 
 
     fun getAll(tableName: String): Cursor? {
-        val db = instance!!.getWritableDatabase(PASS_PHARSE)
+        val db = instance!!.getWritableDatabase(pass)
 
         return try {
             val cursor = db.query(
                 tableName
-                , null// columns - null will give all
+                , null// value - null will give all
                 , null// selection
                 , null// selection arguments
                 , null// groupBy
@@ -96,7 +79,7 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
 
 
     fun get(tableName: String, columnsValue: Array<String>, value: Array<String>): Cursor? {
-        val db = instance!!.getWritableDatabase(PASS_PHARSE)
+        val db = instance!!.getWritableDatabase(pass)
 
         var selection = ""
 
@@ -107,7 +90,7 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
         return try {
             val cursor = db.query(
                 tableName
-                , null// columns - null will give all
+                , null// value - null will give all
                 , selection// selection
                 , value// selection arguments
                 , null// groupBy
@@ -130,15 +113,20 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
         private const val DATABASE_NAME = "Income.db"
 
 
-        private val PASS_PHARSE = KeyEncryptData.getInstance().key // password encrypt
+        private val pass = KeyEncryptData.getInstance().key // password encrypt
 
-        private val SQL_CREATE_ACCOUNT_TABLE = "CREATE TABLE ${DBContract.AccountEntry.TABLE_NAME.columns} ( " +
-                "${DBContract.AccountEntry.COLUMN_ID.columns} INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "${DBContract.AccountEntry.COLUMN_ACCOUNT_NUMBER.columns} TEXT," +
-                "${DBContract.AccountEntry.COLUMN_NAME.columns} TEXT," +
-                "${DBContract.AccountEntry.COLUMN_BALANCE.columns} NUMERIC(10,2) NOT NULL DEFAULT 0.00)"
+        private val SQL_CREATE_ACCOUNT_TABLE = "CREATE TABLE ${DBContract.AccountEntry.TABLE_NAME.value} ( " +
+                "${DBContract.AccountEntry.COLUMN_ID.value} INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "${DBContract.AccountEntry.COLUMN_ACCOUNT_NUMBER.value} TEXT," +
+                "${DBContract.AccountEntry.COLUMN_NAME.value} TEXT," +
+                "${DBContract.AccountEntry.COLUMN_BALANCE.value} NUMERIC(10,2) NOT NULL DEFAULT 0.00)"
 
-        private val SQL_DELETE_ACCOUNT_TABLE = "DROP TABLE IF EXISTS ${DBContract.AccountEntry.TABLE_NAME.columns}"
+
+        private val SQL_CREATE_BANK_TABLE = "CREATE TABLE ${DBContract.BankEntry.TABLE_NAME.value} (" +
+                "${DBContract.BankEntry.COLUMN_ID.value} INTEGER PRIMARY KEY ," +
+                " ${DBContract.BankEntry.COLUMN_NAME.value} TEXT, " +
+                "${DBContract.BankEntry.COLUMN_INITIALS.value} TEXT," +
+                " ${DBContract.BankEntry.COLUMN_LOGO.value} TEXT)"
 
         @Synchronized
         fun getInstance(): DBHelper {

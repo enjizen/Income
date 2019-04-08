@@ -19,8 +19,6 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/toolBar"
             android:orientation="vertical"
-            android:paddingStart="@dimen/default_margin_padding_large"
-            android:paddingEnd="@dimen/default_margin_padding_large"
             android:layout_above="@+id/addAccount"
     >
 
@@ -37,13 +35,13 @@
             android:id="@+id/addAccount"
             style="@style/IncomeButton.default"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/default_margin_padding_44dp"
             android:text="@string/add_account"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="@dimen/default_margin_padding_large"
-            android:layout_marginTop="@dimen/default_margin_padding_large"
-            android:layout_marginEnd="@dimen/default_margin_padding_large"
-            android:layout_marginBottom="@dimen/default_margin_padding_large"
+            android:layout_marginBottom="@dimen/default_margin_padding_16dp"
+            android:layout_marginStart="@dimen/default_margin_padding_32dp"
+            android:layout_marginEnd="@dimen/default_margin_padding_32dp"
+            android:layout_marginTop="@dimen/default_margin_padding_16dp"
     />
 
 </RelativeLayout>

@@ -58,7 +58,7 @@
         <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
     </style>
     <style name="TextView.ExtraExtraExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_8sp</item>
     </style>
 
     <style name="TextView.Black">
@@ -96,7 +96,7 @@
 
 
     <style name="TextView.Black.Extra_Extra_Extra_ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_8sp</item>
     </style>
 
 
@@ -136,7 +136,7 @@
     </style>
 
     <style name="TextView.BrownGrey.Extra_Extra_Extra_ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_8sp</item>
     </style>
 
 
@@ -175,7 +175,44 @@
     </style>
 
     <style name="TextView.PumpkinOrange.Extra_Extra_Extra_ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_8sp</item>
+    </style>
+
+    <style name="TextView.White">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextView.White.Extra_Large">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_large</item>
+    </style>
+
+    <style name="TextView.White.Large">
+        <item name="android:textSize">@dimen/default_text_size_extra_large</item>
+    </style>
+
+    <style name="TextView.White.Small">
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+    </style>
+
+    <style name="TextView.White.Smaller">
+        <item name="android:textSize">@dimen/default_text_size_smaller</item>
+    </style>
+
+    <style name="TextView.White.ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_small</item>
+    </style>
+
+
+    <style name="TextView.White.Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_small</item>
+    </style>
+
+    <style name="TextView.White.Extra_Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
+    </style>
+
+    <style name="TextView.White.Extra_Extra_Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_8sp</item>
     </style>
 
 
@@ -195,14 +232,14 @@
         <item name="android:minHeight">36dp</item>
         <item name="android:height">16dp</item>
         <item name="android:clickable">true</item>
-        <item name="android:paddingTop">@dimen/default_margin_padding</item>
-        <item name="android:paddingBottom">@dimen/default_margin_padding</item>
+        <item name="android:paddingTop">@dimen/default_margin_padding_8dp</item>
+        <item name="android:paddingBottom">@dimen/default_margin_padding_8dp</item>
         <item name="android:textAllCaps">false</item>
     </style>
 
 
     <style name="IncomeButton.default">
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:background">@drawable/selector_button_default</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/default_text_size_smaller</item>
     </style>

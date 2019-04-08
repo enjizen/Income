@@ -17,11 +17,17 @@
 
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/toolBar"
             android:orientation="vertical"
-            android:padding="@dimen/default_margin_padding_large"
+            android:padding="@dimen/default_margin_padding_16dp"
     >
+
+        <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/bankSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+            />
 
         <cockatoo.enjizen.income.custom.view.EditText
                 android:id="@+id/etAccountNumber"
@@ -45,6 +51,7 @@
                 app:labelText="@string/balance"
                 android:inputType="numberDecimal"
                 android:hint="@string/_0_00"
+                android:textAlignment="textEnd"
         />
 
 
@@ -53,10 +60,14 @@
 
     <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSave"
+            style="@style/IncomeButton.default"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/default_margin_padding_44dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/default_margin_padding"
-            android:text="บันทึก"
+            android:layout_marginBottom="@dimen/default_margin_padding_16dp"
+            android:layout_marginStart="@dimen/default_margin_padding_32dp"
+            android:layout_marginEnd="@dimen/default_margin_padding_32dp"
+            android:shadowRadius="4"
+            android:text="@string/save"
     />
 </RelativeLayout>

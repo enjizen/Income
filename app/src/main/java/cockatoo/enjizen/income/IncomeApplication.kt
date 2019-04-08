@@ -13,6 +13,7 @@ class IncomeApplication : Application() {
         Contextor.getInstance().init(applicationContext)
         SQLiteDatabase.loadLibs(applicationContext)
         ToolUtil.createKeyEncryptData()
+        Initial().bank()
     }
 
 

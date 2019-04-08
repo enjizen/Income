@@ -18,6 +18,7 @@
         <attr name="inputTextSize" format="float"/>
         <attr name="errorMessageSize" format="float"/>
         <attr name="android:hint" format="string" />
+        <attr name="android:textAlignment"/>
     </declare-styleable>
 
     <declare-styleable name="Toolbar">

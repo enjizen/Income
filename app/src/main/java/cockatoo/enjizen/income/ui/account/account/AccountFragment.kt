@@ -63,6 +63,7 @@ class AccountFragment : BaseFragment(), AddAccountFragment.AddAccountListener, A
                     }
                 })
         )
+
     }
 
     override fun onDismissAddAccount() {
@@ -92,32 +93,7 @@ class AccountFragment : BaseFragment(), AddAccountFragment.AddAccountListener, A
         dialog.show(ft, AddAccountFragment.TAG)
     }
 
-    override fun goToUpdate(id: Int?) {
-
-    }
-
-    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?) {
-        super.onCreateContextMenu(menu, v, menuInfo)
-        val inflater = activity!!.menuInflater
-        if(v.id == R.id.itemAccount){
-            inflater.inflate(R.menu.menu_edit_delete, menu)
-        }
-    }
-
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-
-        return when(item.itemId){
-            R.id.menu_edit -> {
-                MDToast.makeText(context,  "Edit", Toast.LENGTH_SHORT, MDToast.TYPE_SUCCESS).show()
-                true
-            }
-            R.id.menu_delete ->{
-                MDToast.makeText(context,  "Delete", Toast.LENGTH_SHORT, MDToast.TYPE_SUCCESS).show()
-                true
-            }
-            else -> super.onContextItemSelected(item)
-        }
-
+    override fun goToView(id: Int?) {
 
     }
 

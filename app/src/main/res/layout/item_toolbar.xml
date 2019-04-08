@@ -11,13 +11,13 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/default_margin_padding_16dp"
     >
 
         <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/btnClose"
-                android:layout_width="40dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/default_margin_padding_32dp"
+                android:layout_height="@dimen/default_margin_padding_32dp"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 app:srcCompat="@drawable/ic_close_white_24dp"
@@ -26,8 +26,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/btnBack"
-                android:layout_width="40dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/default_margin_padding_32dp"
+                android:layout_height="@dimen/default_margin_padding_32dp"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 app:srcCompat="@drawable/ic_arrow_back_black_24dp"
@@ -42,7 +42,7 @@
                 android:layout_centerVertical="true"
                 android:freezesText="true"
                 android:textColor="@android:color/white"
-                tools:text="เพิ่มบัญชี" />
+                tools:text="@string/add_account" />
 
     </RelativeLayout>
 

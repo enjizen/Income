@@ -45,14 +45,16 @@ class EditText : FrameLayout {
             setLabelText(getString(R.styleable.EditText_labelText))
             setText(getString(R.styleable.EditText_android_text))
             setInputType(getInt(R.styleable.EditText_android_inputType, TYPE_CLASS_TEXT))
-            //val validStyle = getBoolean(R.styleable.EditText_valid, true)
-            //if (validStyle) setValidStyle() else setInvalidStyle()
+            val validStyle = getBoolean(R.styleable.EditText_valid, true)
+            if (validStyle) setValidStyle() else invalidStyle()
             if (getInteger(R.styleable.EditText_maxLength, -1) != -1) {
                 setMaxLength(getInteger(R.styleable.EditText_maxLength, -1))
             }
             setErrorMessageSize(getFloat(R.styleable.EditText_errorMessageSize, 13f))
             setLayoutTextHeight(getString(R.styleable.EditText_inputTextLayoutHeight))
             setHintText(getString(R.styleable.EditText_android_hint))
+            setEditTextAlignment(getInt(R.styleable.EditText_android_textAlignment, View.TEXT_ALIGNMENT_TEXT_START))
+
         }
 
 
@@ -66,6 +68,14 @@ class EditText : FrameLayout {
             override fun onDestroyActionMode(mode: ActionMode?) {}
 
         }
+
+    }
+
+    fun invalidStyle() {
+        editText.setBackgroundResource(R.drawable.edit_text_invalid)
+    }
+
+    fun setValidStyle() {
 
     }
 
@@ -103,7 +113,7 @@ class EditText : FrameLayout {
         editText.inputType = type
     }
 /*
-    fun setInvalidStyle() {
+    fun invalidStyle() {
         editText.setBackgroundResource(R.drawable.edit_text_invalid)
         editText.setTextColor(getColor(R.color.black))
     }
@@ -159,4 +169,10 @@ class EditText : FrameLayout {
     fun setHintText(textHint: String?) {
         editText.hint = textHint
     }
+
+    fun setEditTextAlignment(alignment: Int){
+        editText.textAlignment = alignment
+    }
+
+
 }

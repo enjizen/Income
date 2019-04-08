@@ -25,4 +25,17 @@
     <string name="total_currency_in_account">จำนวนเงินในบัญชี (บาท)</string>
     <string name="edit">แก้ไข</string>
     <string name="delete">ลบ</string>
+    <string name="save">บันทึก</string>
+    <string name="bank_bbl">ธนาคารกรุงเทพ</string>
+    <string name="bank_kbank">ธนาคารกสิกรไทย</string>
+    <string name="bank_ktb">ธนาคารกรุงไทย</string>
+    <string name="bank_tmb">ธนาคารทหารไทย</string>
+    <string name="bank_scb">ธนาคารไทยพาณิชย์</string>
+    <string name="bank_bay">ธนาคารกรุงศรีอยุธยา</string>
+    <string name="bank_kkp">ธนาคารเกียรตินาคิน</string>
+    <string name="bank_cimb_thai">ธนาคารซีไอเอ็มบีไทย</string>
+    <string name="bank_tisco">ธนาคารทิสโก้</string>
+    <string name="bank_tbank">ธนาคารธนชาต</string>
+    <string name="bank_uob">ธนาคารยูโอบี</string>
+    <string name="bank_tcd">ธนาคารไทยเครดิตเพื่อรายย่อย</string>
 </resources>

@@ -12,7 +12,7 @@ interface AccountView
 
     fun getAccountId(position: Int): Int
 
-    fun goToUpdate(id: Int?)
+    fun goToView(id: Int?)
 
     fun goToAdd()
 }

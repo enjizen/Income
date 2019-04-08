@@ -14,7 +14,7 @@ class AccountPresenter(
 
     fun get(position: Int){
         val account = service.get(view.getAccountId(position))
-        view.goToUpdate(account?.id)
+        view.goToView(account?.id)
     }
 
     fun addAccount(){
