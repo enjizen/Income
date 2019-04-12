@@ -1,5 +1,6 @@
 package cockatoo.enjizen.income.ui.account.add
 
+import android.text.TextWatcher
 import cockatoo.enjizen.income.model.Bank
 
 interface AddAccountView {
@@ -22,5 +23,13 @@ interface AddAccountView {
 
     fun onAccountBalanceInvalid()
 
-    fun onSetDataBank(banks: ArrayList<Bank>)
+    fun displayBank(banks: ArrayList<Bank>)
+
+    fun getBankId(): Int
+
+    fun accountNumberRemoveTextChangedListener(watcher: TextWatcher)
+
+    fun accountNumberAddTextChangedListener(watcher: TextWatcher)
+
+    fun displayEditTextAccountNumberFormat(accountNumberFormat: String)
 }

@@ -20,11 +20,13 @@ class AccountRecyclerViewAdapter(private val accountList: ArrayList<Account>) : 
         holder.accountNumber.text = accountList[position].accountNumber
         holder.accountName.text = accountList[position].name
         holder.accountBalance.text = accountList[position].balance.numberAccountBalanceFormat()
-        if(position % 2 != 0){
+        holder.logoBank.setImageResource(Contextor.getInstance().context!!.resources.getIdentifier(accountList[position].logo, "drawable", Contextor.getInstance().context!!.packageName))
+       // holder.iconBank.
+      /*  if(position % 2 != 0){
             holder.itemAccount.setCardBackgroundColor(Contextor.getInstance().context!!.getColor(R.color.colorPrimary))
         } else {
             holder.itemAccount.setCardBackgroundColor(Contextor.getInstance().context!!.getColor(R.color.account_view))
-        }
+        }*/
 
     }
 
@@ -35,6 +37,7 @@ class AccountRecyclerViewAdapter(private val accountList: ArrayList<Account>) : 
         val accountName = view.accountName!!
         val accountBalance = view.totalBalance!!
         val itemAccount = view.itemAccount!!
+        val logoBank = view.imageViewLogoBank!!
 
     }
 

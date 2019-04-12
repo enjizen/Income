@@ -1,4 +1,4 @@
-package cockatoo.enjizen.income.custom.view
+package cockatoo.enjizen.income.custom.edittext
 
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
@@ -20,6 +20,8 @@ import kotlinx.android.synthetic.main.edit_text.view.*
 
 
 class EditText : FrameLayout {
+
+    private var isShowMask  = false
 
     constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs) {
         setup(attrs)
@@ -69,6 +71,8 @@ class EditText : FrameLayout {
 
         }
 
+        typeArray.recycle()
+
     }
 
     fun invalidStyle() {
@@ -101,7 +105,10 @@ class EditText : FrameLayout {
         editText.setText(text)
     }
 
-    fun getText() = editText.text
+    fun getText(): String {
+       return editText.text.toString()
+    }
+
 
     fun getEditText() = editText
 

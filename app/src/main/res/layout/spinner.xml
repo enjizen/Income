@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewLabel"
+                style="@style/TextView.BrownGrey.Extra_ExtraSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin_padding_8dp"
+                android:textStyle="bold"
+                android:text="ธนาคาร"
+        />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/bankSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+        />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewErrorMessage"
+                style="@style/TextView.PumpkinOrange.Extra_ExtraSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:layout_marginTop="@dimen/default_margin_padding_8dp"
+        />
+
+
+
+</LinearLayout>

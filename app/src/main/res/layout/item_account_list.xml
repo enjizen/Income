@@ -1,69 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                    xmlns:tools="http://schemas.android.com/tools"
                                    android:layout_width="match_parent"
                                    android:layout_height="wrap_content"
-                                   app:cardBackgroundColor="@color/account_view"
-                                   app:cardElevation="2dp"
-                                   app:cardCornerRadius="@dimen/default_margin_padding_8dp"
-                                   app:cardUseCompatPadding="true"
                                    android:id="@+id/itemAccount"
+              android:background="@drawable/account_list"
+>
 
-                                    >
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:orientation="vertical"
-                  android:padding="@dimen/default_margin_padding_8dp"
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/default_margin_padding_8dp"
     >
-        <androidx.appcompat.widget.AppCompatTextView
-                style="@style/TextView.White.ExtraSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/total_currency_in_account"
-        />
-        <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/totalBalance"
-                style="@style/TextView.White.Extra_Large"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textStyle="bold"
-                tools:text="50000"
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageViewLogoBank"
+                android:layout_width="@dimen/default_margin_padding_44dp"
+                android:layout_height="@dimen/default_margin_padding_44dp"
+                tools:src="@drawable/ic_cimb_thai"
         />
 
-        <androidx.appcompat.widget.AppCompatTextView
-                style="@style/TextView.White.ExtraSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/account_number"
-        />
+
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/accountNumber"
-                style="@style/TextView.White.Small"
-                android:layout_width="match_parent"
+                style="@style/TextView.Black.Smaller"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/imageViewLogoBank"
                 tools:text="1111111111"
         />
 
         <androidx.appcompat.widget.AppCompatTextView
-                style="@style/TextView.White.ExtraSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/account_name"
-        />
-        <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/accountName"
-                style="@style/TextView.White.Small"
-                android:layout_width="match_parent"
+                style="@style/TextView.BrownGrey.Smaller"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 tools:text="ทดสอบ ทดสอบ"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/imageViewLogoBank"
                 android:textStyle="bold"
+                android:layout_below="@id/accountNumber"
                 android:layout_marginBottom="@dimen/default_margin_padding_2dp"
         />
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/totalBalance"
+                style="@style/TextView.Black.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/accountName"
+                android:gravity="right"
+                tools:text="50000"
+                android:layout_centerVertical="true" android:layout_marginStart="0dp"/>
+
+
+    </RelativeLayout>
+</LinearLayout>

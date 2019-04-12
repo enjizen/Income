@@ -1,5 +1,7 @@
 package cockatoo.enjizen.income.ui.account.add
 
+import android.text.TextWatcher
+import cockatoo.enjizen.income.extension.accountNumberBayFormat
 import cockatoo.enjizen.income.ui.service.AccountService
 import cockatoo.enjizen.income.ui.service.BankService
 
@@ -29,7 +31,8 @@ class AddAccountPresenter(
         }
 
         if(!inValid) {
-            service.insertAccount(accountNumber = view.getAccountNumber()!!
+            service.insertAccount(bankId = view.getBankId()
+                , accountNumber = view.getAccountNumber()!!
                 , name = view.getAccountName()!!
                 , balance = view.getBalance()!!
                 , onSuccess = {
@@ -41,6 +44,14 @@ class AddAccountPresenter(
 
     fun getBankAll(){
        val banks=  bankService.getAllBank()
-        view.onSetDataBank(banks)
+        view.displayBank(banks)
     }
+
+    fun editTextAccountNumberFormat(watcher: TextWatcher){
+        view.accountNumberRemoveTextChangedListener(watcher)
+        val accountNumber = view.getAccountNumber()?.replace("-","")!!.accountNumberBayFormat()
+        view.displayEditTextAccountNumberFormat(accountNumber)
+        view.accountNumberAddTextChangedListener(watcher)
+    }
+
 }

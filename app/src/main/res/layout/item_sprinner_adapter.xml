@@ -5,6 +5,7 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:padding="@dimen/default_margin_padding_16dp"
+              android:background="@android:color/white"
               >
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -21,6 +22,8 @@
             android:layout_marginLeft="@dimen/default_margin_padding_16dp"
             android:layout_gravity="center"
             android:id="@+id/textViewName"
+            android:textColor="@android:color/black"
+            style="@style/TextView.Black.ExtraSmall"
             tools:text="Title"
     />
 

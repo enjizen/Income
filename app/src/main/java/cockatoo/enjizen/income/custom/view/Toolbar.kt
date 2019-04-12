@@ -37,6 +37,8 @@ class Toolbar : FrameLayout {
         val typeArray = context.obtainStyledAttributes(attrs, R.styleable.Toolbar)
         updateView(typeArray)
 
+        typeArray.recycle()
+
     }
 
     private fun updateView(typeArray: TypedArray) {
@@ -54,6 +56,8 @@ class Toolbar : FrameLayout {
         }
     }
 
+
+
     private fun showBackButton(isShow: Boolean) {
         if(isShow)
             btnBack.visibility = View.VISIBLE
@@ -70,6 +74,11 @@ class Toolbar : FrameLayout {
             btnClose.visibility = View.VISIBLE
         else
             btnClose.visibility = View.GONE
+    }
+
+    fun showAndSetIconRight(imageIcon: Int){
+        btnRight.setImageResource(imageIcon)
+        btnRight.visibility =View.VISIBLE
     }
 
 

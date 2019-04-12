@@ -2,9 +2,11 @@ package cockatoo.enjizen.income.ui.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import cockatoo.enjizen.income.custom.view.Toolbar
 import com.kaopiz.kprogresshud.KProgressHUD
 
-open class BaseFragment: Fragment() {
+open class BaseFragment: Fragment() , Toolbar.ToolbarListener {
+
 
     private lateinit var progressDialog : KProgressHUD
 
@@ -26,4 +28,17 @@ open class BaseFragment: Fragment() {
         progressDialog.dismiss()
     }
 
+    fun setToolbarListener(toolbar: Toolbar, iconBtnRight: Int? = null) {
+        toolbar.setListener(this)
+        if(iconBtnRight != null){
+            toolbar.showAndSetIconRight(iconBtnRight)
+        }
+    }
+
+
+    override fun onClose() {
+    }
+
+    override fun onBack() {
+    }
 }

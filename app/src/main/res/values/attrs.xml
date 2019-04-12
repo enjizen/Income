@@ -19,6 +19,8 @@
         <attr name="errorMessageSize" format="float"/>
         <attr name="android:hint" format="string" />
         <attr name="android:textAlignment"/>
+        <attr name="isMask" format="boolean"/>
+        <attr name="maskText" format="string"/>
     </declare-styleable>
 
     <declare-styleable name="Toolbar">
@@ -33,5 +35,4 @@
         <attr name="setTitleMessage" format="string"/>
         <attr name="setMessage" format="string" />
     </declare-styleable>
-
 </resources>

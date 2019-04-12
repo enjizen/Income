@@ -38,10 +38,12 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
 
     fun update(tableName: String, values: ContentValues, columnsValue: String, id: String) {
         val db = instance!!.getWritableDatabase(pass)
+        var selection = ""
 
-      /*  val values = ContentValues()
-        values.put(COLUMN_EMAIL, newEmail)*/
-        db.update(tableName, values, "id= ?", arrayOf(id))
+        columnsValue.forEach {
+            selection += "$it = ?"
+        }
+        db.update(tableName, values, selection, arrayOf(id))
         db.close()
 
     }
@@ -58,7 +60,7 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
 
 
     fun getAll(tableName: String): Cursor? {
-        val db = instance!!.getWritableDatabase(pass)
+        val db = instance!!.getReadableDatabase(pass)
 
         return try {
             val cursor = db.query(
@@ -77,9 +79,14 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
         }
     }
 
+    fun getByRawQuery(sql: String) : Cursor{
+        val db = instance!!.getReadableDatabase(pass)
+        return db.rawQuery(sql, null)
+    }
+
 
     fun get(tableName: String, columnsValue: Array<String>, value: Array<String>): Cursor? {
-        val db = instance!!.getWritableDatabase(pass)
+        val db = instance!!.getReadableDatabase(pass)
 
         var selection = ""
 
@@ -109,14 +116,15 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
 
         private var instance: DBHelper? = null
 
-        private const val DATABASE_VERSION = 1
-        private const val DATABASE_NAME = "Income.db"
+        private const val DATABASE_VERSION = DBContract.DATABASE_VERSION
+        private const val DATABASE_NAME = DBContract.DATABASE_INCOME
 
 
         private val pass = KeyEncryptData.getInstance().key // password encrypt
 
         private val SQL_CREATE_ACCOUNT_TABLE = "CREATE TABLE ${DBContract.AccountEntry.TABLE_NAME.value} ( " +
                 "${DBContract.AccountEntry.COLUMN_ID.value} INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "${DBContract.AccountEntry.COLUMN_BANK_ID.value} INT," +
                 "${DBContract.AccountEntry.COLUMN_ACCOUNT_NUMBER.value} TEXT," +
                 "${DBContract.AccountEntry.COLUMN_NAME.value} TEXT," +
                 "${DBContract.AccountEntry.COLUMN_BALANCE.value} NUMERIC(10,2) NOT NULL DEFAULT 0.00)"

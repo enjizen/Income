@@ -44,6 +44,15 @@
                 android:textColor="@android:color/white"
                 tools:text="@string/add_account" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnRight"
+                android:layout_width="@dimen/default_margin_padding_32dp"
+                android:layout_height="@dimen/default_margin_padding_32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:visibility="gone"
+        />
+
     </RelativeLayout>
 
 </androidx.appcompat.widget.Toolbar>
