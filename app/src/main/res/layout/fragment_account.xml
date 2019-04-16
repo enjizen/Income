@@ -8,7 +8,7 @@
 >
 
     <cockatoo.enjizen.income.custom.view.Toolbar
-            android:id="@+id/toolBar"
+            android:id="@+id/accountToolBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/account"
@@ -19,23 +19,19 @@
             android:id="@+id/accountRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/toolBar"
+            android:layout_below="@+id/accountToolBar"
             android:orientation="vertical"
             android:layout_margin="@dimen/default_margin_padding_16dp"
             tools:listitem="@layout/item_account_list"
     />
 
-   <!-- <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/addAccount"
-            style="@style/IncomeButton.default"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/default_margin_padding_44dp"
-            android:text="@string/add_account"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/buttonAddAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/default_margin_padding_16dp"
-            android:layout_marginStart="@dimen/default_margin_padding_32dp"
-            android:layout_marginEnd="@dimen/default_margin_padding_32dp"
-            android:layout_marginTop="@dimen/default_margin_padding_16dp"
-    />-->
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            app:srcCompat="@drawable/ic_add_white_24dp"/>
 
 </RelativeLayout>

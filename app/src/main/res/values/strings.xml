@@ -38,4 +38,20 @@
     <string name="bank_tbank">ธนาคารธนชาต</string>
     <string name="bank_uob">ธนาคารยูโอบี</string>
     <string name="bank_tcd">ธนาคารไทยเครดิตเพื่อรายย่อย</string>
+    <string name="open_drawer">เปิด</string>
+    <string name="close_drawer">ปิด</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="create_password">ตั้งรหัสผ่าน</string>
+    <string name="confirm_password">ยืนยันรหัสผ่าน</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="flour">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="zero">0</string>
+    <string name="security_system">ระบบความปลอดภัย</string>
 </resources>

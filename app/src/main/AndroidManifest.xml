@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="cockatoo.enjizen.income">
 
-
-
     <application
             android:name=".IncomeApplication"
             android:icon="@mipmap/ic_launcher"
@@ -11,10 +9,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-
-        <activity android:name=".ui.account.account.AccountActivity">
-        </activity>
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.password.PasswordActivity"/>
+        <activity android:name=".ui.account.account.AccountActivity"/>
+        <activity android:name=".ui.main.MainActivity" android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

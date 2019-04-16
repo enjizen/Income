@@ -13,9 +13,8 @@ import cockatoo.enjizen.income.ui.base.BaseFragment
 import cockatoo.enjizen.income.ui.service.AccountService
 import kotlinx.android.synthetic.main.fragment_account.*
 import android.view.*
+import androidx.fragment.app.DialogFragment
 import cockatoo.enjizen.income.ui.service.BankService
-import kotlinx.android.synthetic.main.fragment_account.toolBar
-import kotlinx.android.synthetic.main.item_toolbar.*
 
 
 class AccountFragment : BaseFragment(), AddAccountFragment.AddAccountListener, AccountView {
@@ -38,19 +37,15 @@ class AccountFragment : BaseFragment(), AddAccountFragment.AddAccountListener, A
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setToolbarListener(toolBar, R.drawable.ic_add_white_24dp)
-
+        setToolbarListener(accountToolBar)
 
         setAccountRecycleViewAdapter()
         presenter.getAllAccount()
 
-        btnRight.setOnClickListener {
+
+        buttonAddAccount.setOnClickListener {
             presenter.addAccount()
         }
-
-      /*  addAccount.setOnClickListener {
-            presenter.addAccount()
-        }*/
 
     }
 

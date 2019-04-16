@@ -1,5 +1,9 @@
 package cockatoo.enjizen.income.ui.base
 
+import android.R
+import android.graphics.drawable.ColorDrawable
+import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import cockatoo.enjizen.income.custom.view.Toolbar
 import com.kaopiz.kprogresshud.KProgressHUD
@@ -31,5 +35,25 @@ open class BaseDialogFragment : DialogFragment(), Toolbar.ToolbarListener {
 
     protected fun hideLoading() {
         progressDialog.dismiss()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val dialog = dialog
+        if (dialog != null) {
+            val width = ViewGroup.LayoutParams.MATCH_PARENT
+            val height = ViewGroup.LayoutParams.MATCH_PARENT
+            dialog.window!!.setBackgroundDrawable(
+                ColorDrawable(
+                    resources.getColor(
+                        R.color.transparent,
+                        context!!.theme
+                    )
+                )
+            )
+            dialog.window!!.setLayout(width, height)
+            dialog.window.setWindowAnimations(cockatoo.enjizen.income.R.style.DialogAnimation)
+            dialog.window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        }
     }
 }

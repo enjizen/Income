@@ -35,4 +35,5 @@ object ToolUtil {
             SharedPreferenceUtil.edit(key = KeyConstant.SALT.value, value = KeyGenerateManager.generateSalt())
         }
     }
+
 }

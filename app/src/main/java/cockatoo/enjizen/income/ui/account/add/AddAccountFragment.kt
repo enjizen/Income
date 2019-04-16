@@ -1,7 +1,6 @@
 package cockatoo.enjizen.income.ui.account.add
 
 
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +14,6 @@ import kotlinx.android.synthetic.main.fragment_add_acount.*
 import android.content.DialogInterface
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.WindowManager
 import cockatoo.enjizen.income.model.Bank
 import cockatoo.enjizen.income.ui.adapter.spinner.BankAdapter
 import cockatoo.enjizen.income.ui.base.BaseDialogFragment
@@ -53,24 +51,7 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView {
         etAccountNumber.getEditText().addTextChangedListener(editTextAccount)
     }
 
-    override fun onStart() {
-        super.onStart()
-        val dialog = dialog
-        if (dialog != null) {
-            val width = ViewGroup.LayoutParams.MATCH_PARENT
-            val height = ViewGroup.LayoutParams.MATCH_PARENT
-            dialog.window!!.setBackgroundDrawable(
-                ColorDrawable(
-                    resources.getColor(
-                        android.R.color.transparent,
-                        context!!.theme
-                    )
-                )
-            )
-            dialog.window!!.setLayout(width, height)
-            dialog.window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-        }
-    }
+
 
     override fun onAddAccountSuccess(accountNumber: String) {
         MDToast.makeText(
