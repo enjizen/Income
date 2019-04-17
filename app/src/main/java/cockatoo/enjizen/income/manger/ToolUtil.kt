@@ -2,7 +2,6 @@ package cockatoo.enjizen.income.manger
 
 import android.annotation.SuppressLint
 import android.provider.Settings
-import android.util.Log
 import cockatoo.enjizen.income.BuildConfig
 import cockatoo.enjizen.income.constant.KeyConstant
 
@@ -27,7 +26,7 @@ object ToolUtil {
         }
         val key = "$device${applicationIdAscii % salt!!.toInt()}${applicationId.length % salt.toInt()}"
         KeyEncryptData.getInstance().init(key)
-        Log.i("ToolUtil", "key = $key")
+        LogUtil.i("ToolUtil", "key = $key")
     }
 
     private fun checkAndCreateSalt() {
