@@ -7,7 +7,7 @@
     <item android:title="@string/account">
         <menu>
             <item
-                    android:id="@+id/nav_account"
+                    android:id="@+id/navAccount"
                     android:icon="@drawable/ic_menu_account"
                     android:title="@string/account"/>
 
@@ -16,9 +16,14 @@
     <item android:title="@string/security_system">
         <menu>
             <item
-                    android:id="@+id/navCreatePassword"
-                    android:icon="@drawable/ic_vpn_key_black_24dp"
-                    android:title="@string/create_password"/>
+                    android:id="@+id/navSetPassword"
+                    android:icon="@drawable/ic_create_password"
+                    android:title="@string/set_password"/>
+
+            <item
+                    android:id="@+id/navChangePassword"
+                    android:icon="@drawable/ic_change_password"
+                    android:title="@string/change_password"/>
 
         </menu>
     </item>

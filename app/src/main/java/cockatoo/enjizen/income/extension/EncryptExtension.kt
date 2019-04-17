@@ -7,7 +7,7 @@ import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
 @Throws(NoSuchAlgorithmException::class)
-fun String.encryptPassword(): String {
+fun String.hashPassword(): String {
     val salt = SharedPreferenceUtil.getString(key = KeyConstant.SALT.value)
 
     var totalPass = 0

@@ -1,4 +1,4 @@
-package cockatoo.enjizen.income.ui.password.confirm
+package cockatoo.enjizen.income.ui.password.authentication
 
 
 import android.annotation.SuppressLint
@@ -8,26 +8,32 @@ import android.view.View
 import android.view.ViewGroup
 
 import cockatoo.enjizen.income.R
+import cockatoo.enjizen.income.constant.PasswordMode
 import cockatoo.enjizen.income.custom.edittext.Password
 import cockatoo.enjizen.income.ui.base.BaseFragment
 import cockatoo.enjizen.income.ui.service.PasswordService
 import kotlinx.android.synthetic.main.fragment_password.*
+import kotlinx.android.synthetic.main.item_toolbar.*
 import kotlinx.android.synthetic.main.view_keyboard_password.*
 import kotlinx.android.synthetic.main.view_passcode.view.*
 
-class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordView , Password.PasswordListener , View.OnClickListener {
-    private lateinit var listener: ConfirmPasswordListener
 
-    private lateinit var presenter: ConfirmPasswordPresenter
+class AuthenticationFragment : BaseFragment(), AuthenticationView , View.OnClickListener, Password.PasswordListener {
 
-    private val PASSWORD_SET = "password_set"
+
+    private lateinit var listener: AuthenticationListener
+    private lateinit var presenter: AuthenticationPresenter
+
+    private lateinit var mode: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        listener = activity as ConfirmPasswordListener
+        listener = activity as AuthenticationListener
 
-        presenter = ConfirmPasswordPresenter(this, PasswordService())
+        presenter = AuthenticationPresenter(this, PasswordService())
+
+        mode = arguments!!.getString("mode")
     }
 
     override fun onCreateView(
@@ -43,7 +49,12 @@ class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordView , Password.
 
         setToolbarListener(passwordToolBar)
 
-        passwordToolBar.setMessageTitle(getString(R.string.confirm_password))
+        if(mode == PasswordMode.AUTHENTICATION.value) {
+            btnBack.visibility = View.GONE
+            passwordToolBar.setMessageTitle(getString(R.string.authentication_password))
+        } else {
+            passwordToolBar.setMessageTitle(getString(R.string.current_password))
+        }
 
         passwordPin.setListener(this)
         key1.setOnClickListener(this)
@@ -60,16 +71,16 @@ class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordView , Password.
     }
 
 
-    @SuppressLint("SetTextI18n")
-    private fun setPassword(pin: String) {
-        val temp = passwordPin.editTextPasscode.text.toString()
-        passwordPin.editTextPasscode.setText("$temp$pin")
+    override fun authenticationSuccess() {
+        listener.onAuthenticationPasswordSuccess()
+    }
+
+    override fun authenticationFail() {
+        passwordPin.setInvalidPin()
     }
 
 
-
     override fun onClick(v: View?) {
-
         when(v!!.id){
             R.id.key1 -> setPassword("1")
             R.id.key2 -> setPassword("2")
@@ -92,38 +103,37 @@ class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordView , Password.
     }
 
 
+    @SuppressLint("SetTextI18n")
+    private fun setPassword(pin: String) {
+        val temp = passwordPin.editTextPasscode.text.toString()
+        passwordPin.editTextPasscode.setText("$temp$pin")
+    }
+
+
     override fun onPasswordResult(password: String) {
+
         if(password.length == 6){
-           // listener.onConfirmPasswordSuccess()
-            presenter.confirmCheckPassword(arguments?.getString(PASSWORD_SET)!!, password)
+            presenter.authentication(passwordInput = password)
         }
 
-
-    }
-
-    override fun onConfirmPasswordSuccess() {
-        listener.onConfirmPasswordSuccess()
-    }
-
-    override fun onConfirmPasswordNotMatch() {
-        passwordPin.setInvalidPin()
     }
 
 
-    interface ConfirmPasswordListener {
-        fun onConfirmPasswordSuccess()
+    interface AuthenticationListener {
+        fun onAuthenticationPasswordSuccess()
     }
-
-
 
     companion object{
         @JvmStatic
-        fun newInstance(passwordSet: String) = ConfirmPasswordFragment().apply {
+        fun newInstance(mode: String) = AuthenticationFragment().apply {
             arguments = Bundle().apply {
-                putString(PASSWORD_SET, passwordSet)
+                putString("mode", mode)
             }
         }
     }
+
+
+
 
 
 }

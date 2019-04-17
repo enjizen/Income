@@ -79,7 +79,7 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
         }
     }
 
-    fun getByRawQuery(sql: String) : Cursor{
+    fun rawQuery(sql: String) : Cursor{
         val db = instance!!.getReadableDatabase(pass)
         return db.rawQuery(sql, null)
     }

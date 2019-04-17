@@ -41,8 +41,11 @@
     <string name="open_drawer">เปิด</string>
     <string name="close_drawer">ปิด</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="create_password">ตั้งรหัสผ่าน</string>
+    <string name="set_password">ตั้งรหัสผ่าน</string>
     <string name="confirm_password">ยืนยันรหัสผ่าน</string>
+    <string name="change_password">เปลี่ยนรหัสผ่าน</string>
+    <string name="authentication_password">เข้าสู่ระบบ</string>
+    <string name="current_password">รหัสผ่านปัจจุบัน</string>
     <string name="one">1</string>
     <string name="two">2</string>
     <string name="three">3</string>

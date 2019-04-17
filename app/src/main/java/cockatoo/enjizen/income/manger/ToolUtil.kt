@@ -26,12 +26,10 @@ object ToolUtil {
         }
         val key = "$device${applicationIdAscii % salt!!.toInt()}${applicationId.length % salt.toInt()}"
         KeyEncryptData.getInstance().init(key)
-
-         Log.i("ToolUtil", "key = $key")
     }
 
     private fun checkAndCreateSalt() {
-        if (SharedPreferenceUtil.getString(key = KeyConstant.SALT.value) == "") {
+        if (SharedPreferenceUtil.getString(key = KeyConstant.SALT.value).isNullOrBlank()) {
             SharedPreferenceUtil.edit(key = KeyConstant.SALT.value, value = KeyGenerateManager.generateSalt())
         }
     }
