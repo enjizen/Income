@@ -7,14 +7,14 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import cockatoo.enjizen.income.R
-import cockatoo.enjizen.income.constant.IntentPasswordMode
+import cockatoo.enjizen.income.constant.IncomeMode
+import cockatoo.enjizen.income.constant.IntentKey
 import cockatoo.enjizen.income.constant.PasswordMode
 import cockatoo.enjizen.income.ui.account.account.AccountActivity
 import cockatoo.enjizen.income.ui.base.BaseActivity
-import cockatoo.enjizen.income.ui.channel.VerifyChannelPresenter
 import cockatoo.enjizen.income.ui.channel.VerifyChannelView
+import cockatoo.enjizen.income.ui.inoutcome.InOutComeActivity
 import cockatoo.enjizen.income.ui.password.PasswordActivity
-import cockatoo.enjizen.income.ui.password.authentication.AuthenticationFragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_toolbar.view.*
@@ -36,7 +36,22 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         navView.setNavigationItemSelectedListener(this)
         presenter = MainPresenter(this)
 
-        presenter.checkSetupPassworded()
+        presenter.checkSetupPassword()
+
+       fabOutcome.setOnClickListener {
+            val intent = Intent(this, InOutComeActivity::class.java)
+            intent.putExtra(IntentKey.INCOME_MODE.value, IncomeMode.ADD.value)
+            startActivity(intent)
+            overridePendingTransition(R.anim.slide_from_left, R.anim.slide_from_right)
+            fabMenu.close(true)
+        }
+
+        fabIncome.setOnClickListener {
+            val intent = Intent(this, InOutComeActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.slide_from_left, R.anim.slide_from_right)
+            fabMenu.close(true)
+        }
 
     }
 
@@ -64,7 +79,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
         if (actionbarDrawerToggle.onOptionsItemSelected(item)) {
-            presenter.checkSetupPassworded()
+            presenter.checkSetupPassword()
             return true
         }
 
@@ -79,13 +94,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
             R.id.navSetPassword -> {
                 val intent = Intent(this, PasswordActivity::class.java)
-                intent.putExtra(IntentPasswordMode.MODE.value, PasswordMode.CREATE.value)
+                intent.putExtra(IntentKey.PASSWORD_MODE.value, PasswordMode.CREATE.value)
                 startActivity(intent)
                 overridePendingTransition(R.anim.slide_from_left, R.anim.slide_from_right)
             }
             R.id.navChangePassword -> {
                 val intent = Intent(this, PasswordActivity::class.java)
-                intent.putExtra(IntentPasswordMode.MODE.value, PasswordMode.CHANGE.value)
+                intent.putExtra(IntentKey.PASSWORD_MODE.value, PasswordMode.CHANGE.value)
                 startActivity(intent)
                 overridePendingTransition(R.anim.slide_from_left, R.anim.slide_from_right)
             }

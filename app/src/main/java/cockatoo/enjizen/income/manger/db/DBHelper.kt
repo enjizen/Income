@@ -13,6 +13,8 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
     override fun onCreate(sqLiteDatabase: SQLiteDatabase) {
         sqLiteDatabase.execSQL(SQL_CREATE_ACCOUNT_TABLE)
         sqLiteDatabase.execSQL(SQL_CREATE_BANK_TABLE)
+        sqLiteDatabase.execSQL(SQL_CREATE_INCOME_TABLE)
+        sqLiteDatabase.execSQL(SQL_CREATE_OUT_INCOME_TABLE)
     }
 
     override fun onUpgrade(sqLiteDatabase: SQLiteDatabase, i: Int, i1: Int) {
@@ -135,6 +137,20 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
                 " ${DBContract.BankEntry.COLUMN_NAME.value} TEXT, " +
                 "${DBContract.BankEntry.COLUMN_INITIALS.value} TEXT," +
                 " ${DBContract.BankEntry.COLUMN_LOGO.value} TEXT)"
+
+        private val SQL_CREATE_INCOME_TABLE ="CREATE TABLE ${DBContract.IncomeEntry.TABLE_NAME.value} (" +
+                "${DBContract.IncomeEntry.COLUMN_ID.value} INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "${DBContract.IncomeEntry.COLUMN_DETAIL.value} TEXT," +
+                "${DBContract.IncomeEntry.COLUMN_MONEY_INCOME.value} NUMERIC(10,2) NOT NULL DEFAULT 0.00," +
+                "${DBContract.IncomeEntry.COLUMN_ACCOUNT_ID.value} INT," +
+                "${DBContract.IncomeEntry.COLUMN_CREATED_DATE.value} DATE)"
+
+        private val SQL_CREATE_OUT_INCOME_TABLE ="CREATE TABLE ${DBContract.OutcomeEntry.TABLE_NAME.value} (" +
+                "${DBContract.OutcomeEntry.COLUMN_ID.value} INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "${DBContract.OutcomeEntry.COLUMN_DETAIL.value} TEXT," +
+                "${DBContract.OutcomeEntry.COLUMN_MONEY_OUTCOME.value} NUMERIC(10,2) NOT NULL DEFAULT 0.00," +
+                "${DBContract.OutcomeEntry.COLUMN_ACCOUNT_ID.value} INT," +
+                "${DBContract.OutcomeEntry.COLUMN_CREATED_DATE.value} DATE)"
 
         @Synchronized
         fun getInstance(): DBHelper {

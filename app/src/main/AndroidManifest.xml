@@ -8,14 +8,17 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-        <activity android:name=".ui.password.PasswordActivity"/>
-        <activity android:name=".ui.account.account.AccountActivity"/>
-        <activity android:name=".ui.main.MainActivity" android:theme="@style/AppTheme.NoActionBar">
-
+            android:theme="@style/AppTheme"
+    >
+        <activity android:name=".ui.inoutcome.InOutComeActivity" android:screenOrientation="portrait">
         </activity>
-
-        <activity android:name=".ui.channel.VerifyChannelActivity">
+        <activity android:name=".ui.password.PasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.account.account.AccountActivity"/>
+        <activity
+                android:name=".ui.main.MainActivity"
+                android:theme="@style/AppTheme.NoActionBar"  android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".ui.channel.VerifyChannelActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

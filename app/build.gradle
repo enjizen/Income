@@ -26,7 +26,6 @@ android {
         }
 
 
-
     }
 }
 
@@ -44,6 +43,7 @@ dependencies {
     implementation 'com.kaopiz:kprogresshud:1.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.github.clans:fab:1.6.4'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0-alpha03'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha03'

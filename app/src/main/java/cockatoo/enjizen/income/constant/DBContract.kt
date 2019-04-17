@@ -21,4 +21,22 @@ object DBContract {
         COLUMN_INITIALS("initials"),
         COLUMN_LOGO("logo")
     }
+
+    enum class IncomeEntry(val value: String){
+        TABLE_NAME("income"),
+        COLUMN_ID("id"),
+        COLUMN_DETAIL("detail"),
+        COLUMN_MONEY_INCOME("money_income"),
+        COLUMN_ACCOUNT_ID("account_Id"),
+        COLUMN_CREATED_DATE("created_date")
+    }
+
+    enum class OutcomeEntry(val value: String){
+        TABLE_NAME("outcome"),
+        COLUMN_ID("id"),
+        COLUMN_DETAIL("detail"),
+        COLUMN_MONEY_OUTCOME("money_outcome"),
+        COLUMN_ACCOUNT_ID("account_Id"),
+        COLUMN_CREATED_DATE("created_date")
+    }
 }

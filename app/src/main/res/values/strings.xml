@@ -1,12 +1,10 @@
 <resources>
-    <string name="app_name">Income</string>
+    <string name="app_name">บัญชีรายรับ-จ่าย</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="account">บัญชี</string>
     <string name="add_account">เพิ่มบัญชี</string>
     <string name="title_activity_login">Sign in</string>
-    <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -57,4 +55,6 @@
     <string name="nine">9</string>
     <string name="zero">0</string>
     <string name="security_system">ระบบความปลอดภัย</string>
+    <string name="add_outcome">เพิ่มรายจ่าย</string>
+    <string name="add_income">เพิ่มรายรับ</string>
 </resources>

@@ -3,7 +3,7 @@ package cockatoo.enjizen.income.ui.password
 import android.content.Intent
 import android.os.Bundle
 import cockatoo.enjizen.income.R
-import cockatoo.enjizen.income.constant.IntentPasswordMode
+import cockatoo.enjizen.income.constant.IntentKey
 import cockatoo.enjizen.income.constant.PasswordMode
 import cockatoo.enjizen.income.ui.base.BaseActivity
 import cockatoo.enjizen.income.ui.main.MainActivity
@@ -19,7 +19,7 @@ class PasswordActivity : BaseActivity(), SetPasswordFragment.SetPasswordListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_password)
 
-        mode = intent.getStringExtra(IntentPasswordMode.MODE.value)
+        mode = intent.getStringExtra(IntentKey.PASSWORD_MODE.value)
 
         when(mode) {
             PasswordMode.CREATE.value -> supportFragmentManager.beginTransaction().add(

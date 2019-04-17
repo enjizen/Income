@@ -5,6 +5,7 @@ import android.annotation.TargetApi
 import android.content.Context
 import android.os.Build
 import android.os.Handler
+import android.os.Parcelable
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
@@ -222,4 +223,5 @@ class Password : FrameLayout {
             clearPin()
         }, 1000)
     }
+
 }
