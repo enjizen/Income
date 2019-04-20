@@ -2,9 +2,8 @@ package cockatoo.enjizen.income.ui.main
 
 import cockatoo.enjizen.income.constant.KeyConstant
 import cockatoo.enjizen.income.manger.SharedPreferenceSecureUtil
-import cockatoo.enjizen.income.ui.channel.VerifyChannelView
 
-class MainPresenter(private val view: VerifyChannelView) {
+class MainPresenter(private val view: MainView) {
 
     fun checkSetupPassword(){
 

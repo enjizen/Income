@@ -6,14 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 
 import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.constant.PasswordMode
 import cockatoo.enjizen.income.custom.edittext.Password
 import cockatoo.enjizen.income.ui.base.BaseFragment
-import cockatoo.enjizen.income.ui.service.PasswordService
 import kotlinx.android.synthetic.main.fragment_password.*
-import kotlinx.android.synthetic.main.item_toolbar.*
 import kotlinx.android.synthetic.main.view_keyboard_password.*
 import kotlinx.android.synthetic.main.view_passcode.view.*
 
@@ -31,9 +30,9 @@ class AuthenticationFragment : BaseFragment(), AuthenticationView , View.OnClick
 
         listener = activity as AuthenticationListener
 
-        presenter = AuthenticationPresenter(this, PasswordService())
+        presenter = AuthenticationPresenter(this)
 
-        mode = arguments!!.getString("mode")
+        mode = arguments!!.getString("mode")!!
     }
 
     override fun onCreateView(
@@ -50,8 +49,12 @@ class AuthenticationFragment : BaseFragment(), AuthenticationView , View.OnClick
         setToolbarListener(passwordToolBar)
 
         if(mode == PasswordMode.AUTHENTICATION.value) {
-            btnBack.visibility = View.GONE
-            passwordToolBar.setMessageTitle(getString(R.string.authentication_password))
+            passwordToolBar.visibility = View.GONE
+            activity!!.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            activity!!.window.statusBarColor = ContextCompat.getColor(context!!,android.R.color.transparent)
+
+            mainLayoutPassword.fitsSystemWindows = false
+
         } else {
             passwordToolBar.setMessageTitle(getString(R.string.current_password))
         }
@@ -77,6 +80,7 @@ class AuthenticationFragment : BaseFragment(), AuthenticationView , View.OnClick
 
     override fun authenticationFail() {
         passwordPin.setInvalidPin()
+        passwordPin.showMessageError(getString(R.string.authentication_fail))
     }
 
 

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 
 import cockatoo.enjizen.income.R
-import cockatoo.enjizen.income.ui.service.AccountService
 import com.valdesekamdem.library.mdtoast.MDToast
 import kotlinx.android.synthetic.main.fragment_add_acount.*
 import android.content.DialogInterface
@@ -17,8 +16,8 @@ import android.text.TextWatcher
 import cockatoo.enjizen.income.model.Bank
 import cockatoo.enjizen.income.ui.adapter.spinner.BankAdapter
 import cockatoo.enjizen.income.ui.base.BaseDialogFragment
-import cockatoo.enjizen.income.ui.service.BankService
 import kotlinx.android.synthetic.main.edit_text.view.*
+import kotlinx.android.synthetic.main.spinner.view.*
 
 
 class AddAccountFragment : BaseDialogFragment(), AddAccountView {
@@ -29,7 +28,7 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.FullScreenDialogStyle)
-        presenter = AddAccountPresenter(this, AccountService(), BankService())
+        presenter = AddAccountPresenter(this)
     }
 
     override fun onCreateView(
@@ -103,11 +102,11 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView {
     override fun displayBank(banks: ArrayList<Bank>) {
 
         val adapter = BankAdapter(bankList = banks)
-        bankSpinner.adapter = adapter
+        bankSpinner.spinner.adapter = adapter
     }
 
     override fun getBankId(): Int {
-        return bankSpinner.selectedItemPosition + 1
+        return bankSpinner.spinner.selectedItemPosition + 1
     }
 
     override fun accountNumberRemoveTextChangedListener(watcher: TextWatcher) {

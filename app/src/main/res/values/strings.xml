@@ -57,4 +57,10 @@
     <string name="security_system">ระบบความปลอดภัย</string>
     <string name="add_outcome">เพิ่มรายจ่าย</string>
     <string name="add_income">เพิ่มรายรับ</string>
+    <string name="bank">ธนาคาร</string>
+    <string name="authentication_fail">รหัสผ่านไม่ถูกต้อง กรุณาลองอีกครั้ง</string>
+    <string name="confirm_password_not_match">ยืนยันรหัสผ่านไม่ตรง</string>
+    <string name="set_password_success">ตั้งรหัสผ่านสำเร็จ</string>
+    <string name="logout">ออกจากระบบ</string>
+    <string name="income_account">เอาเงินเข้าบัญชี</string>
 </resources>

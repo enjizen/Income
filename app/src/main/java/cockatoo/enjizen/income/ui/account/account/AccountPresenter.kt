@@ -4,10 +4,12 @@ import cockatoo.enjizen.income.ui.service.AccountService
 import cockatoo.enjizen.income.ui.service.BankService
 
 class AccountPresenter(
-    private val view: AccountView,
-    private val service: AccountService,
-    private val bankService: BankService
+    private val view: AccountView
 ) {
+
+    private val service: AccountService = AccountService()
+    private val bankService: BankService = BankService()
+
     fun getAllAccount() {
         view.onShowLoading()
         val accounts = service.getAllAccount()

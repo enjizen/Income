@@ -12,14 +12,13 @@ import cockatoo.enjizen.income.constant.IntentKey
 import cockatoo.enjizen.income.constant.PasswordMode
 import cockatoo.enjizen.income.ui.account.account.AccountActivity
 import cockatoo.enjizen.income.ui.base.BaseActivity
-import cockatoo.enjizen.income.ui.channel.VerifyChannelView
 import cockatoo.enjizen.income.ui.inoutcome.InOutComeActivity
 import cockatoo.enjizen.income.ui.password.PasswordActivity
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_toolbar.view.*
 
-class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, VerifyChannelView {
+class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, MainView {
 
 
     private lateinit var actionbarDrawerToggle: ActionBarDrawerToggle
@@ -103,6 +102,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 intent.putExtra(IntentKey.PASSWORD_MODE.value, PasswordMode.CHANGE.value)
                 startActivity(intent)
                 overridePendingTransition(R.anim.slide_from_left, R.anim.slide_from_right)
+            }
+            R.id.navLogout -> {
+                val intent = Intent(this, PasswordActivity::class.java)
+                intent.putExtra(IntentKey.PASSWORD_MODE.value, PasswordMode.AUTHENTICATION.value)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                startActivity(intent)
+                overridePendingTransition(R.anim.animation_enter, R.anim.animation_leave)
             }
 
         }

@@ -155,38 +155,79 @@
         <item name="android:textColor">@color/pumpkinOrange</item>
     </style>
 
-    <style name="TextView.PumpkinOrange.Extra_Large">
+    <style name="TextView.PumpkinOrange.36sp">
         <item name="android:textSize">@dimen/default_text_size_36sp</item>
     </style>
 
-    <style name="TextView.PumpkinOrange.Large">
+    <style name="TextView.PumpkinOrange.30sp">
         <item name="android:textSize">@dimen/default_text_size_30sp</item>
     </style>
 
-    <style name="TextView.PumpkinOrange.Small">
+    <style name="TextView.PumpkinOrange.20sp">
         <item name="android:textSize">@dimen/default_text_size_20sp</item>
     </style>
 
-    <style name="TextView.PumpkinOrange.Smaller">
+    <style name="TextView.PumpkinOrange.18sp">
         <item name="android:textSize">@dimen/default_text_size_18sp</item>
     </style>
 
-    <style name="TextView.PumpkinOrange.ExtraSmall">
+    <style name="TextView.PumpkinOrange.16sp">
         <item name="android:textSize">@dimen/default_text_size_16sp</item>
     </style>
 
 
-    <style name="TextView.PumpkinOrange.Extra_ExtraSmall">
+    <style name="TextView.PumpkinOrange.15sp">
         <item name="android:textSize">@dimen/default_text_size_15sp</item>
     </style>
 
-    <style name="TextView.PumpkinOrange.Extra_Extra_ExtraSmall">
+    <style name="TextView.PumpkinOrange.12sp">
         <item name="android:textSize">@dimen/default_text_size_12sp</item>
     </style>
 
-    <style name="TextView.PumpkinOrange.Extra_Extra_Extra_ExtraSmall">
+    <style name="TextView.PumpkinOrange.8sp">
         <item name="android:textSize">@dimen/default_text_size_8sp</item>
     </style>
+
+
+    <!--Red-->
+
+    <style name="TextView.cinnabar">
+        <item name="android:textColor">@color/cinnabar</item>
+    </style>
+
+    <style name="TextView.cinnabar.36sp">
+        <item name="android:textSize">@dimen/default_text_size_36sp</item>
+    </style>
+
+    <style name="TextView.cinnabar.30sp">
+        <item name="android:textSize">@dimen/default_text_size_30sp</item>
+    </style>
+
+    <style name="TextView.cinnabar.20sp">
+        <item name="android:textSize">@dimen/default_text_size_20sp</item>
+    </style>
+
+    <style name="TextView.cinnabar.18sp">
+        <item name="android:textSize">@dimen/default_text_size_18sp</item>
+    </style>
+
+    <style name="TextView.cinnabar.16sp">
+        <item name="android:textSize">@dimen/default_text_size_16sp</item>
+    </style>
+
+
+    <style name="TextView.cinnabar.15sp">
+        <item name="android:textSize">@dimen/default_text_size_15sp</item>
+    </style>
+
+    <style name="TextView.cinnabar.12sp">
+        <item name="android:textSize">@dimen/default_text_size_12sp</item>
+    </style>
+
+    <style name="TextView.cinnabar.8sp">
+        <item name="android:textSize">@dimen/default_text_size_8sp</item>
+    </style>
+
 
     <style name="TextView.White">
         <item name="android:textColor">@android:color/white</item>

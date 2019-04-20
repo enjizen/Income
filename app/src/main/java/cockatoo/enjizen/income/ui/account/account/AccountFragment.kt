@@ -10,11 +10,8 @@ import cockatoo.enjizen.income.model.Account
 import cockatoo.enjizen.income.ui.adapter.recyclerview.AccountRecyclerViewAdapter
 import cockatoo.enjizen.income.ui.account.add.AddAccountFragment
 import cockatoo.enjizen.income.ui.base.BaseFragment
-import cockatoo.enjizen.income.ui.service.AccountService
 import kotlinx.android.synthetic.main.fragment_account.*
 import android.view.*
-import androidx.fragment.app.DialogFragment
-import cockatoo.enjizen.income.ui.service.BankService
 
 
 class AccountFragment : BaseFragment(), AddAccountFragment.AddAccountListener, AccountView {
@@ -25,7 +22,7 @@ class AccountFragment : BaseFragment(), AddAccountFragment.AddAccountListener, A
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter = AccountPresenter(this, AccountService(), BankService())
+        presenter = AccountPresenter(this)
     }
 
     override fun onCreateView(

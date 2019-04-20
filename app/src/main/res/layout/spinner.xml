@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
@@ -12,18 +12,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_margin_padding_8dp"
                 android:textStyle="bold"
-                android:text="ธนาคาร"
+                tools:text="ธนาคาร"
         />
 
         <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/bankSpinner"
+                android:id="@+id/spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/default_margin_padding_62dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Light"
         />
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textViewErrorMessage"
-                style="@style/TextView.PumpkinOrange.Extra_ExtraSmall"
+                style="@style/TextView.PumpkinOrange.15sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="invisible"

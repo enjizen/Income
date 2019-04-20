@@ -5,7 +5,6 @@ import android.annotation.TargetApi
 import android.content.Context
 import android.os.Build
 import android.os.Handler
-import android.os.Parcelable
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
@@ -23,20 +22,20 @@ class Password : FrameLayout {
     private var listener: PasswordListener? = null
 
     constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs) {
-        setup(attrs)
+        setup()
     }
 
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context!!, attrs, defStyleAttr) {
-        setup(attrs)
+        setup()
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context!!, attrs, defStyleAttr, defStyleRes) {
-        setup(attrs)
+        setup()
     }
 
     @SuppressLint("CustomViewStyleable")
-    private fun setup(attrs: AttributeSet?) {
+    private fun setup() {
         LayoutInflater.from(context).inflate(R.layout.view_passcode, this@Password)
 
       editTextPasscode.addTextChangedListener(editTextPasswordTextChange)
@@ -61,7 +60,7 @@ class Password : FrameLayout {
             1 -> {
                 setKeyPin1()
                 clearKeyPin2()
-                textViewErrorMessage.visibility = View.GONE
+                textViewErrorMessage.visibility = View.INVISIBLE
             }
             2 -> {
                 setKeyPin2()

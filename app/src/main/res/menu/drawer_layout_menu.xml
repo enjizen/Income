@@ -8,7 +8,7 @@
         <menu>
             <item
                     android:id="@+id/navAccount"
-                    android:icon="@drawable/ic_menu_account"
+                    android:icon="@drawable/ic_account"
                     android:title="@string/account"/>
 
         </menu>
@@ -24,6 +24,11 @@
                     android:id="@+id/navChangePassword"
                     android:icon="@drawable/ic_change_password"
                     android:title="@string/change_password"/>
+
+            <item
+                    android:id="@+id/navLogout"
+                    android:icon="@drawable/ic_logout"
+                    android:title="@string/logout"/>
 
         </menu>
     </item>

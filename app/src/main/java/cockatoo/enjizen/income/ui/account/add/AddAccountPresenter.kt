@@ -6,10 +6,13 @@ import cockatoo.enjizen.income.ui.service.AccountService
 import cockatoo.enjizen.income.ui.service.BankService
 
 class AddAccountPresenter(
-    private val view: AddAccountView,
-    private val service: AccountService,
-    private val bankService: BankService
+    private val view: AddAccountView
 ) {
+
+    private val service = AccountService()
+    private val bankService = BankService()
+
+
 
     fun addAccount() {
 

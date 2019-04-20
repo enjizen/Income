@@ -2,7 +2,6 @@ package cockatoo.enjizen.income.ui.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.custom.view.Toolbar
 import com.kaopiz.kprogresshud.KProgressHUD
 

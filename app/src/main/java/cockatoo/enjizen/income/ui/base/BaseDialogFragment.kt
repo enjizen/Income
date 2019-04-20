@@ -1,6 +1,5 @@
 package cockatoo.enjizen.income.ui.base
 
-import android.R
 import android.graphics.drawable.ColorDrawable
 import android.view.ViewGroup
 import android.view.WindowManager
@@ -46,13 +45,13 @@ open class BaseDialogFragment : DialogFragment(), Toolbar.ToolbarListener {
             dialog.window!!.setBackgroundDrawable(
                 ColorDrawable(
                     resources.getColor(
-                        R.color.transparent,
+                        android.R.color.transparent,
                         context!!.theme
                     )
                 )
             )
             dialog.window!!.setLayout(width, height)
-            dialog.window.setWindowAnimations(cockatoo.enjizen.income.R.style.DialogAnimation)
+            dialog.window!!.setWindowAnimations(cockatoo.enjizen.income.R.style.DialogAnimation)
             dialog.window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         }
     }

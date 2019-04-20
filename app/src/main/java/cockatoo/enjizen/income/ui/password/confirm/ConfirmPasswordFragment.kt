@@ -6,11 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.custom.edittext.Password
 import cockatoo.enjizen.income.ui.base.BaseFragment
 import cockatoo.enjizen.income.ui.service.PasswordService
+import com.valdesekamdem.library.mdtoast.MDToast
 import kotlinx.android.synthetic.main.fragment_password.*
 import kotlinx.android.synthetic.main.view_keyboard_password.*
 import kotlinx.android.synthetic.main.view_passcode.view.*
@@ -20,21 +22,20 @@ class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordView , Password.
 
     private lateinit var presenter: ConfirmPasswordPresenter
 
-    private val PASSWORD_SET = "password_set"
+    private val passwordSetKey = "password_set"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         listener = activity as ConfirmPasswordListener
 
-        presenter = ConfirmPasswordPresenter(this, PasswordService())
+        presenter = ConfirmPasswordPresenter(this)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_password, container, false)
     }
 
@@ -94,19 +95,26 @@ class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordView , Password.
 
     override fun onPasswordResult(password: String) {
         if(password.length == 6){
-           // listener.onConfirmPasswordSuccess()
-            presenter.confirmCheckPassword(arguments?.getString(PASSWORD_SET)!!, password)
+            presenter.confirmCheckPassword(arguments?.getString(passwordSetKey)!!, password)
         }
 
 
     }
 
     override fun onConfirmPasswordSuccess() {
+        MDToast.makeText(
+            context,
+            getString(R.string.set_password_success),
+            Toast.LENGTH_SHORT,
+            MDToast.TYPE_SUCCESS
+        ).show()
         listener.onConfirmPasswordSuccess()
+
     }
 
     override fun onConfirmPasswordNotMatch() {
         passwordPin.setInvalidPin()
+        passwordPin.showMessageError(getString(R.string.confirm_password_not_match))
     }
 
 
@@ -120,7 +128,7 @@ class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordView , Password.
         @JvmStatic
         fun newInstance(passwordSet: String) = ConfirmPasswordFragment().apply {
             arguments = Bundle().apply {
-                putString(PASSWORD_SET, passwordSet)
+                putString(passwordSetKey, passwordSet)
             }
         }
     }

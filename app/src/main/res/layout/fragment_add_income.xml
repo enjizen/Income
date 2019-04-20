@@ -15,7 +15,9 @@
 
     <androidx.core.widget.NestedScrollView android:layout_width="match_parent"
                                            android:layout_height="match_parent"
+                                           android:padding="@dimen/default_margin_padding_16dp"
                                            android:fillViewport="true"
+                                           android:layout_above="@+id/btnSave"
                                            android:layout_below="@id/addIncomeToolbar"
     >
 
@@ -23,8 +25,67 @@
                   android:layout_height="match_parent"
                   android:orientation="vertical"
 
-    ></LinearLayout>
+    >
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+        >
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/labelDate"
+                    style="@style/TextView.Black.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="18/04/2556"
+
+            />
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/default_margin_padding_32dp"
+                    android:layout_height="@dimen/default_margin_padding_32dp"
+                    app:srcCompat="@drawable/ic_date_range_black_24dp"
+                    app:tint="@android:color/black"
+                    android:layout_toEndOf="@id/labelDate"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/default_margin_padding_16dp"
+            />
+        </RelativeLayout>
+
+        <cockatoo.enjizen.income.custom.edittext.EditText
+                android:id="@+id/editTextDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:labelText="รับเงินมาจาก"
+        />
+
+        <cockatoo.enjizen.income.custom.edittext.EditText
+                android:id="@+id/editTextMoneyIncome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:labelText="จำนวนเงินที่ได้รับ"
+        />
+
+        <cockatoo.enjizen.income.custom.view.Spinner
+                android:id="@+id/spinnerAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:spinnerLabel="@string/income_account"
+        />
+
+
+    </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSave"
+            style="@style/IncomeButton.default"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_margin_padding_44dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/default_margin_padding_16dp"
+            android:layout_marginStart="@dimen/default_margin_padding_32dp"
+            android:layout_marginEnd="@dimen/default_margin_padding_32dp"
+            android:shadowRadius="4"
+            android:text="@string/save"
+    />
 
 </RelativeLayout>

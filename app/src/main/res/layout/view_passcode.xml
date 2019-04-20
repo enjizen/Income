@@ -59,14 +59,17 @@
                 android:layout_height="17dp"
                 android:background="@drawable/circle_password_default" />
         </LinearLayout>
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textViewErrorMessage"
+            style="@style/TextView.cinnabar.16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="@dimen/default_margin_padding_8dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/default_margin_padding_16dp"
             android:textAlignment="center"
-            android:visibility="gone" />
+            android:visibility="visible"
+        />
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -83,6 +86,7 @@
         android:focusable="true"
         android:inputType="number"
         android:maxLength="6"
+        android:visibility="invisible"
         android:textColor="@android:color/transparent" />
 
 
