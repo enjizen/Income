@@ -1,7 +1,5 @@
 package cockatoo.enjizen.income.ui.password.authentication
 
-
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,10 +36,7 @@ class AuthenticationFragment : BaseFragment(), AuthenticationView , View.OnClick
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_password, container, false)
-    }
+    ): View? = inflater.inflate(R.layout.fragment_password, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,7 +49,6 @@ class AuthenticationFragment : BaseFragment(), AuthenticationView , View.OnClick
             activity!!.window.statusBarColor = ContextCompat.getColor(context!!,android.R.color.transparent)
 
             mainLayoutPassword.fitsSystemWindows = false
-
         } else {
             passwordToolBar.setMessageTitle(getString(R.string.current_password))
         }
@@ -86,42 +80,23 @@ class AuthenticationFragment : BaseFragment(), AuthenticationView , View.OnClick
 
     override fun onClick(v: View?) {
         when(v!!.id){
-            R.id.key1 -> setPassword("1")
-            R.id.key2 -> setPassword("2")
-            R.id.key3 -> setPassword("3")
-            R.id.key4 -> setPassword("4")
-            R.id.key5 -> setPassword("5")
-            R.id.key6 -> setPassword("6")
-            R.id.key7 -> setPassword("7")
-            R.id.key8 -> setPassword("8")
-            R.id.key9 -> setPassword("9")
-            R.id.key0 -> setPassword("0")
-            R.id.keyDel ->{
-                val temp = passwordPin.editTextPasscode.text.toString()
-                if(temp.isNotBlank()) {
-                    val notRemove = temp.substring(0, temp.length - 1)
-                    passwordPin.setPassword(notRemove)
-                }
-            }
+            R.id.key1, R.id.key2, R.id.key3, R.id.key4, R.id.key5, R.id.key6, R.id.key7, R.id.key8, R.id.key9 -> presenter.setPin(v.findViewById(v.id))
+            R.id.keyDel -> presenter.deletePin()
         }
     }
 
 
-    @SuppressLint("SetTextI18n")
-    private fun setPassword(pin: String) {
-        val temp = passwordPin.editTextPasscode.text.toString()
-        passwordPin.editTextPasscode.setText("$temp$pin")
+    override fun getEditTextPin(): String {
+       return passwordPin.editTextPasscode.text.toString()
     }
 
+    override fun displayPinPassword(pin: String) {
+        passwordPin.editTextPasscode.setText(pin)
+    }
 
     override fun onPasswordResult(password: String) {
-
-        if(password.length == 6){
             presenter.authentication(passwordInput = password)
-        }
-
     }
-
 
     interface AuthenticationListener {
         fun onAuthenticationPasswordSuccess()

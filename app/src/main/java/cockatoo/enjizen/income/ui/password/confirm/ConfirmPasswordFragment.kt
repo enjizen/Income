@@ -1,7 +1,6 @@
 package cockatoo.enjizen.income.ui.password.confirm
 
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import android.widget.Toast
 import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.custom.edittext.Password
 import cockatoo.enjizen.income.ui.base.BaseFragment
-import cockatoo.enjizen.income.ui.service.PasswordService
 import com.valdesekamdem.library.mdtoast.MDToast
 import kotlinx.android.synthetic.main.fragment_password.*
 import kotlinx.android.synthetic.main.view_keyboard_password.*
@@ -61,44 +59,26 @@ class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordView , Password.
     }
 
 
-    @SuppressLint("SetTextI18n")
-    private fun setPassword(pin: String) {
-        val temp = passwordPin.editTextPasscode.text.toString()
-        passwordPin.editTextPasscode.setText("$temp$pin")
-    }
-
-
 
     override fun onClick(v: View?) {
 
         when(v!!.id){
-            R.id.key1 -> setPassword("1")
-            R.id.key2 -> setPassword("2")
-            R.id.key3 -> setPassword("3")
-            R.id.key4 -> setPassword("4")
-            R.id.key5 -> setPassword("5")
-            R.id.key6 -> setPassword("6")
-            R.id.key7 -> setPassword("7")
-            R.id.key8 -> setPassword("8")
-            R.id.key9 -> setPassword("9")
-            R.id.key0 -> setPassword("0")
-            R.id.keyDel ->{
-                val temp = passwordPin.editTextPasscode.text.toString()
-                if(temp.isNotBlank()) {
-                    val notRemove = temp.substring(0, temp.length - 1)
-                    passwordPin.setPassword(notRemove)
-                }
-            }
+            R.id.key1, R.id.key2, R.id.key3, R.id.key4, R.id.key5, R.id.key6, R.id.key7, R.id.key8, R.id.key9 -> presenter.setPin(v.findViewById(v.id))
+            R.id.keyDel -> presenter.deletePin()
         }
     }
 
 
     override fun onPasswordResult(password: String) {
-        if(password.length == 6){
-            presenter.confirmCheckPassword(arguments?.getString(passwordSetKey)!!, password)
-        }
+        presenter.confirmCheckPassword(confirmPassword = password)
+    }
 
+    override fun getEditTextPin(): String {
+        return passwordPin.editTextPasscode.text.toString()
+    }
 
+    override fun displayPinPassword(pin: String) {
+        passwordPin.editTextPasscode.setText(pin)
     }
 
     override fun onConfirmPasswordSuccess() {
@@ -117,11 +97,14 @@ class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordView , Password.
         passwordPin.showMessageError(getString(R.string.confirm_password_not_match))
     }
 
+    override fun getPasswordSet(): String {
+        return arguments?.getString(passwordSetKey)!!
+    }
+
 
     interface ConfirmPasswordListener {
         fun onConfirmPasswordSuccess()
     }
-
 
 
     companion object{

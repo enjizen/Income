@@ -16,7 +16,7 @@ class BankAdapter(private val bankList: ArrayList<Bank>) : BaseAdapter() {
     
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val mInflater: LayoutInflater = LayoutInflater.from(parent!!.context)
+        val mInflater = LayoutInflater.from(parent!!.context)
         val item = mInflater.inflate(R.layout.item_sprinner_adapter, parent, false)
 
         val imageLogo = item.findViewById(R.id.imageLogo) as AppCompatImageView

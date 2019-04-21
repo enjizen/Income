@@ -8,13 +8,11 @@ import android.view.ViewGroup
 import android.view.WindowManager
 
 import cockatoo.enjizen.income.R
-import cockatoo.enjizen.income.ui.account.account.AccountPresenter
-import cockatoo.enjizen.income.ui.account.account.AccountView
+import cockatoo.enjizen.income.model.Account
+import cockatoo.enjizen.income.ui.adapter.spinner.AccountAdapter
 import cockatoo.enjizen.income.ui.base.BaseFragment
-import cockatoo.enjizen.income.ui.service.AccountService
-import cockatoo.enjizen.income.ui.service.BankService
-import cockatoo.enjizen.income.ui.service.IncomeService
 import kotlinx.android.synthetic.main.fragment_add_income.*
+import kotlinx.android.synthetic.main.spinner.view.*
 
 class AddIncomeFragment : BaseFragment(), AddIncomeView {
 
@@ -23,11 +21,9 @@ class AddIncomeFragment : BaseFragment(), AddIncomeView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        activity!!.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
 
-
-       activity!!.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-
-        presenter = AddIncomePresenter(this, IncomeService())
+        presenter = AddIncomePresenter(this)
     }
 
     override fun onCreateView(
@@ -39,11 +35,15 @@ class AddIncomeFragment : BaseFragment(), AddIncomeView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setToolbarListener(addIncomeToolbar)
-
-
+        presenter.getAccount()
     }
 
-    companion object{
+    override fun displayAccount(accounts: ArrayList<Account>) {
+        val adapter = AccountAdapter(accounts)
+        spinnerAccount.spinner.adapter = adapter
+    }
+
+    companion object {
         @JvmStatic
         fun newInstance() = AddIncomeFragment()
     }

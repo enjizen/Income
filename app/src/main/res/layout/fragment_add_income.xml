@@ -61,6 +61,7 @@
                 android:id="@+id/editTextMoneyIncome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
                 app:labelText="จำนวนเงินที่ได้รับ"
         />
 

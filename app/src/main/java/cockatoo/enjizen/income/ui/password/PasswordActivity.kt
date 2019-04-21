@@ -35,7 +35,7 @@ class PasswordActivity : BaseActivity(), SetPasswordFragment.SetPasswordListener
     }
 
 
-    override fun onCreatePasswordSuccess(password: String) {
+    override fun onSetPasswordSuccess(password: String) {
         supportFragmentManager
             .beginTransaction()
             .setCustomAnimations(R.anim.slide_from_left, R.anim.slide_from_right, R.anim.pop_enter, R.anim.pop_exit)
