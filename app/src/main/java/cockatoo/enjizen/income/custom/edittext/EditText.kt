@@ -21,8 +21,6 @@ import kotlinx.android.synthetic.main.edit_text.view.*
 
 class EditText : FrameLayout {
 
-    private var isShowMask  = false
-
     constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs) {
         setup(attrs)
     }

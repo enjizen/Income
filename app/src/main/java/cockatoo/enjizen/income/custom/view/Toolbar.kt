@@ -1,6 +1,5 @@
 package cockatoo.enjizen.income.custom.view
 
-import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.content.Context
 import android.content.res.TypedArray
@@ -31,7 +30,6 @@ class Toolbar : FrameLayout {
     }
 
 
-    @SuppressLint("Recycle")
     private fun setup(attrs: AttributeSet?) {
         LayoutInflater.from(context).inflate(R.layout.item_toolbar, this@Toolbar)
         val typeArray = context.obtainStyledAttributes(attrs, R.styleable.Toolbar)
