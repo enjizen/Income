@@ -142,11 +142,11 @@
         <item name="android:textSize">@dimen/default_text_size_15sp</item>
     </style>
 
-    <style name="TextView.BrownGrey.Extra_Extra_ExtraSmall">
+    <style name="TextView.BrownGrey.12sp">
         <item name="android:textSize">@dimen/default_text_size_12sp</item>
     </style>
 
-    <style name="TextView.BrownGrey.Extra_Extra_Extra_ExtraSmall">
+    <style name="TextView.BrownGrey.8sp">
         <item name="android:textSize">@dimen/default_text_size_8sp</item>
     </style>
 

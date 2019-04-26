@@ -22,9 +22,10 @@ open class BaseRouter {
             activity.startActivity(intent)
         }
 
-        if(TransitionScreenType.POPUP == tranSit)
-            activity.overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up)
-        else if(TransitionScreenType.PUSH == tranSit)
-            activity.overridePendingTransition(R.anim.slide_from_left, R.anim.slide_from_right)
+        when (tranSit) {
+            TransitionScreenType.POPUP -> activity.overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up)
+            TransitionScreenType.PUSH -> activity.overridePendingTransition(R.anim.slide_from_left, R.anim.slide_from_right)
+            TransitionScreenType.LEAVE -> activity.overridePendingTransition(R.anim.animation_enter, R.anim.animation_leave)
+        }
     }
 }

@@ -1,9 +1,9 @@
-package cockatoo.enjizen.income.ui.main
+package cockatoo.enjizen.income.ui.main.home
 
 import cockatoo.enjizen.income.constant.KeyConstant
 import cockatoo.enjizen.income.manger.SharedPreferenceSecureUtil
 
-class MainPresenter(private val view: MainView) {
+class HomePresenter(private val view: HomeView) {
 
     fun checkSetupPassword(){
 
