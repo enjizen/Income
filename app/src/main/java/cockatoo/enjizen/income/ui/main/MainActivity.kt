@@ -1,67 +1,46 @@
 package cockatoo.enjizen.income.ui.main
 
 import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
-import android.view.MenuItem
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.core.view.GravityCompat
 import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.constant.IncomeMode
 import cockatoo.enjizen.income.constant.IntentKey
-import cockatoo.enjizen.income.constant.PasswordMode
-import cockatoo.enjizen.income.ui.account.account.AccountActivity
+import cockatoo.enjizen.income.constant.TransitionScreenType
 import cockatoo.enjizen.income.ui.base.BaseActivity
 import cockatoo.enjizen.income.ui.inoutcome.InOutComeActivity
 import cockatoo.enjizen.income.ui.main.home.HomeFragment
-import cockatoo.enjizen.income.ui.main.home.HomePresenter
-import cockatoo.enjizen.income.ui.main.home.HomeView
 import cockatoo.enjizen.income.ui.main.other.MoreFragment
-import cockatoo.enjizen.income.ui.password.PasswordActivity
-import com.google.android.material.navigation.NavigationView
+import cockatoo.enjizen.income.ui.router.BaseRouterActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.item_toolbar.view.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 
-class MainActivity : BaseActivity(),
-    HomeView {
+class MainActivity : BaseActivity(){
 
-
-    private lateinit var presenter: HomePresenter
+    private lateinit var router: BaseRouterActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        router = BaseRouterActivity()
+
         if(savedInstanceState == null){
-
-            supportFragmentManager.beginTransaction()
-                .add(R.id.contentContainer, HomeFragment.newInstance(), HomeFragment.TAG)
-                .commit()
-
-            val moreFragment = MoreFragment.newInstance()
-
-            supportFragmentManager.beginTransaction()
-                .add(R.id.contentContainer, moreFragment, MoreFragment.TAG)
-                .detach(moreFragment)
-                .commit()
+            initFragment()
         }
-        presenter = HomePresenter(this)
 
        fabOutcome.setOnClickListener {
             val intent = Intent(this, InOutComeActivity::class.java)
             intent.putExtra(IntentKey.INCOME_MODE.value, IncomeMode.ADD.value)
-            startActivity(intent)
-            overridePendingTransition(R.anim.slide_from_left, R.anim.slide_from_right)
+            router.goto(activity = this, intent = intent, tranSit = TransitionScreenType.PUSH)
+
             fabMenu.close(true)
         }
 
         fabIncome.setOnClickListener {
             val intent = Intent(this, InOutComeActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(R.anim.slide_from_left, R.anim.slide_from_right)
+            router.goto(activity = this, intent = intent, tranSit = TransitionScreenType.PUSH)
             fabMenu.close(true)
         }
 
@@ -94,16 +73,18 @@ class MainActivity : BaseActivity(),
 
     }
 
+    private fun initFragment() {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.contentContainer, HomeFragment.newInstance(), HomeFragment.TAG)
+            .commit()
 
+        val moreFragment = MoreFragment.newInstance()
 
-
-
-    override fun haveNotSetPassword() {
-
+        supportFragmentManager.beginTransaction()
+            .add(R.id.contentContainer, moreFragment, MoreFragment.TAG)
+            .detach(moreFragment)
+            .commit()
     }
 
-    override fun passwordAlreadySet() {
-
-    }
 
 }

@@ -17,19 +17,20 @@ import cockatoo.enjizen.income.ui.account.account.AccountActivity
 import cockatoo.enjizen.income.ui.adapter.recyclerview.MenuMoreRecyclerViewAdapter
 import cockatoo.enjizen.income.ui.base.BaseFragment
 import cockatoo.enjizen.income.ui.password.PasswordActivity
+import cockatoo.enjizen.income.ui.router.BaseRouterActivity
 import kotlinx.android.synthetic.main.fragment_more.*
 
 class MoreFragment : BaseFragment(), MoreView {
 
     private lateinit var presenter: MorePresenter
-    private lateinit var router: MoreRouter
+    private lateinit var router: BaseRouterActivity
     private val moreMenuList = arrayListOf<MoreMenu>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         presenter = MorePresenter(this)
-        router = MoreRouter()
+
+        router = BaseRouterActivity()
         presenter.checkSetupPassword()
     }
 

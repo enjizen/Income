@@ -6,8 +6,8 @@ import android.util.Log
 import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.constant.TransitionScreenType
 
-open class BaseRouter {
-   private val TAG = BaseRouter::class.java.simpleName
+ class BaseRouterActivity {
+   private val TAG = BaseRouterActivity::class.java.simpleName
 
     fun goto(activity: Activity, intent: Intent, tranSit: TransitionScreenType = TransitionScreenType.PUSH, isCloseAllScreen: Boolean? = false, isForResult: Boolean? = false, requestCode: Int? = 0 ){
         if (isCloseAllScreen!!)

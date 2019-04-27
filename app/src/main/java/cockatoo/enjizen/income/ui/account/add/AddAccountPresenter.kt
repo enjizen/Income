@@ -34,13 +34,14 @@ class AddAccountPresenter(
         }
 
         if(!inValid) {
-            service.insertAccount(bankId = view.getBankId()
+           val isValid =  service.insertAccount(bankId = view.getBankId()
                 , accountNumber = view.getAccountNumber()!!
                 , name = view.getAccountName()!!
-                , balance = view.getBalance()!!
-                , onSuccess = {
-                    view.onAddAccountSuccess(accountNumber = view.getAccountNumber()!!)
-                })
+                , balance = view.getBalance()!!)
+
+            if(isValid){
+                view.onAddAccountSuccess(accountNumber = view.getAccountNumber()!!)
+            }
         }
 
     }

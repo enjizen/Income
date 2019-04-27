@@ -20,12 +20,14 @@ class BankService {
     }
 
     private fun readBanks(cursor: Cursor): Bank {
+        with(cursor){
+            val id = getInt(getColumnIndex( DBContract.BankEntry.COLUMN_ID.value))
+            val name = getString(getColumnIndex(DBContract.BankEntry.COLUMN_NAME.value))
+            val initials = getString(getColumnIndex(DBContract.BankEntry.COLUMN_INITIALS.value))
+            val logo = getString(getColumnIndex(DBContract.BankEntry.COLUMN_LOGO.value))
 
-        val id = cursor.getInt(cursor.getColumnIndex( DBContract.BankEntry.COLUMN_ID.value))
-        val name = cursor.getString(cursor.getColumnIndex(DBContract.BankEntry.COLUMN_NAME.value))
-        val initials = cursor.getString(cursor.getColumnIndex(DBContract.BankEntry.COLUMN_INITIALS.value))
-        val logo = cursor.getString(cursor.getColumnIndex(DBContract.BankEntry.COLUMN_LOGO.value))
+            return Bank(id = id, name = name, initials = initials, logo = logo)
+        }
 
-        return Bank(id = id, name = name, initials = initials, logo = logo)
     }
 }
