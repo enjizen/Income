@@ -11,7 +11,9 @@ object DBContract {
         COLUMN_ACCOUNT_NUMBER("number"),
         COLUMN_NAME("name"),
         COLUMN_BALANCE("balance"),
-        COLUMN_BANK_ID("bank_id")
+        COLUMN_BANK_ID("bank_id"),
+        COLUMN_MONEY_INCOME("money_income"),
+        COLUMN_MONEY_OUTCOME("money_outcome")
     }
 
     enum class BankEntry(val value: String){

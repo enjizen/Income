@@ -9,8 +9,6 @@ interface AddAccountView {
 
     fun getAccountName(): String?
 
-    fun getBalance(): Double?
-
     fun onShowLoading()
 
     fun onHideLoading()
@@ -20,8 +18,6 @@ interface AddAccountView {
     fun onAccountNumberInvalid()
 
     fun onAccountNameInvalid()
-
-    fun onAccountBalanceInvalid()
 
     fun displayBank(banks: ArrayList<Bank>)
 

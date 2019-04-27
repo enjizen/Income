@@ -71,14 +71,6 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView {
 
     override fun getAccountName(): String? = etAccountName.getText()
 
-    override fun getBalance(): Double? {
-        return if (etAccountBalance.getText().isNotBlank()) {
-            etAccountBalance.getText().toDouble()
-        } else {
-            null
-        }
-    }
-
     override fun onAccountNumberInvalid() {
         etAccountNumber.invalidStyle()
     }
@@ -87,9 +79,6 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView {
         etAccountName.invalidStyle()
     }
 
-    override fun onAccountBalanceInvalid() {
-        etAccountBalance.invalidStyle()
-    }
 
     override fun onShowLoading() {
         showLoading()

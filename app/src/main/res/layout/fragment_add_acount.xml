@@ -55,15 +55,6 @@
                     android:inputType="text|textNoSuggestions"
             />
 
-            <cockatoo.enjizen.income.custom.edittext.EditText
-                    android:id="@+id/etAccountBalance"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:labelText="@string/balance"
-                    android:inputType="numberDecimal"
-                    android:hint="@string/_0_00"
-                    android:textAlignment="textEnd"
-            />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

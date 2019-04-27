@@ -8,7 +8,7 @@ interface AccountView
 
     fun onHideLoading()
 
-    fun setDataAccount(accounts: ArrayList<Account>)
+    fun displayAccount(accounts: ArrayList<Account>)
 
     fun getAccountId(position: Int): Int
 

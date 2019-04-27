@@ -18,4 +18,5 @@ class IncomeService {
         DBHelper.getInstance().insert(DBContract.IncomeEntry.TABLE_NAME.value, values)
         return true
     }
+
 }

@@ -28,16 +28,10 @@ class AddAccountPresenter(
             inValid = true
         }
 
-        if (view.getBalance() == null) {
-            view.onAccountBalanceInvalid()
-            inValid = true
-        }
-
         if(!inValid) {
            val isValid =  service.insertAccount(bankId = view.getBankId()
                 , accountNumber = view.getAccountNumber()!!
-                , name = view.getAccountName()!!
-                , balance = view.getBalance()!!)
+                , name = view.getAccountName()!!)
 
             if(isValid){
                 view.onAddAccountSuccess(accountNumber = view.getAccountNumber()!!)

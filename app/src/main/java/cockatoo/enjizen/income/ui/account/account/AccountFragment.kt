@@ -59,20 +59,18 @@ class AccountFragment : BaseFragment(), AddAccountFragment.AddAccountListener, A
                     override fun onClick(view: View, position: Int) {
                         presenter.get(position)
                     }
-
                     override fun onLongClick(view: View?, position: Int) {
 
                     }
                 })
         )
-
     }
 
     override fun onDismissAddAccount() {
         presenter.getAllAccount()
     }
 
-    override fun setDataAccount(accounts: ArrayList<Account>) {
+    override fun displayAccount(accounts: ArrayList<Account>) {
         this.accounts.clear()
         this.accounts.addAll(accounts)
         accountRecyclerViewAdapter.notifyDataSetChanged()

@@ -81,7 +81,7 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
         }
     }
 
-    fun rawQuery(sql: String) : Cursor{
+    fun rawQuery(sql: String) : Cursor?{
         val db = instance!!.getReadableDatabase(pass)
         return db.rawQuery(sql, null)
     }
@@ -128,8 +128,7 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
                 "${DBContract.AccountEntry.COLUMN_ID.value} INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "${DBContract.AccountEntry.COLUMN_BANK_ID.value} INT," +
                 "${DBContract.AccountEntry.COLUMN_ACCOUNT_NUMBER.value} TEXT," +
-                "${DBContract.AccountEntry.COLUMN_NAME.value} TEXT," +
-                "${DBContract.AccountEntry.COLUMN_BALANCE.value} NUMERIC(10,2) NOT NULL DEFAULT 0.00)"
+                "${DBContract.AccountEntry.COLUMN_NAME.value} TEXT)"
 
 
         private val SQL_CREATE_BANK_TABLE = "CREATE TABLE ${DBContract.BankEntry.TABLE_NAME.value} (" +
