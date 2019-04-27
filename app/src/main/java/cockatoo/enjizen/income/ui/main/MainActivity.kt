@@ -10,7 +10,7 @@ import cockatoo.enjizen.income.base.BaseActivity
 import cockatoo.enjizen.income.ui.inoutcome.InOutComeActivity
 import cockatoo.enjizen.income.ui.main.home.HomeFragment
 import cockatoo.enjizen.income.ui.main.other.MoreFragment
-import cockatoo.enjizen.income.ui.router.BaseRouterActivity
+import cockatoo.enjizen.income.base.BaseRouterActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

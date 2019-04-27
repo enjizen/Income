@@ -1,4 +1,4 @@
-package cockatoo.enjizen.income.ui.router
+package cockatoo.enjizen.income.base
 
 import android.app.Activity
 import android.content.Intent

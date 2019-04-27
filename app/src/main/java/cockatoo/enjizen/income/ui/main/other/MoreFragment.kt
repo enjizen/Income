@@ -17,7 +17,7 @@ import cockatoo.enjizen.income.ui.account.AccountActivity
 import cockatoo.enjizen.income.adapter.recyclerview.MenuMoreRecyclerViewAdapter
 import cockatoo.enjizen.income.base.BaseFragment
 import cockatoo.enjizen.income.ui.password.PasswordActivity
-import cockatoo.enjizen.income.ui.router.BaseRouterActivity
+import cockatoo.enjizen.income.base.BaseRouterActivity
 import kotlinx.android.synthetic.main.fragment_more.*
 
 class MoreFragment : BaseFragment(), MorePresenter.MoreView {
