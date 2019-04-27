@@ -1,12 +1,10 @@
 <resources>
-    <string name="app_name">Income</string>
+    <string name="app_name">บัญชีรายรับ-จ่าย</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="account">บัญชี</string>
     <string name="add_account">เพิ่มบัญชี</string>
     <string name="title_activity_login">Sign in</string>
-    <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -23,4 +21,46 @@
     <string name="message_account_number">เพิ่มบัญชีเลขที่</string>
     <string name="finish">เสร็จสิ้น</string>
     <string name="total_currency_in_account">จำนวนเงินในบัญชี (บาท)</string>
+    <string name="edit">แก้ไข</string>
+    <string name="delete">ลบ</string>
+    <string name="save">บันทึก</string>
+    <string name="bank_bbl">ธนาคารกรุงเทพ</string>
+    <string name="bank_kbank">ธนาคารกสิกรไทย</string>
+    <string name="bank_ktb">ธนาคารกรุงไทย</string>
+    <string name="bank_tmb">ธนาคารทหารไทย</string>
+    <string name="bank_scb">ธนาคารไทยพาณิชย์</string>
+    <string name="bank_bay">ธนาคารกรุงศรีอยุธยา</string>
+    <string name="bank_kkp">ธนาคารเกียรตินาคิน</string>
+    <string name="bank_cimb_thai">ธนาคารซีไอเอ็มบีไทย</string>
+    <string name="bank_tisco">ธนาคารทิสโก้</string>
+    <string name="bank_tbank">ธนาคารธนชาต</string>
+    <string name="bank_uob">ธนาคารยูโอบี</string>
+    <string name="bank_tcd">ธนาคารไทยเครดิตเพื่อรายย่อย</string>
+    <string name="open_drawer">เปิด</string>
+    <string name="close_drawer">ปิด</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="set_password">ตั้งรหัสผ่าน</string>
+    <string name="confirm_password">ยืนยันรหัสผ่าน</string>
+    <string name="change_password">เปลี่ยนรหัสผ่าน</string>
+    <string name="authentication_password">เข้าสู่ระบบ</string>
+    <string name="current_password">รหัสผ่านปัจจุบัน</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="flour">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="zero">0</string>
+    <string name="security_system">ระบบความปลอดภัย</string>
+    <string name="add_outcome">เพิ่มรายจ่าย</string>
+    <string name="add_income">เพิ่มรายรับ</string>
+    <string name="bank">ธนาคาร</string>
+    <string name="authentication_fail">รหัสผ่านไม่ถูกต้อง กรุณาลองอีกครั้ง</string>
+    <string name="confirm_password_not_match">ยืนยันรหัสผ่านไม่ตรง</string>
+    <string name="set_password_success">ตั้งรหัสผ่านสำเร็จ</string>
+    <string name="logout">ออกจากระบบ</string>
+    <string name="income_account">เอาเงินเข้าบัญชี</string>
 </resources>

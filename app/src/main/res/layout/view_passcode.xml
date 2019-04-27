@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/layoutPasscodeVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layoutPasscode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/pin1"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginEnd="@dimen/default_margin_padding_16dp"
+                android:background="@drawable/circle_password_default" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/pin2"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginEnd="@dimen/default_margin_padding_16dp"
+                android:background="@drawable/circle_password_default" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/pin3"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginEnd="@dimen/default_margin_padding_16dp"
+                android:background="@drawable/circle_password_default" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/pin4"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginEnd="@dimen/default_margin_padding_16dp"
+                android:background="@drawable/circle_password_default" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/pin5"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginEnd="@dimen/default_margin_padding_16dp"
+                android:background="@drawable/circle_password_default" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/pin6"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:background="@drawable/circle_password_default" />
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewErrorMessage"
+            style="@style/TextView.cinnabar.16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/default_margin_padding_16dp"
+            android:textAlignment="center"
+            android:visibility="visible"
+        />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editTextPasscode"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_alignStart="@+id/layoutPasscodeVertical"
+        android:layout_alignEnd="@+id/layoutPasscodeVertical"
+        android:layout_alignBottom="@+id/layoutPasscodeVertical"
+        android:layout_alignTop="@+id/layoutPasscodeVertical"
+        android:background="@null"
+        android:clickable="true"
+        android:cursorVisible="false"
+        android:focusable="true"
+        android:inputType="number"
+        android:maxLength="6"
+        android:visibility="invisible"
+        android:textColor="@android:color/transparent" />
+
+
+
+</RelativeLayout>

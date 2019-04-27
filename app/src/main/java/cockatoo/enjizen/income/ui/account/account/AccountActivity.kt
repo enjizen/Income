@@ -1,10 +1,10 @@
 package cockatoo.enjizen.income.ui.account.account
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import cockatoo.enjizen.income.R
+import cockatoo.enjizen.income.ui.base.BaseActivity
 
-class AccountActivity : AppCompatActivity() {
+class AccountActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

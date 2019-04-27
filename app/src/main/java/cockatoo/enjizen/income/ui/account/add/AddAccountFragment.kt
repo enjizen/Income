@@ -1,20 +1,23 @@
 package cockatoo.enjizen.income.ui.account.add
 
 
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.DialogFragment
 
 import cockatoo.enjizen.income.R
-import cockatoo.enjizen.income.ui.service.AccountService
 import com.valdesekamdem.library.mdtoast.MDToast
 import kotlinx.android.synthetic.main.fragment_add_acount.*
 import android.content.DialogInterface
+import android.text.Editable
+import android.text.TextWatcher
+import cockatoo.enjizen.income.model.Bank
+import cockatoo.enjizen.income.ui.adapter.spinner.BankAdapter
 import cockatoo.enjizen.income.ui.base.BaseDialogFragment
+import kotlinx.android.synthetic.main.edit_text.view.*
+import kotlinx.android.synthetic.main.spinner.view.*
 
 
 class AddAccountFragment : BaseDialogFragment(), AddAccountView {
@@ -24,14 +27,10 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.FullScreenDialogStyle)
-
-        presenter = AddAccountPresenter(
-            this,
-            AccountService()
-        )
-
+        setStyle(STYLE_NORMAL, R.style.FullScreenDialogStyle)
+        presenter = AddAccountPresenter(this)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,27 +40,25 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView {
         super.onViewCreated(view, savedInstanceState)
 
         setToolbarListener(toolBar)
+
+        presenter.getBankAll()
+
         btnSave.setOnClickListener {
-            presenter.addAccount(etAccountNumber.getText().toString()
-                                , etAccountName.getText().toString()
-                                , etAccountBalance.getText().toString().toDouble())
+            presenter.addAccount()
         }
+
+        etAccountNumber.getEditText().addTextChangedListener(editTextAccount)
     }
 
-    override fun onStart() {
-        super.onStart()
-        val dialog = dialog
-        if (dialog != null) {
-            val width = ViewGroup.LayoutParams.MATCH_PARENT
-            val height = ViewGroup.LayoutParams.MATCH_PARENT
-            dialog.window!!.setBackgroundDrawable( ColorDrawable(resources.getColor(android.R.color.transparent, context!!.theme)))
-            dialog.window!!.setLayout(width, height)
-        }
-    }
 
 
     override fun onAddAccountSuccess(accountNumber: String) {
-        MDToast.makeText(context,  "${getString(R.string.message_account_number)} $accountNumber ${getString(R.string.finish)}", Toast.LENGTH_SHORT, MDToast.TYPE_SUCCESS).show()
+        MDToast.makeText(
+            context,
+            "${getString(R.string.message_account_number)} $accountNumber ${getString(R.string.finish)}",
+            Toast.LENGTH_SHORT,
+            MDToast.TYPE_SUCCESS
+        ).show()
         dismiss()
     }
 
@@ -70,23 +67,71 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountView {
         listener.onDismissAddAccount()
     }
 
+    override fun getAccountNumber(): String? = etAccountNumber.getText()
+
+    override fun getAccountName(): String? = etAccountName.getText()
+
+    override fun onAccountNumberInvalid() {
+        etAccountNumber.invalidStyle()
+    }
+
+    override fun onAccountNameInvalid() {
+        etAccountName.invalidStyle()
+    }
+
 
     override fun onShowLoading() {
-       // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        showLoading()
     }
 
     override fun onHideLoading() {
-       // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        hideLoading()
+    }
+
+    override fun displayBank(banks: ArrayList<Bank>) {
+
+        val adapter = BankAdapter(bankList = banks)
+        bankSpinner.spinner.adapter = adapter
+    }
+
+    override fun getBankId(): Int {
+        return bankSpinner.spinner.selectedItemPosition + 1
+    }
+
+    override fun accountNumberRemoveTextChangedListener(watcher: TextWatcher) {
+        etAccountNumber.editText.removeTextChangedListener(watcher)
+    }
+
+    override fun accountNumberAddTextChangedListener(watcher: TextWatcher) {
+        etAccountNumber.editText.addTextChangedListener(watcher)
+    }
+
+    override fun displayEditTextAccountNumberFormat(accountNumberFormat: String) {
+        etAccountNumber.editText.setText(accountNumberFormat)
+        etAccountNumber.editText.setSelection(accountNumberFormat.length)
     }
 
 
     fun setListener(listener: AddAccountListener) {
         this.listener = listener
-
     }
 
     interface AddAccountListener {
         fun onDismissAddAccount()
+    }
+
+
+    private var editTextAccount: TextWatcher = object : TextWatcher {
+
+        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+            presenter.editTextAccountNumberFormat(this)
+        }
+
+        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+        }
+
+        override fun afterTextChanged(editText: Editable) {
+        }
     }
 
     companion object {

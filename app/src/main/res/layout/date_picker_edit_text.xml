@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@android:color/background_light"
+>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewLabel"
+            style="@style/TextView.BrownGrey.Extra_ExtraSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_margin_padding_8dp"
+            android:textStyle="bold"
+            tools:text="อีเมล์"
+            />
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/editText"
+                style="@style/TextView.Black.ExtraSmall"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_margin_padding_44dp"
+                android:background="@drawable/edit_text_normal"
+                android:textStyle="bold"
+                android:textColorHint="@color/brownGrey"
+                tools:text="อีเมล์"
+        />
+    </RelativeLayout>
+
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewErrorMessage"
+            style="@style/TextView.PumpkinOrange.15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_marginTop="@dimen/default_margin_padding_8dp"
+            />
+
+
+</LinearLayout>

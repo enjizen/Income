@@ -18,6 +18,9 @@
         <attr name="inputTextSize" format="float"/>
         <attr name="errorMessageSize" format="float"/>
         <attr name="android:hint" format="string" />
+        <attr name="android:textAlignment"/>
+        <attr name="isMask" format="boolean"/>
+        <attr name="maskText" format="string"/>
     </declare-styleable>
 
     <declare-styleable name="Toolbar">
@@ -26,11 +29,7 @@
         <attr name="showCloseButton" format="boolean"/>
     </declare-styleable>
 
-    <declare-styleable name="CimbProfileItem">
-        <attr name="android:text" format="string"/>
-        <attr name="showIconNext" format="boolean"/>
-        <attr name="setTitleMessage" format="string"/>
-        <attr name="setMessage" format="string" />
+    <declare-styleable name="Spinner">
+        <attr name="spinnerLabel" format="string" />
     </declare-styleable>
-
 </resources>

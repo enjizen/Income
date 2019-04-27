@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/default_margin_padding_44dp"
+              android:paddingStart="@dimen/default_margin_padding_16dp"
+                android:gravity="center"
+>
+
+<androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageViewIcon"
+        android:layout_width="@dimen/default_margin_padding_24dp"
+        android:layout_height="@dimen/default_margin_padding_24dp"
+        app:srcCompat="@drawable/ic_account"
+/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textViewItemMenu"
+            style="@style/TextView.Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/default_text_size_16sp"
+            android:layout_marginStart="@dimen/default_margin_padding_8dp"
+            android:layout_toEndOf="@+id/imageViewIcon"
+            tools:text="บัญชี"
+    />
+
+</RelativeLayout>

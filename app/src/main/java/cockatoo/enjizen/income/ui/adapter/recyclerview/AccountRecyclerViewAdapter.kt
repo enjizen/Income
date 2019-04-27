@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.extension.numberAccountBalanceFormat
+import cockatoo.enjizen.income.manger.Contextor
 import cockatoo.enjizen.income.model.Account
 import kotlinx.android.synthetic.main.item_account_list.view.*
 
@@ -19,6 +20,8 @@ class AccountRecyclerViewAdapter(private val accountList: ArrayList<Account>) : 
         holder.accountNumber.text = accountList[position].accountNumber
         holder.accountName.text = accountList[position].name
         holder.accountBalance.text = accountList[position].balance.numberAccountBalanceFormat()
+        holder.logoBank.setImageResource(Contextor.getInstance().context!!.resources.getIdentifier(accountList[position].logo, "drawable", Contextor.getInstance().context!!.packageName))
+
     }
 
     override fun getItemCount(): Int = accountList.size
@@ -27,6 +30,7 @@ class AccountRecyclerViewAdapter(private val accountList: ArrayList<Account>) : 
         val accountNumber = view.accountNumber!!
         val accountName = view.accountName!!
         val accountBalance = view.totalBalance!!
+        val logoBank = view.imageViewLogoBank!!
 
     }
 

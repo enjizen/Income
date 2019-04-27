@@ -8,6 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
     <style name="FullScreenDialogStyle" parent="Theme.AppCompat.Dialog">
         <item name="android:windowNoTitle">true</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -21,44 +32,46 @@
         <!-- This is important! Don't forget to set window background -->
         <!--<item name="android:windowBackground">@android:color/white</item>-->
 
-        <!-- Additionally if you want animations when dialog opening -->
+    </style>
+
+    <style name="DialogAnimation">
         <item name="android:windowEnterAnimation">@anim/slide_up</item>
         <item name="android:windowExitAnimation">@anim/slide_down</item>
     </style>
 
 
     <style name="TextView">
-        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:textSize">@dimen/default_text_size_24sp</item>
     </style>
 
     <style name="TextView.Medium">
-        <item name="android:textSize">@dimen/default_text_size_large</item>
+        <item name="android:textSize">@dimen/default_text_size_26sp</item>
     </style>
 
     <style name="TextView.Large">
-        <item name="android:textSize">@dimen/default_text_size_extra_large</item>
+        <item name="android:textSize">@dimen/default_text_size_30sp</item>
     </style>
 
     <style name="TextView.Small">
-        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <item name="android:textSize">@dimen/default_text_size_20sp</item>
     </style>
 
     <style name="TextView.Smaller">
-        <item name="android:textSize">@dimen/default_text_size_smaller</item>
+        <item name="android:textSize">@dimen/default_text_size_18sp</item>
     </style>
 
     <style name="TextView.ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_16sp</item>
     </style>
 
     <style name="TextView.ExtraExtraSmallNoBack">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_12sp</item>
     </style>
     <style name="TextView.ExtraExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_12sp</item>
     </style>
     <style name="TextView.ExtraExtraExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_8sp</item>
     </style>
 
     <style name="TextView.Black">
@@ -66,40 +79,38 @@
     </style>
 
     <style name="TextView.Black.Extra_Large">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_large</item>
+        <item name="android:textSize">@dimen/default_text_size_36sp</item>
     </style>
 
     <style name="TextView.Black.Large">
-        <item name="android:textSize">@dimen/default_text_size_extra_large</item>
+        <item name="android:textSize">@dimen/default_text_size_30sp</item>
     </style>
 
     <style name="TextView.Black.Small">
-        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <item name="android:textSize">@dimen/default_text_size_20sp</item>
     </style>
 
     <style name="TextView.Black.Smaller">
-        <item name="android:textSize">@dimen/default_text_size_smaller</item>
+        <item name="android:textSize">@dimen/default_text_size_18sp</item>
     </style>
 
     <style name="TextView.Black.ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_16sp</item>
     </style>
 
 
     <style name="TextView.Black.Extra_ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_15sp</item>
     </style>
 
     <style name="TextView.Black.Extra_Extra_ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_12sp</item>
     </style>
 
 
     <style name="TextView.Black.Extra_Extra_Extra_ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_8sp</item>
     </style>
-
-
 
 
     <style name="TextView.BrownGrey">
@@ -107,82 +118,156 @@
     </style>
 
     <style name="TextView.BrownGrey.Extra_Large">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_large</item>
+        <item name="android:textSize">@dimen/default_text_size_36sp</item>
     </style>
 
     <style name="TextView.BrownGrey.Large">
-        <item name="android:textSize">@dimen/default_text_size_extra_large</item>
+        <item name="android:textSize">@dimen/default_text_size_30sp</item>
     </style>
 
     <style name="TextView.BrownGrey.Small">
-        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <item name="android:textSize">@dimen/default_text_size_20sp</item>
     </style>
 
     <style name="TextView.BrownGrey.Smaller">
-        <item name="android:textSize">@dimen/default_text_size_smaller</item>
+        <item name="android:textSize">@dimen/default_text_size_18sp</item>
     </style>
 
     <style name="TextView.BrownGrey.ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_16sp</item>
     </style>
 
 
     <style name="TextView.BrownGrey.Extra_ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_small</item>
+        <item name="android:textSize">@dimen/default_text_size_15sp</item>
     </style>
 
-    <style name="TextView.BrownGrey.Extra_Extra_ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
+    <style name="TextView.BrownGrey.12sp">
+        <item name="android:textSize">@dimen/default_text_size_12sp</item>
     </style>
 
-    <style name="TextView.BrownGrey.Extra_Extra_Extra_ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
+    <style name="TextView.BrownGrey.8sp">
+        <item name="android:textSize">@dimen/default_text_size_8sp</item>
     </style>
-
 
 
     <style name="TextView.PumpkinOrange">
         <item name="android:textColor">@color/pumpkinOrange</item>
     </style>
 
-    <style name="TextView.PumpkinOrange.Extra_Large">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_large</item>
+    <style name="TextView.PumpkinOrange.36sp">
+        <item name="android:textSize">@dimen/default_text_size_36sp</item>
     </style>
 
-    <style name="TextView.PumpkinOrange.Large">
-        <item name="android:textSize">@dimen/default_text_size_extra_large</item>
+    <style name="TextView.PumpkinOrange.30sp">
+        <item name="android:textSize">@dimen/default_text_size_30sp</item>
     </style>
 
-    <style name="TextView.PumpkinOrange.Small">
-        <item name="android:textSize">@dimen/default_text_size_small</item>
+    <style name="TextView.PumpkinOrange.20sp">
+        <item name="android:textSize">@dimen/default_text_size_20sp</item>
     </style>
 
-    <style name="TextView.PumpkinOrange.Smaller">
-        <item name="android:textSize">@dimen/default_text_size_smaller</item>
+    <style name="TextView.PumpkinOrange.18sp">
+        <item name="android:textSize">@dimen/default_text_size_18sp</item>
     </style>
 
-    <style name="TextView.PumpkinOrange.ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_small</item>
-    </style>
-
-
-    <style name="TextView.PumpkinOrange.Extra_ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_small</item>
-    </style>
-
-    <style name="TextView.PumpkinOrange.Extra_Extra_ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_small</item>
-    </style>
-
-    <style name="TextView.PumpkinOrange.Extra_Extra_Extra_ExtraSmall">
-        <item name="android:textSize">@dimen/default_text_size_extra_extra_extra_extra_small</item>
+    <style name="TextView.PumpkinOrange.16sp">
+        <item name="android:textSize">@dimen/default_text_size_16sp</item>
     </style>
 
 
+    <style name="TextView.PumpkinOrange.15sp">
+        <item name="android:textSize">@dimen/default_text_size_15sp</item>
+    </style>
+
+    <style name="TextView.PumpkinOrange.12sp">
+        <item name="android:textSize">@dimen/default_text_size_12sp</item>
+    </style>
+
+    <style name="TextView.PumpkinOrange.8sp">
+        <item name="android:textSize">@dimen/default_text_size_8sp</item>
+    </style>
 
 
+    <!--Red-->
 
-    <style name="ButtonCompat" parent="TextView" />
+    <style name="TextView.cinnabar">
+        <item name="android:textColor">@color/cinnabar</item>
+    </style>
+
+    <style name="TextView.cinnabar.36sp">
+        <item name="android:textSize">@dimen/default_text_size_36sp</item>
+    </style>
+
+    <style name="TextView.cinnabar.30sp">
+        <item name="android:textSize">@dimen/default_text_size_30sp</item>
+    </style>
+
+    <style name="TextView.cinnabar.20sp">
+        <item name="android:textSize">@dimen/default_text_size_20sp</item>
+    </style>
+
+    <style name="TextView.cinnabar.18sp">
+        <item name="android:textSize">@dimen/default_text_size_18sp</item>
+    </style>
+
+    <style name="TextView.cinnabar.16sp">
+        <item name="android:textSize">@dimen/default_text_size_16sp</item>
+    </style>
+
+
+    <style name="TextView.cinnabar.15sp">
+        <item name="android:textSize">@dimen/default_text_size_15sp</item>
+    </style>
+
+    <style name="TextView.cinnabar.12sp">
+        <item name="android:textSize">@dimen/default_text_size_12sp</item>
+    </style>
+
+    <style name="TextView.cinnabar.8sp">
+        <item name="android:textSize">@dimen/default_text_size_8sp</item>
+    </style>
+
+
+    <style name="TextView.White">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextView.White.Extra_Large">
+        <item name="android:textSize">@dimen/default_text_size_36sp</item>
+    </style>
+
+    <style name="TextView.White.Large">
+        <item name="android:textSize">@dimen/default_text_size_30sp</item>
+    </style>
+
+    <style name="TextView.White.Small">
+        <item name="android:textSize">@dimen/default_text_size_20sp</item>
+    </style>
+
+    <style name="TextView.White.Smaller">
+        <item name="android:textSize">@dimen/default_text_size_18sp</item>
+    </style>
+
+    <style name="TextView.White.ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_16sp</item>
+    </style>
+
+
+    <style name="TextView.White.Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_15sp</item>
+    </style>
+
+    <style name="TextView.White.Extra_Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_12sp</item>
+    </style>
+
+    <style name="TextView.White.Extra_Extra_Extra_ExtraSmall">
+        <item name="android:textSize">@dimen/default_text_size_8sp</item>
+    </style>
+
+
+    <style name="ButtonCompat" parent="TextView"/>
 
 
     <style name="TextAppearance.Font.Number" parent="android:TextAppearance">
@@ -195,16 +280,16 @@
         <item name="android:minHeight">36dp</item>
         <item name="android:height">16dp</item>
         <item name="android:clickable">true</item>
-        <item name="android:paddingTop">@dimen/default_margin_padding</item>
-        <item name="android:paddingBottom">@dimen/default_margin_padding</item>
+        <item name="android:paddingTop">@dimen/default_margin_padding_8dp</item>
+        <item name="android:paddingBottom">@dimen/default_margin_padding_8dp</item>
         <item name="android:textAllCaps">false</item>
     </style>
 
 
     <style name="IncomeButton.default">
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:background">@drawable/selector_button_default</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">@dimen/default_text_size_smaller</item>
+        <item name="android:textSize">@dimen/default_text_size_18sp</item>
     </style>
 
 
@@ -222,5 +307,14 @@
     <style name="CardView.Dark">
         <item name="cardBackgroundColor">@color/cardview_dark_background</item>
     </style>
+
+    <style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">
+
+    </style>
+
+    <style name="spinnerDropDownItemStyle" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
+
+    </style>
+
 
 </resources>
