@@ -2,16 +2,13 @@ package cockatoo.enjizen.income.ui.channel
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import cockatoo.enjizen.income.constant.IntentKey
 import cockatoo.enjizen.income.constant.PasswordMode
-import cockatoo.enjizen.income.ui.base.BaseActivity
+import cockatoo.enjizen.income.base.BaseActivity
 import cockatoo.enjizen.income.ui.main.MainActivity
 import cockatoo.enjizen.income.ui.password.PasswordActivity
 
-class VerifyChannelActivity : BaseActivity(), VerifyChannelView {
+class VerifyChannelActivity : BaseActivity(), VerifyChannelPresenter.VerifyChannelView {
 
     private lateinit var presenter: VerifyChannelPresenter
 
@@ -19,7 +16,7 @@ class VerifyChannelActivity : BaseActivity(), VerifyChannelView {
         super.onCreate(savedInstanceState)
 
         presenter = VerifyChannelPresenter(this)
-        presenter.checkSetupPassworded()
+        presenter.checkSetupPassword()
 
     }
 

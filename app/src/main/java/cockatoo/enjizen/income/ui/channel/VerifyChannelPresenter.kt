@@ -5,7 +5,13 @@ import cockatoo.enjizen.income.manger.SharedPreferenceSecureUtil
 
 class VerifyChannelPresenter(private val view: VerifyChannelView) {
 
-    fun checkSetupPassworded(){
+    interface VerifyChannelView {
+        fun haveNotSetPassword()
+
+        fun passwordAlreadySet()
+    }
+
+    fun checkSetupPassword(){
 
       val password = SharedPreferenceSecureUtil.getString(KeyConstant.PASSWORD.value)
 

@@ -6,7 +6,7 @@ import cockatoo.enjizen.income.extension.dateFormatSaveDB
 import cockatoo.enjizen.income.manger.db.DBHelper
 import java.util.*
 
-class IncomeService {
+object IncomeService {
 
     fun insertIncome(detail: String, moneyIncome: Double, accountId: Int, dateIncome: Date) : Boolean{
         val values = ContentValues().apply {

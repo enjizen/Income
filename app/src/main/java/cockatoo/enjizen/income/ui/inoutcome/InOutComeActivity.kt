@@ -2,7 +2,7 @@ package cockatoo.enjizen.income.ui.inoutcome
 
 import android.os.Bundle
 import cockatoo.enjizen.income.R
-import cockatoo.enjizen.income.ui.base.BaseActivity
+import cockatoo.enjizen.income.base.BaseActivity
 import cockatoo.enjizen.income.ui.inoutcome.income.AddIncomeFragment
 
 class InOutComeActivity : BaseActivity() {

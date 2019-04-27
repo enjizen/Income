@@ -1,4 +1,4 @@
-package cockatoo.enjizen.income.ui.base
+package cockatoo.enjizen.income.base
 
 import android.graphics.drawable.ColorDrawable
 import android.view.ViewGroup

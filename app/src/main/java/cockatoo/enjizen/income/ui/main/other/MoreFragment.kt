@@ -13,14 +13,14 @@ import cockatoo.enjizen.income.constant.*
 import cockatoo.enjizen.income.manger.RecyclerTouchListener
 import cockatoo.enjizen.income.manger.SharedPreferenceSecureUtil
 import cockatoo.enjizen.income.model.MoreMenu
-import cockatoo.enjizen.income.ui.account.account.AccountActivity
-import cockatoo.enjizen.income.ui.adapter.recyclerview.MenuMoreRecyclerViewAdapter
-import cockatoo.enjizen.income.ui.base.BaseFragment
+import cockatoo.enjizen.income.ui.account.AccountActivity
+import cockatoo.enjizen.income.adapter.recyclerview.MenuMoreRecyclerViewAdapter
+import cockatoo.enjizen.income.base.BaseFragment
 import cockatoo.enjizen.income.ui.password.PasswordActivity
 import cockatoo.enjizen.income.ui.router.BaseRouterActivity
 import kotlinx.android.synthetic.main.fragment_more.*
 
-class MoreFragment : BaseFragment(), MoreView {
+class MoreFragment : BaseFragment(), MorePresenter.MoreView {
 
     private lateinit var presenter: MorePresenter
     private lateinit var router: BaseRouterActivity

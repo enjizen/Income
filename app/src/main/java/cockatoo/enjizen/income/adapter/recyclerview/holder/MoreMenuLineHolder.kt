@@ -1,4 +1,4 @@
-package cockatoo.enjizen.income.ui.adapter.recyclerview.holder
+package cockatoo.enjizen.income.adapter.recyclerview.holder
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

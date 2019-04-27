@@ -7,13 +7,13 @@ import android.view.ViewGroup
 
 import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.custom.edittext.Password
-import cockatoo.enjizen.income.ui.base.BaseFragment
+import cockatoo.enjizen.income.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_password.*
 import kotlinx.android.synthetic.main.view_passcode.view.*
 import kotlinx.android.synthetic.main.view_keyboard_password.*
 
 
-class SetPasswordFragment : BaseFragment(), Password.PasswordListener , View.OnClickListener, SetPasswordView {
+class SetPasswordFragment : BaseFragment(), Password.PasswordListener , View.OnClickListener, SetPasswordPresenter.SetPasswordView {
 
     private lateinit var listener: SetPasswordListener
     private lateinit var presenter: SetPasswordPresenter

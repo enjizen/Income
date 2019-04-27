@@ -9,15 +9,27 @@ import kotlin.collections.ArrayList
 
 class AddIncomePresenter(private val view: AddIncomeView) {
 
-    private val incomeService = IncomeService()
-    private val accountService = AccountService()
+    interface AddIncomeView {
+
+        fun displayAccount(accounts: ArrayList<Account>)
+
+        fun displayCurrentDate(dateValue: String)
+
+        fun getAccountSpinnerPosition() : Int
+
+        fun getDetail() : String
+
+        fun getMoneyIncome() : String
+
+        fun saveSuccess()
+    }
 
     private var dateIncome: Date? = null
     private var accountList: ArrayList<Account>? = null
 
     fun getAccount() {
 
-        accountList = accountService.getAllAccount()
+        accountList = AccountService.getAllAccount()
 
         view.displayAccount(accountList!!)
     }
@@ -29,7 +41,7 @@ class AddIncomePresenter(private val view: AddIncomeView) {
 
     fun saveIncome(){
         val accountId = accountList?.get(view.getAccountSpinnerPosition())!!.id
-        val isResult = incomeService.insertIncome(view.getDetail(), view.getMoneyIncome().toDouble(), accountId, dateIncome!!)
+        val isResult = IncomeService.insertIncome(view.getDetail(), view.getMoneyIncome().toDouble(), accountId, dateIncome!!)
         if(isResult){
             view.saveSuccess()
         }

@@ -4,6 +4,19 @@ import androidx.appcompat.widget.AppCompatButton
 
 class SetPasswordPresenter (private val view: SetPasswordView) {
 
+    interface SetPasswordView {
+
+        fun getEditTextPin() : String
+
+        fun displayPinPassword(pin: String)
+
+        fun sentConfirmPassword(password: String)
+
+        fun clearPasswordEditText()
+
+        fun displayPinPasswordAll()
+    }
+
     fun setPin(textViewPin: AppCompatButton){
         val pin = textViewPin.text
         val temp = view.getEditTextPin()

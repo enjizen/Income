@@ -1,4 +1,4 @@
-package cockatoo.enjizen.income.ui.base
+package cockatoo.enjizen.income.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

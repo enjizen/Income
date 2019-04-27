@@ -9,13 +9,13 @@ import android.widget.Toast
 
 import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.custom.edittext.Password
-import cockatoo.enjizen.income.ui.base.BaseFragment
+import cockatoo.enjizen.income.base.BaseFragment
 import com.valdesekamdem.library.mdtoast.MDToast
 import kotlinx.android.synthetic.main.fragment_password.*
 import kotlinx.android.synthetic.main.view_keyboard_password.*
 import kotlinx.android.synthetic.main.view_passcode.view.*
 
-class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordView , Password.PasswordListener , View.OnClickListener {
+class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordPresenter.ConfirmPasswordView , Password.PasswordListener , View.OnClickListener {
     private lateinit var listener: ConfirmPasswordListener
 
     private lateinit var presenter: ConfirmPasswordPresenter

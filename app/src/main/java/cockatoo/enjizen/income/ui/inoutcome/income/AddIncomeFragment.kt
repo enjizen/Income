@@ -10,8 +10,8 @@ import android.view.WindowManager
 
 import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.model.Account
-import cockatoo.enjizen.income.ui.adapter.spinner.AccountAdapter
-import cockatoo.enjizen.income.ui.base.BaseFragment
+import cockatoo.enjizen.income.adapter.spinner.AccountAdapter
+import cockatoo.enjizen.income.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_add_income.*
 import kotlinx.android.synthetic.main.spinner.view.*
 import java.util.*
@@ -21,7 +21,7 @@ import android.widget.Toast
 import com.valdesekamdem.library.mdtoast.MDToast
 
 
-class AddIncomeFragment : BaseFragment(), AddIncomeView , View.OnClickListener{
+class AddIncomeFragment : BaseFragment(), AddIncomePresenter.AddIncomeView , View.OnClickListener{
 
     private var mDay: Int = 0
     private var mMonth: Int = 0

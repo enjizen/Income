@@ -6,7 +6,7 @@ import cockatoo.enjizen.income.manger.db.DBHelper
 import cockatoo.enjizen.income.model.Account
 import net.sqlcipher.Cursor
 
-class AccountService {
+object AccountService {
 
     fun insertAccount(bankId: Int, accountNumber: String, name: String): Boolean {
         val values = ContentValues().apply {

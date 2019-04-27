@@ -5,7 +5,7 @@ import cockatoo.enjizen.income.manger.db.DBHelper
 import cockatoo.enjizen.income.model.Bank
 import net.sqlcipher.Cursor
 
-class BankService {
+object BankService {
 
     fun getAllBank() : ArrayList<Bank>{
         val banks = ArrayList<Bank>()

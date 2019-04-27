@@ -6,7 +6,7 @@ import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.constant.IncomeMode
 import cockatoo.enjizen.income.constant.IntentKey
 import cockatoo.enjizen.income.constant.TransitionScreenType
-import cockatoo.enjizen.income.ui.base.BaseActivity
+import cockatoo.enjizen.income.base.BaseActivity
 import cockatoo.enjizen.income.ui.inoutcome.InOutComeActivity
 import cockatoo.enjizen.income.ui.main.home.HomeFragment
 import cockatoo.enjizen.income.ui.main.other.MoreFragment

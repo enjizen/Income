@@ -13,7 +13,7 @@
         <activity android:name=".ui.inoutcome.InOutComeActivity" android:screenOrientation="portrait">
         </activity>
         <activity android:name=".ui.password.PasswordActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".ui.account.account.AccountActivity"/>
+        <activity android:name=".ui.account.AccountActivity"/>
         <activity
                 android:name=".ui.main.MainActivity"  android:screenOrientation="portrait">
         </activity>

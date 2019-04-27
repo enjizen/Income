@@ -1,4 +1,4 @@
-package cockatoo.enjizen.income.ui.adapter.spinner
+package cockatoo.enjizen.income.adapter.spinner
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

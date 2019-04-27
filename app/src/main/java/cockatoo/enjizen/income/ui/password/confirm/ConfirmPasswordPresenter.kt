@@ -6,7 +6,18 @@ import cockatoo.enjizen.income.ui.service.PasswordService
 
 class ConfirmPasswordPresenter(private val view: ConfirmPasswordView) {
 
-    private val service = PasswordService()
+    interface ConfirmPasswordView {
+
+        fun onConfirmPasswordSuccess()
+
+        fun onConfirmPasswordNotMatch()
+
+        fun getEditTextPin() : String
+
+        fun displayPinPassword(pin: String)
+
+        fun getPasswordSet() : String
+    }
 
     fun confirmCheckPassword(confirmPassword: String){
 
@@ -15,7 +26,7 @@ class ConfirmPasswordPresenter(private val view: ConfirmPasswordView) {
 
                 val password = confirmPassword.hashPassword()
 
-                service.savePassword(password = password
+                PasswordService.savePassword(password = password
                     , onSuccess = { view.onConfirmPasswordSuccess() })
 
 

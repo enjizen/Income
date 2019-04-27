@@ -8,7 +8,7 @@ enum class BankInitialsConstant(val logo: String) {
     SCB("ic_scb"),
     BAY("ic_bay"),
     KKP("ic_kkp"),
-    CIMBTHAI("ic_cimbthai"),
+    CIMBTHAI("ic_cimb_thai"),
     TISCO("ic_tisco"),
     TBANK("ic_tbank"),
     UOB("ic_uob"),

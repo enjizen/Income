@@ -5,12 +5,20 @@ import cockatoo.enjizen.income.ui.service.PasswordService
 
 class AuthenticationPresenter(private val view: AuthenticationView) {
 
-    private val service = PasswordService()
+    interface AuthenticationView {
+        fun authenticationSuccess()
+
+        fun authenticationFail()
+
+        fun getEditTextPin() : String
+
+        fun displayPinPassword(pin: String)
+    }
 
     fun authentication(passwordInput: String){
         if(passwordInput.length == 6) {
 
-            val isValid = service.authenticationPassword(passwordInput = passwordInput)
+            val isValid = PasswordService.authenticationPassword(passwordInput = passwordInput)
 
             if (isValid) {
                 view.authenticationSuccess()

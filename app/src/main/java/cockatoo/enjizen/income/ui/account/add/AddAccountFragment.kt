@@ -14,13 +14,13 @@ import android.content.DialogInterface
 import android.text.Editable
 import android.text.TextWatcher
 import cockatoo.enjizen.income.model.Bank
-import cockatoo.enjizen.income.ui.adapter.spinner.BankAdapter
-import cockatoo.enjizen.income.ui.base.BaseDialogFragment
+import cockatoo.enjizen.income.adapter.spinner.BankAdapter
+import cockatoo.enjizen.income.base.BaseDialogFragment
 import kotlinx.android.synthetic.main.edit_text.view.*
 import kotlinx.android.synthetic.main.spinner.view.*
 
 
-class AddAccountFragment : BaseDialogFragment(), AddAccountView {
+class AddAccountFragment : BaseDialogFragment(), AddAccountPresenter.AddAccountView {
 
     private lateinit var presenter: AddAccountPresenter
     private lateinit var listener: AddAccountListener
