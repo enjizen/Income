@@ -20,11 +20,12 @@ class Initial {
 
             val values = ArrayList<ContentValues>()
             bankList.forEach {
-                val v = ContentValues()
-                v.put(DBContract.BankEntry.COLUMN_ID.value, it.id)
-                v.put(DBContract.BankEntry.COLUMN_NAME.value, it.name)
-                v.put(DBContract.BankEntry.COLUMN_INITIALS.value, it.initials)
-                v.put(DBContract.BankEntry.COLUMN_LOGO.value, it.logo)
+                val v = ContentValues().apply {
+                    put(DBContract.BankEntry.COLUMN_ID.value, it.id)
+                    put(DBContract.BankEntry.COLUMN_NAME.value, it.name)
+                    put(DBContract.BankEntry.COLUMN_INITIALS.value, it.initials)
+                    put(DBContract.BankEntry.COLUMN_LOGO.value, it.logo)
+                }
                 values.add(v)
             }
 
