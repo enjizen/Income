@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import cockatoo.enjizen.income.model.Account
 import android.widget.BaseAdapter
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import cockatoo.enjizen.income.R
@@ -17,7 +18,7 @@ class AccountAdapter(private val accountList: ArrayList<Account>) : BaseAdapter(
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val mInflater = LayoutInflater.from(parent!!.context)
         val item = mInflater.inflate(R.layout.item_account_list, parent, false)
-        val itemAccount = item.findViewById(R.id.itemAccount) as LinearLayout
+        val itemAccount = item.findViewById(R.id.itemAccount) as RelativeLayout
         val imageViewLogoBank = item.findViewById<AppCompatImageView>(R.id.imageViewLogoBank)
         val accountName = item.findViewById<AppCompatTextView>(R.id.accountName)
         val accountNumber = item.findViewById<AppCompatTextView>(R.id.accountNumber)

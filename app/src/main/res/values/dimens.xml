@@ -29,6 +29,7 @@
     <dimen name="default_margin_padding_44dp">44dp</dimen>
     <dimen name="default_margin_padding_56dp">56dp</dimen>
     <dimen name="default_margin_padding_62dp">62dp</dimen>
+    <dimen name="default_margin_padding_80dp">80dp</dimen>
 
     <dimen name="action_bar_icon_size">32dp</dimen>
 
