@@ -1,4 +1,4 @@
-package cockatoo.enjizen.income.ui.inoutcome.income
+package cockatoo.enjizen.income.ui.incomeoutcome.income
 
 
 import android.annotation.SuppressLint
@@ -112,7 +112,6 @@ class AddIncomeFragment : BaseFragment(), AddIncomePresenter.AddIncomeView , Vie
     }
 
     companion object {
-        @JvmStatic
         fun newInstance() = AddIncomeFragment()
     }
 

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">บัญชีรายรับ-จ่าย</string>
+    <string name="font_default">font/Prompt-Regular.ttf</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="account">บัญชี</string>
@@ -63,4 +64,7 @@
     <string name="set_password_success">ตั้งรหัสผ่านสำเร็จ</string>
     <string name="logout">ออกจากระบบ</string>
     <string name="income_account">เอาเงินเข้าบัญชี</string>
+    <string name="income_money_from">รับเงินมาจาก</string>
+    <string name="amount_money_income">จำนวนเงินที่ได้รับ</string>
+    <string name="outcome_account">ใช้เงินจาก</string>
 </resources>

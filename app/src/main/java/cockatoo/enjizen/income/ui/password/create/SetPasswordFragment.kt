@@ -55,7 +55,7 @@ class SetPasswordFragment : BaseFragment(), Password.PasswordListener , View.OnC
 
     override fun onClick(v: View?) {
         when(v!!.id){
-            R.id.key1, R.id.key2, R.id.key3, R.id.key4, R.id.key5, R.id.key6, R.id.key7, R.id.key8, R.id.key9 -> presenter.setPin(v.findViewById(v.id))
+            R.id.key1, R.id.key2, R.id.key3, R.id.key4, R.id.key5, R.id.key6, R.id.key7, R.id.key8, R.id.key9, R.id.key0 -> presenter.setPin(v.findViewById(v.id))
             R.id.keyDel -> presenter.deletePin()
         }
     }
@@ -91,7 +91,6 @@ class SetPasswordFragment : BaseFragment(), Password.PasswordListener , View.OnC
     }
 
     companion object{
-       @JvmStatic
        fun newInstance() = SetPasswordFragment()
    }
 

@@ -161,7 +161,6 @@ class MoreFragment : BaseFragment(), MorePresenter.MoreView {
 
         const val TAG = "MoreFragment"
 
-        @JvmStatic
         fun newInstance() = MoreFragment()
     }
 }

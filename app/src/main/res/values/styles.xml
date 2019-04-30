@@ -40,7 +40,12 @@
     </style>
 
 
+    <style name="BottomNavigationViewTextStyle">
+        <item name="fontPath">@string/font_default</item>
+    </style>
+
     <style name="TextView">
+        <item name="fontPath">@string/font_default</item>
         <item name="android:textSize">@dimen/default_text_size_24sp</item>
     </style>
 

@@ -98,9 +98,6 @@ class AccountFragment : BaseFragment(), AddAccountFragment.AddAccountListener, A
     }
 
     companion object {
-
-        @JvmStatic
-        fun newInstance() =
-            AccountFragment()
+        fun newInstance() = AccountFragment()
     }
 }

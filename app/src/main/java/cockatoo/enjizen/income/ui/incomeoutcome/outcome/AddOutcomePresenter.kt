@@ -1,15 +1,18 @@
-package cockatoo.enjizen.income.ui.inoutcome.income
+package cockatoo.enjizen.income.ui.incomeoutcome.outcome
 
 import cockatoo.enjizen.income.extension.dateThaiFullFormatter
 import cockatoo.enjizen.income.model.Account
 import cockatoo.enjizen.income.ui.service.AccountService
-import cockatoo.enjizen.income.ui.service.IncomeService
+import cockatoo.enjizen.income.ui.service.IncomeOutcomeService
 import java.util.*
 import kotlin.collections.ArrayList
 
-class AddIncomePresenter(private val view: AddIncomeView) {
+class AddOutcomePresenter(private val view : AddOutcomeView) {
+    interface AddOutcomeView{
 
-    interface AddIncomeView {
+        fun getDetail() : String
+
+        fun getMoneyOutcome() : String
 
         fun displayAccount(accounts: ArrayList<Account>)
 
@@ -17,11 +20,8 @@ class AddIncomePresenter(private val view: AddIncomeView) {
 
         fun getAccountSpinnerPosition() : Int
 
-        fun getDetail() : String
-
-        fun getMoneyIncome() : String
-
         fun saveSuccess()
+
     }
 
     private var dateIncome: Date? = null
@@ -34,17 +34,16 @@ class AddIncomePresenter(private val view: AddIncomeView) {
         view.displayAccount(accountList!!)
     }
 
-    fun setDateIncome(dateFormat: Date? = null) {
+    fun setDateOutcome(dateFormat: Date? = null) {
         dateIncome = dateFormat ?: Date()
         view.displayCurrentDate(dateIncome?.dateThaiFullFormatter()!!)
     }
 
-    fun saveIncome(){
+    fun saveOutcome(){
         val accountId = accountList?.get(view.getAccountSpinnerPosition())!!.id
-        val isResult = IncomeService.insertIncome(view.getDetail(), view.getMoneyIncome().toDouble(), accountId, dateIncome!!)
+        val isResult = IncomeOutcomeService.insertOutcome(view.getDetail(), view.getMoneyOutcome().toDouble(), accountId, dateIncome!!)
         if(isResult){
             view.saveSuccess()
         }
-
     }
 }

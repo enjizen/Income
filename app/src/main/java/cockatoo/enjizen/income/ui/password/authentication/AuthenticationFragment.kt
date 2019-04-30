@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.core.content.ContextCompat
 
 import cockatoo.enjizen.income.R
@@ -46,7 +47,7 @@ class AuthenticationFragment : BaseFragment(), AuthenticationPresenter.Authentic
         if(mode == PasswordMode.AUTHENTICATION.value) {
             passwordToolBar.visibility = View.GONE
             activity!!.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            activity!!.window.statusBarColor = ContextCompat.getColor(context!!,android.R.color.transparent)
+            activity!!. window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
             mainLayoutPassword.fitsSystemWindows = false
         } else {
@@ -80,7 +81,7 @@ class AuthenticationFragment : BaseFragment(), AuthenticationPresenter.Authentic
 
     override fun onClick(v: View?) {
         when(v!!.id){
-            R.id.key1, R.id.key2, R.id.key3, R.id.key4, R.id.key5, R.id.key6, R.id.key7, R.id.key8, R.id.key9 -> presenter.setPin(v.findViewById(v.id))
+            R.id.key1, R.id.key2, R.id.key3, R.id.key4, R.id.key5, R.id.key6, R.id.key7, R.id.key8, R.id.key9 , R.id.key0-> presenter.setPin(v.findViewById(v.id))
             R.id.keyDel -> presenter.deletePin()
         }
     }
@@ -103,7 +104,6 @@ class AuthenticationFragment : BaseFragment(), AuthenticationPresenter.Authentic
     }
 
     companion object{
-        @JvmStatic
         fun newInstance(mode: String) = AuthenticationFragment().apply {
             arguments = Bundle().apply {
                 putString("mode", mode)

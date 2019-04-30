@@ -135,9 +135,9 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
 
         private val SQL_CREATE_BANK_TABLE = "CREATE TABLE ${DBContract.BankEntry.TABLE_NAME.value} (" +
                 "${DBContract.BankEntry.COLUMN_ID.value} INTEGER PRIMARY KEY ," +
-                " ${DBContract.BankEntry.COLUMN_NAME.value} TEXT, " +
+                "${DBContract.BankEntry.COLUMN_NAME.value} TEXT, " +
                 "${DBContract.BankEntry.COLUMN_INITIALS.value} TEXT," +
-                " ${DBContract.BankEntry.COLUMN_LOGO.value} TEXT)"
+                "${DBContract.BankEntry.COLUMN_LOGO.value} TEXT)"
 
         private val SQL_CREATE_INCOME_TABLE ="CREATE TABLE ${DBContract.IncomeEntry.TABLE_NAME.value} (" +
                 "${DBContract.IncomeEntry.COLUMN_ID.value} INTEGER PRIMARY KEY AUTOINCREMENT," +

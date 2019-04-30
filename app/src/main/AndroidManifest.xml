@@ -10,7 +10,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
     >
-        <activity android:name=".ui.inoutcome.InOutComeActivity" android:screenOrientation="portrait">
+        <activity android:name=".ui.incomeoutcome.IncomeOutcomeActivity" android:screenOrientation="portrait">
         </activity>
         <activity android:name=".ui.password.PasswordActivity" android:screenOrientation="portrait"/>
         <activity android:name=".ui.account.AccountActivity"/>
