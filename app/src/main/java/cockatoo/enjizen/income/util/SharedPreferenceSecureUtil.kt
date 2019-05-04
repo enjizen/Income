@@ -1,8 +1,8 @@
-package cockatoo.enjizen.income.manger
+package cockatoo.enjizen.income.util
 
 import com.securepreferences.SecurePreferences
-import android.content.SharedPreferences
-
+import cockatoo.enjizen.income.manger.Contextor
+import cockatoo.enjizen.income.manger.KeyEncryptData
 
 
 object SharedPreferenceSecureUtil {

@@ -36,24 +36,24 @@ object AccountService {
         }
     }
 
-
     fun getAllAccount(): ArrayList<Account> {
-
-        val sqlQuery = "SELECT a.id\n" +
-                "\t\t\t, number\n" +
-                "\t\t\t, a.name\n" +
-                "\t\t\t, bank_id\n" +
-                "\t\t\t, b.logo\n" +
-                "\t\t\t,SUM(money_income)  as money_income\n" +
-                "\t\t\t,SUM(money_outcome) as money_outcome\n" +
-                "\t\t\tFROM account a\n" +
-                "LEFT JOIN bank b ON(a.bank_id = b.id)\n" +
-                "LEFT JOIN income i ON (a.id = i.account_Id)\n" +
-                "LEFT JOIN outcome o ON a.id = o.account_Id\n" +
-                "GROUP BY a.id, number, a.name, bank_id, logo"
+        val sqlQuery = StringBuilder().apply {
+            append("SELECT a.id")
+            append(", number")
+            append(", a.name")
+            append(", bank_id")
+            append(", b.logo")
+            append(",SUM(money_income)  as money_income")
+            append(",SUM(money_outcome) as money_outcome")
+            append(" FROM account a")
+            append(" LEFT JOIN bank b ON(a.bank_id = b.id)")
+            append(" LEFT JOIN income i ON (a.id = i.account_Id)")
+            append(" LEFT JOIN outcome o ON a.id = o.account_Id")
+            append(" GROUP BY a.id, number, a.name, bank_id, logo")
+        }
 
         val accounts = ArrayList<Account>()
-        val cursor = DBHelper.getInstance().rawQuery(sqlQuery)
+        val cursor = DBHelper.getInstance().rawQuery(sqlQuery.toString())
         while (cursor?.moveToNext()!!) {
             accounts.add(readAccounts(cursor))
         }

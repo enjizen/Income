@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.constant.*
 import cockatoo.enjizen.income.manger.RecyclerTouchListener
-import cockatoo.enjizen.income.manger.SharedPreferenceSecureUtil
+import cockatoo.enjizen.income.util.SharedPreferenceSecureUtil
 import cockatoo.enjizen.income.model.MoreMenu
 import cockatoo.enjizen.income.ui.account.AccountActivity
 import cockatoo.enjizen.income.adapter.recyclerview.MenuMoreRecyclerViewAdapter

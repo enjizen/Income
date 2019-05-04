@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.provider.Settings
 import cockatoo.enjizen.income.BuildConfig
 import cockatoo.enjizen.income.constant.KeyConstant
+import cockatoo.enjizen.income.util.LogUtil
+import cockatoo.enjizen.income.util.SharedPreferenceUtil
 
 object ToolUtil {
 

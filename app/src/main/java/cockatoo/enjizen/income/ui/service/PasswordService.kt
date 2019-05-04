@@ -2,7 +2,7 @@ package cockatoo.enjizen.income.ui.service
 
 import cockatoo.enjizen.income.constant.KeyConstant
 import cockatoo.enjizen.income.extension.hashPassword
-import cockatoo.enjizen.income.manger.SharedPreferenceSecureUtil
+import cockatoo.enjizen.income.util.SharedPreferenceSecureUtil
 
 object PasswordService {
 

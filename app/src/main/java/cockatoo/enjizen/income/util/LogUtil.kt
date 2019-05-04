@@ -1,4 +1,4 @@
-package cockatoo.enjizen.income.manger
+package cockatoo.enjizen.income.util
 
 import android.util.Log
 import cockatoo.enjizen.income.BuildConfig

@@ -1,6 +1,7 @@
-package cockatoo.enjizen.income.manger
+package cockatoo.enjizen.income.util
 
 import android.preference.PreferenceManager
+import cockatoo.enjizen.income.manger.Contextor
 
 object SharedPreferenceUtil {
 
