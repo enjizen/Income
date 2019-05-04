@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="cockatoo.enjizen.income">
+          xmlns:tools="http://schemas.android.com/tools" package="cockatoo.enjizen.income">
 
     <application
             android:name=".IncomeApplication"
@@ -9,11 +9,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
-    >
-        <activity android:name=".ui.inoutcome.InOutComeActivity" android:screenOrientation="portrait">
+            tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.incomeoutcome.IncomeOutcomeActivity" android:screenOrientation="portrait">
         </activity>
         <activity android:name=".ui.password.PasswordActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".ui.account.account.AccountActivity"/>
+        <activity android:name=".ui.account.AccountActivity"/>
         <activity
                 android:name=".ui.main.MainActivity"  android:screenOrientation="portrait">
         </activity>

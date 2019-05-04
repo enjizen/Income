@@ -3,7 +3,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
-                tools:context=".ui.inoutcome.income.AddIncomeFragment">
+                tools:context=".ui.incomeoutcome.income.AddIncomeFragment">
 
     <cockatoo.enjizen.income.custom.view.Toolbar
             android:id="@+id/addIncomeToolbar"
@@ -55,7 +55,7 @@
                 android:id="@+id/editTextDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:labelText="รับเงินมาจาก"
+                app:labelText="@string/income_money_from"
         />
 
         <cockatoo.enjizen.income.custom.edittext.EditText
@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                app:labelText="จำนวนเงินที่ได้รับ"
+                app:labelText="@string/amount_money_income"
         />
 
         <cockatoo.enjizen.income.custom.view.Spinner
@@ -72,7 +72,6 @@
                 android:layout_height="wrap_content"
                 app:spinnerLabel="@string/income_account"
         />
-
 
     </LinearLayout>
     </androidx.core.widget.NestedScrollView>

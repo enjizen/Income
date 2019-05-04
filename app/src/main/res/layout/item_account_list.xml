@@ -16,7 +16,7 @@
                 android:layout_width="@dimen/default_margin_padding_44dp"
                 android:layout_height="@dimen/default_margin_padding_44dp"
                 android:layout_centerVertical="true"
-                tools:src="@drawable/ic_cimbthai"
+                tools:src="@drawable/ic_cimb_thai"
         />
 
 

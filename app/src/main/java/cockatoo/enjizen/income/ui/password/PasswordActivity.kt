@@ -5,7 +5,7 @@ import android.os.Bundle
 import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.constant.IntentKey
 import cockatoo.enjizen.income.constant.PasswordMode
-import cockatoo.enjizen.income.ui.base.BaseActivity
+import cockatoo.enjizen.income.base.BaseActivity
 import cockatoo.enjizen.income.ui.main.MainActivity
 import cockatoo.enjizen.income.ui.password.authentication.AuthenticationFragment
 import cockatoo.enjizen.income.ui.password.confirm.ConfirmPasswordFragment

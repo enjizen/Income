@@ -7,14 +7,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.manger.RecyclerTouchListener
 import cockatoo.enjizen.income.model.Account
-import cockatoo.enjizen.income.ui.adapter.recyclerview.AccountRecyclerViewAdapter
+import cockatoo.enjizen.income.adapter.recyclerview.AccountRecyclerViewAdapter
 import cockatoo.enjizen.income.ui.account.add.AddAccountFragment
-import cockatoo.enjizen.income.ui.base.BaseFragment
+import cockatoo.enjizen.income.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_account.*
 import android.view.*
 
 
-class AccountFragment : BaseFragment(), AddAccountFragment.AddAccountListener, AccountView {
+class AccountFragment : BaseFragment(), AddAccountFragment.AddAccountListener, AccountPresenter.AccountView {
 
     private val accounts = ArrayList<Account>()
     private lateinit var accountRecyclerViewAdapter: AccountRecyclerViewAdapter
@@ -98,9 +98,6 @@ class AccountFragment : BaseFragment(), AddAccountFragment.AddAccountListener, A
     }
 
     companion object {
-
-        @JvmStatic
-        fun newInstance() =
-            AccountFragment()
+        fun newInstance() = AccountFragment()
     }
 }

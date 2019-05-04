@@ -5,12 +5,12 @@
             android:id="@+id/itemHome"
             android:enabled="true"
             android:icon="@drawable/ic_home_black_24dp"
-            android:title="หน้าแรก"/>
+            android:title=""/>
     <item
             android:id="@+id/itemMore"
             android:enabled="true"
             android:icon="@drawable/ic_dehaze_black_24dp"
-            android:title="เพิ่มเติม"/>
+            android:title=""/>
 
 
 </menu>

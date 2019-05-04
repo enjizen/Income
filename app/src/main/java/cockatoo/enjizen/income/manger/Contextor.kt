@@ -1,5 +1,6 @@
 package cockatoo.enjizen.income.manger
 
+import android.annotation.SuppressLint
 import android.content.Context
 
 /**
@@ -16,6 +17,7 @@ class Contextor private constructor() {
 
     companion object {
 
+        @SuppressLint("StaticFieldLeak")
         private var instance: Contextor? = null
 
         fun getInstance(): Contextor {

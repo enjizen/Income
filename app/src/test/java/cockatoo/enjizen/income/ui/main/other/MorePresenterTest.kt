@@ -18,7 +18,7 @@ class MorePresenterTest {
     private lateinit var presenter: MorePresenter
 
     @Mock
-    private lateinit var view: MoreView
+    private lateinit var view: MorePresenter.MoreView
 
     @Before
     fun setUp(){

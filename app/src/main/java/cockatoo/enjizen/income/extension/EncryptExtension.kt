@@ -1,7 +1,7 @@
 package cockatoo.enjizen.income.extension
 
 import cockatoo.enjizen.income.constant.KeyConstant
-import cockatoo.enjizen.income.manger.SharedPreferenceUtil
+import cockatoo.enjizen.income.util.SharedPreferenceUtil
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
