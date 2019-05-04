@@ -5,18 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import androidx.core.content.ContextCompat
 
 import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.constant.PasswordMode
-import cockatoo.enjizen.income.custom.edittext.Password
 import cockatoo.enjizen.income.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_password.*
 import kotlinx.android.synthetic.main.view_keyboard_password.*
 import kotlinx.android.synthetic.main.view_passcode.view.*
 
 
-class AuthenticationFragment : BaseFragment(), AuthenticationPresenter.AuthenticationView , View.OnClickListener, Password.PasswordListener {
+class AuthenticationFragment : BaseFragment(), AuthenticationPresenter.AuthenticationView , View.OnClickListener {
 
 
     private lateinit var listener: AuthenticationListener
@@ -46,15 +44,12 @@ class AuthenticationFragment : BaseFragment(), AuthenticationPresenter.Authentic
 
         if(mode == PasswordMode.AUTHENTICATION.value) {
             passwordToolBar.visibility = View.GONE
-            activity!!.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             activity!!. window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-
             mainLayoutPassword.fitsSystemWindows = false
         } else {
             passwordToolBar.setMessageTitle(getString(R.string.current_password))
         }
 
-        passwordPin.setListener(this)
         key1.setOnClickListener(this)
         key2.setOnClickListener(this)
         key3.setOnClickListener(this)
@@ -80,12 +75,8 @@ class AuthenticationFragment : BaseFragment(), AuthenticationPresenter.Authentic
 
 
     override fun onClick(v: View?) {
-        when(v!!.id){
-            R.id.key1, R.id.key2, R.id.key3, R.id.key4, R.id.key5, R.id.key6, R.id.key7, R.id.key8, R.id.key9 , R.id.key0-> presenter.setPin(v.findViewById(v.id))
-            R.id.keyDel -> presenter.deletePin()
-        }
+            presenter.inputPinAndVerifyPin(v!!)
     }
-
 
     override fun getEditTextPin(): String {
        return passwordPin.editTextPasscode.text.toString()
@@ -93,10 +84,6 @@ class AuthenticationFragment : BaseFragment(), AuthenticationPresenter.Authentic
 
     override fun displayPinPassword(pin: String) {
         passwordPin.editTextPasscode.setText(pin)
-    }
-
-    override fun onPasswordResult(password: String) {
-            presenter.authentication(passwordInput = password)
     }
 
     interface AuthenticationListener {

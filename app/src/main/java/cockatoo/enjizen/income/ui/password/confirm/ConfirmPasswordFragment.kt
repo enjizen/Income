@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_password.*
 import kotlinx.android.synthetic.main.view_keyboard_password.*
 import kotlinx.android.synthetic.main.view_passcode.view.*
 
-class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordPresenter.ConfirmPasswordView , Password.PasswordListener , View.OnClickListener {
+class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordPresenter.ConfirmPasswordView , View.OnClickListener {
     private lateinit var listener: ConfirmPasswordListener
 
     private lateinit var presenter: ConfirmPasswordPresenter
@@ -43,8 +43,6 @@ class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordPresenter.Confir
         setToolbarListener(passwordToolBar)
 
         passwordToolBar.setMessageTitle(getString(R.string.confirm_password))
-
-        passwordPin.setListener(this)
         key1.setOnClickListener(this)
         key2.setOnClickListener(this)
         key3.setOnClickListener(this)
@@ -62,15 +60,7 @@ class ConfirmPasswordFragment : BaseFragment() , ConfirmPasswordPresenter.Confir
 
     override fun onClick(v: View?) {
 
-        when(v!!.id){
-            R.id.key1, R.id.key2, R.id.key3, R.id.key4, R.id.key5, R.id.key6, R.id.key7, R.id.key8, R.id.key9, R.id.key0 -> presenter.setPin(v.findViewById(v.id))
-            R.id.keyDel -> presenter.deletePin()
-        }
-    }
-
-
-    override fun onPasswordResult(password: String) {
-        presenter.confirmCheckPassword(confirmPassword = password)
+        presenter.inputPinAndVerifyPin(v!!)
     }
 
     override fun getEditTextPin(): String {

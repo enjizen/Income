@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.view_passcode.view.*
 import kotlinx.android.synthetic.main.view_keyboard_password.*
 
 
-class SetPasswordFragment : BaseFragment(), Password.PasswordListener , View.OnClickListener, SetPasswordPresenter.SetPasswordView {
+class SetPasswordFragment : BaseFragment(), View.OnClickListener, SetPasswordPresenter.SetPasswordView {
 
     private lateinit var listener: SetPasswordListener
     private lateinit var presenter: SetPasswordPresenter
@@ -38,7 +38,6 @@ class SetPasswordFragment : BaseFragment(), Password.PasswordListener , View.OnC
 
         passwordToolBar.setMessageTitle(getString(R.string.set_password))
 
-        passwordPin.setListener(this)
         key1.setOnClickListener(this)
         key2.setOnClickListener(this)
         key3.setOnClickListener(this)
@@ -54,15 +53,7 @@ class SetPasswordFragment : BaseFragment(), Password.PasswordListener , View.OnC
     }
 
     override fun onClick(v: View?) {
-        when(v!!.id){
-            R.id.key1, R.id.key2, R.id.key3, R.id.key4, R.id.key5, R.id.key6, R.id.key7, R.id.key8, R.id.key9, R.id.key0 -> presenter.setPin(v.findViewById(v.id))
-            R.id.keyDel -> presenter.deletePin()
-        }
-    }
-
-
-    override fun onPasswordResult(password: String) {
-        presenter.passwordSet()
+     presenter.inputPinAndVerifyPin(v!!)
     }
 
     override fun getEditTextPin(): String {

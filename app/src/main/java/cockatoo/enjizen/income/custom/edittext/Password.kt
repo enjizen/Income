@@ -19,7 +19,6 @@ class Password : FrameLayout {
 
     private var isInvalid = false
 
-    private var listener: PasswordListener? = null
 
     constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs) {
         setup()
@@ -39,14 +38,6 @@ class Password : FrameLayout {
         LayoutInflater.from(context).inflate(R.layout.view_passcode, this@Password)
 
       editTextPasscode.addTextChangedListener(editTextPasswordTextChange)
-    }
-
-    fun setPassword(pass: String){
-        editTextPasscode.setText(pass)
-    }
-
-    fun setListener(listener: PasswordListener) {
-        this.listener = listener
     }
 
     private fun verifySetPassword(count: Int) {
@@ -200,10 +191,6 @@ class Password : FrameLayout {
         pin6.setImageResource(R.drawable.circle_password_default)
     }
 
-    interface PasswordListener {
-        fun onPasswordResult(password: String)
-    }
-
   private var editTextPasswordTextChange: TextWatcher = object : TextWatcher {
 
         override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
@@ -212,7 +199,6 @@ class Password : FrameLayout {
 
         override fun afterTextChanged(editText: Editable) {
             verifySetPassword(editText.count())
-            listener!!.onPasswordResult(editText.toString())
         }
     }
 
