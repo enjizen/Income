@@ -107,8 +107,10 @@ class AddAccountFragment : BaseDialogFragment(), AddAccountPresenter.AddAccountV
     }
 
     override fun displayEditTextAccountNumberFormat(accountNumberFormat: String) {
-        etAccountNumber.editText.setText(accountNumberFormat)
-        etAccountNumber.editText.setSelection(accountNumberFormat.length)
+        etAccountNumber.editText.apply {
+            setText(accountNumberFormat)
+            setSelection(accountNumberFormat.length)
+        }
     }
 
 

@@ -35,8 +35,7 @@ fun String.accountNumberBayFormat(): String{
 }
 
 fun Double.numberAccountBalanceFormat(): String {
-    val formatter = DecimalFormat("#,##0.00   บาท")
-    return formatter.format(this)
+    return DecimalFormat("#,##0.00   บาท").format(this)
 }
 
 

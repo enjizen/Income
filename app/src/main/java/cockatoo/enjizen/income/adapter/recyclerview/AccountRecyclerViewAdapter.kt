@@ -17,10 +17,14 @@ class AccountRecyclerViewAdapter(private val accountList: ArrayList<Account>) : 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.accountNumber.text = accountList[position].accountNumber
-        holder.accountName.text = accountList[position].name
-        holder.accountBalance.text = accountList[position].balance.numberAccountBalanceFormat()
-        holder.logoBank.setImageResource(Contextor.getInstance().context!!.resources.getIdentifier(accountList[position].logo, "drawable", Contextor.getInstance().context!!.packageName))
+        val account =  accountList[position]
+        with(holder){
+            accountNumber.text = account.accountNumber
+            accountName.text = account.name
+            accountBalance.text = account.balance.numberAccountBalanceFormat()
+            logoBank.setImageResource(Contextor.getInstance().context!!.resources.getIdentifier(account.logo, "drawable", Contextor.getInstance().context!!.packageName))
+        }
+
 
     }
 
@@ -31,7 +35,6 @@ class AccountRecyclerViewAdapter(private val accountList: ArrayList<Account>) : 
         val accountName = view.accountName!!
         val accountBalance = view.totalBalance!!
         val logoBank = view.imageViewLogoBank!!
-
     }
 
 }

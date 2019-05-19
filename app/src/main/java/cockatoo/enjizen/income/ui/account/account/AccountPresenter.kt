@@ -23,9 +23,8 @@ class AccountPresenter(private val view: AccountView) {
 
     fun getAllAccount() {
         view.onShowLoading()
-        val accounts = AccountService.getAllAccount()
+        view.displayAccount(AccountService.getAllAccount())
         view.onHideLoading()
-        view.displayAccount(accounts)
     }
 
     fun get(position: Int){

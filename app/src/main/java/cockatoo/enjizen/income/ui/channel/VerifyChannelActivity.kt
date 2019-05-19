@@ -5,6 +5,8 @@ import android.os.Bundle
 import cockatoo.enjizen.income.constant.IntentKey
 import cockatoo.enjizen.income.constant.PasswordMode
 import cockatoo.enjizen.income.base.BaseActivity
+import cockatoo.enjizen.income.base.BaseRouterActivity
+import cockatoo.enjizen.income.constant.TransitionScreenType
 import cockatoo.enjizen.income.ui.main.MainActivity
 import cockatoo.enjizen.income.ui.password.PasswordActivity
 
@@ -14,24 +16,21 @@ class VerifyChannelActivity : BaseActivity(), VerifyChannelPresenter.VerifyChann
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         presenter = VerifyChannelPresenter(this)
         presenter.checkSetupPassword()
-
     }
 
 
     override fun haveNotSetPassword() {
-        val intent = Intent(this, MainActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-        startActivity(intent)
+        router.goto(activity = this, intent = Intent(this, MainActivity::class.java), tranSit = TransitionScreenType.PUSH, isCloseAllScreen = true)
     }
 
     override fun passwordAlreadySet() {
-        val intent = Intent(this, PasswordActivity::class.java)
-        intent.putExtra(IntentKey.PASSWORD_MODE.value, PasswordMode.AUTHENTICATION.value)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-        startActivity(intent)
+        Intent(this, PasswordActivity::class.java).apply {
+            putExtra(IntentKey.PASSWORD_MODE.value, PasswordMode.AUTHENTICATION.value)
+        }.also {
+            router.goto(activity = this, intent = it, tranSit = TransitionScreenType.PUSH, isCloseAllScreen = true)
+        }
     }
 
 }

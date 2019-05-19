@@ -43,12 +43,12 @@ class AddAccountPresenter(
 
         var inValid = false
 
-        if (view.getAccountNumber()!!.isBlank()) {
+        if (view.getAccountNumber()?.isBlank()!!) {
             view.onAccountNumberInvalid()
             inValid = true
         }
 
-        if (view.getAccountName()!!.isBlank()) {
+        if (view.getAccountName()?.isBlank()!!) {
             view.onAccountNameInvalid()
             inValid = true
         }
@@ -66,14 +66,12 @@ class AddAccountPresenter(
     }
 
     fun getBankAll(){
-       val banks=  BankService.getAllBank()
-        view.displayBank(banks)
+        view.displayBank(BankService.getAllBank())
     }
 
     fun editTextAccountNumberFormat(watcher: TextWatcher){
         view.accountNumberRemoveTextChangedListener(watcher)
-        val accountNumber = view.getAccountNumber()?.replace("-","")!!.accountNumberBayFormat()
-        view.displayEditTextAccountNumberFormat(accountNumber)
+        view.displayEditTextAccountNumberFormat(view.getAccountNumber()?.replace("-","")!!.accountNumberBayFormat())
         view.accountNumberAddTextChangedListener(watcher)
     }
 

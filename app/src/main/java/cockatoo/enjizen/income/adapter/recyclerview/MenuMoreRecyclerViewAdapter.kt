@@ -42,7 +42,6 @@ class MenuMoreRecyclerViewAdapter(private val moreMenuList : ArrayList<MoreMenu>
                 if(moreMenu.imageIcon != 0) {
                     itemHolder.imageViewIcon.setImageResource(moreMenu.imageIcon)
                 }
-
                 itemHolder.textViewItemMenu.text = moreMenu.menuName
             }
         }

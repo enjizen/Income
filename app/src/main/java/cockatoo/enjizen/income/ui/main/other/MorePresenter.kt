@@ -13,7 +13,7 @@ class MorePresenter(private val view: MoreView) {
         fun gotoLogout()
         fun haveNotSetPassword()
         fun passwordAlreadySet()
-        fun getPasswordForCheck() : String
+        fun getPasswordForCheck() : String?
     }
 
     fun verifyMenuItem(menu: MoreMenu){
@@ -29,10 +29,7 @@ class MorePresenter(private val view: MoreView) {
     }
 
     fun checkSetupPassword(){
-
-        val password = view.getPasswordForCheck()
-
-        if(password.isBlank())
+        if(view.getPasswordForCheck().isNullOrBlank())
             view.haveNotSetPassword()
         else
             view.passwordAlreadySet()

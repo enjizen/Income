@@ -87,7 +87,7 @@ class AddIncomeFragment : BaseFragment(), AddIncomePresenter.AddIncomeView , Vie
     }
 
     override fun displayCurrentDate(dateValue: String) {
-        labelDate.text = dateValue
+        textViewLabelDate.text = dateValue
     }
 
     override fun getAccountSpinnerPosition(): Int {
