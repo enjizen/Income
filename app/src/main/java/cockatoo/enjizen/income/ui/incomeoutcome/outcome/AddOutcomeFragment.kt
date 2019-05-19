@@ -15,7 +15,7 @@ import com.valdesekamdem.library.mdtoast.MDToast
 import kotlinx.android.synthetic.main.fragment_add_outcome.*
 import kotlinx.android.synthetic.main.fragment_add_outcome.btnSave
 import kotlinx.android.synthetic.main.fragment_add_outcome.editTextDetail
-import kotlinx.android.synthetic.main.fragment_add_outcome.labelDate
+import kotlinx.android.synthetic.main.fragment_add_outcome.textViewLabelDate
 import kotlinx.android.synthetic.main.fragment_add_outcome.spinnerAccount
 import kotlinx.android.synthetic.main.spinner.view.*
 
@@ -57,12 +57,11 @@ class AddOutcomeFragment : BaseFragment(), AddOutcomePresenter.AddOutcomeView {
     }
 
     override fun displayAccount(accounts: ArrayList<Account>) {
-        val adapter = AccountAdapter(accounts)
-        spinnerAccount.spinner.adapter = adapter
+        spinnerAccount.spinner.adapter =  AccountAdapter(accounts)
     }
 
     override fun displayCurrentDate(dateValue: String) {
-        labelDate.text = dateValue
+        textViewLabelDate.text = dateValue
     }
 
     override fun getAccountSpinnerPosition(): Int {

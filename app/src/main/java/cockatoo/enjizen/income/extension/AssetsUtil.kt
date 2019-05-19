@@ -4,7 +4,7 @@ import cockatoo.enjizen.income.manger.Contextor
 
 
 fun String.readJsonFile(): String{
-        return Contextor.getInstance().context!!.assets.open(this).bufferedReader().use {
+        return Contextor.getInstance().context!!.assets.open(this).bufferedReader().let {
            it.readText()
         }
     }

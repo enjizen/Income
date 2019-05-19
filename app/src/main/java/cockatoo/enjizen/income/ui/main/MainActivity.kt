@@ -10,29 +10,24 @@ import cockatoo.enjizen.income.base.BaseActivity
 import cockatoo.enjizen.income.ui.incomeoutcome.IncomeOutcomeActivity
 import cockatoo.enjizen.income.ui.main.home.HomeFragment
 import cockatoo.enjizen.income.ui.main.other.MoreFragment
-import cockatoo.enjizen.income.base.BaseRouterActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
-
-class MainActivity : BaseActivity(){
-
-    private lateinit var router: BaseRouterActivity
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        router = BaseRouterActivity()
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             initFragment()
         }
 
-       fabOutcome.setOnClickListener {
+        fabOutcome.setOnClickListener {
             val intent = Intent(this, IncomeOutcomeActivity::class.java)
-           intent.putExtra(IntentKey.INCOME_OUTCOME_MODE.value, IncomeOutcomeMode.ADD_OUTCOME.value)
+            intent.putExtra(IntentKey.INCOME_OUTCOME_MODE.value, IncomeOutcomeMode.ADD_OUTCOME.value)
             router.goto(activity = this, intent = intent, tranSit = TransitionScreenType.PUSH)
 
             fabMenu.close(true)
@@ -53,7 +48,12 @@ class MainActivity : BaseActivity(){
             when (item.itemId) {
                 R.id.itemHome -> {
                     supportFragmentManager.beginTransaction()
-                        .setCustomAnimations(R.anim.animation_enter, R.anim.animation_leave, R.anim.slide_from_left, R.anim.slide_from_right)
+                        .setCustomAnimations(
+                            R.anim.animation_enter,
+                            R.anim.animation_leave,
+                            R.anim.slide_from_left,
+                            R.anim.slide_from_right
+                        )
                         .attach(homeFragment!!)
                         .detach(moreFragment!!)
                         .commit()
@@ -61,7 +61,12 @@ class MainActivity : BaseActivity(){
                 }
                 R.id.itemMore -> {
                     supportFragmentManager.beginTransaction()
-                        .setCustomAnimations(R.anim.slide_from_left, R.anim.slide_from_right, R.anim.animation_enter, R.anim.animation_leave)
+                        .setCustomAnimations(
+                            R.anim.slide_from_left,
+                            R.anim.slide_from_right,
+                            R.anim.animation_enter,
+                            R.anim.animation_leave
+                        )
                         .attach(moreFragment!!)
                         .detach(homeFragment!!)
                         .commit()

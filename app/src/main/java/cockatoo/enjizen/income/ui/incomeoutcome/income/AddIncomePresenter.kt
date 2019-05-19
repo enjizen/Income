@@ -24,7 +24,7 @@ class AddIncomePresenter(private val view: AddIncomeView) {
         fun saveSuccess()
     }
 
-    private var dateIncome: Date? = null
+    private var dateIncome: Date = Date()
     private var accountList: ArrayList<Account>? = null
 
     fun getAccount() {
@@ -36,12 +36,12 @@ class AddIncomePresenter(private val view: AddIncomeView) {
 
     fun setDateIncome(dateFormat: Date? = null) {
         dateIncome = dateFormat ?: Date()
-        view.displayCurrentDate(dateIncome?.dateThaiFullFormatter()!!)
+        view.displayCurrentDate(dateIncome.dateThaiFullFormatter())
     }
 
     fun saveIncome(){
         val accountId = accountList?.get(view.getAccountSpinnerPosition())!!.id
-        val isResult = IncomeOutcomeService.insertIncome(view.getDetail(), view.getMoneyIncome().toDouble(), accountId, dateIncome!!)
+        val isResult = IncomeOutcomeService.insertIncome(view.getDetail(), view.getMoneyIncome().toDouble(), accountId, dateIncome)
         if(isResult){
             view.saveSuccess()
         }

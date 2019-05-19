@@ -9,7 +9,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 
-class Initial {
+object Initial {
 
     fun bank() {
         val cursor = DBHelper.getInstance().getAll(DBContract.BankEntry.TABLE_NAME.value)
@@ -17,23 +17,20 @@ class Initial {
         if (!cursor!!.moveToFirst()) {
             val listType = object : TypeToken<List<Bank>>() {}.type
             val bankList = Gson().fromJson<List<Bank>>("bank.json".readJsonFile(), listType)
-
-            val values = ArrayList<ContentValues>()
-            bankList.forEach {
-                val v = ContentValues().apply {
-                    put(DBContract.BankEntry.COLUMN_ID.value, it.id)
-                    put(DBContract.BankEntry.COLUMN_NAME.value, it.name)
-                    put(DBContract.BankEntry.COLUMN_INITIALS.value, it.initials)
-                    put(DBContract.BankEntry.COLUMN_LOGO.value, it.logo)
+            ArrayList<ContentValues>().apply {
+                bankList.forEach {
+                    add(ContentValues().apply {
+                        put(DBContract.BankEntry.COLUMN_ID.value, it.id)
+                        put(DBContract.BankEntry.COLUMN_NAME.value, it.name)
+                        put(DBContract.BankEntry.COLUMN_INITIALS.value, it.initials)
+                        put(DBContract.BankEntry.COLUMN_LOGO.value, it.logo)
+                    })
                 }
-                values.add(v)
+            }.also {
+                DBHelper.getInstance().insert(DBContract.BankEntry.TABLE_NAME.value, it)
             }
-
-            DBHelper.getInstance().insert(DBContract.BankEntry.TABLE_NAME.value, values)
         }
-
         cursor.close()
-
     }
 
 }

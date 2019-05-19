@@ -12,7 +12,6 @@ fun Date.dateThaiFullFormatter(): String {
 }
 
 fun Date.dateFormatSaveDB(): String{
-
     return dateFormatDB.format(this)
 }
 

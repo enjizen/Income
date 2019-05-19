@@ -15,9 +15,7 @@ class IncomeOutcomeActivity : BaseActivity() {
         setContentView(R.layout.activity_income_outcome)
 
         if(savedInstanceState == null) {
-            val mode = intent.getStringExtra(IntentKey.INCOME_OUTCOME_MODE.value)
-
-            when(mode){
+            when(intent.getStringExtra(IntentKey.INCOME_OUTCOME_MODE.value)){
                 IncomeOutcomeMode.ADD_INCOME.value -> supportFragmentManager.beginTransaction().add(R.id.contentContainer, AddIncomeFragment.newInstance()).commit()
                 IncomeOutcomeMode.ADD_OUTCOME.value -> supportFragmentManager.beginTransaction().add(R.id.contentContainer, AddOutcomeFragment.newInstance()).commit()
             }

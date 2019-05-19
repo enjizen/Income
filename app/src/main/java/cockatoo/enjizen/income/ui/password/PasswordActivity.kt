@@ -6,6 +6,7 @@ import cockatoo.enjizen.income.R
 import cockatoo.enjizen.income.constant.IntentKey
 import cockatoo.enjizen.income.constant.PasswordMode
 import cockatoo.enjizen.income.base.BaseActivity
+import cockatoo.enjizen.income.constant.TransitionScreenType
 import cockatoo.enjizen.income.ui.main.MainActivity
 import cockatoo.enjizen.income.ui.password.authentication.AuthenticationFragment
 import cockatoo.enjizen.income.ui.password.confirm.ConfirmPasswordFragment
@@ -50,10 +51,7 @@ class PasswordActivity : BaseActivity(), SetPasswordFragment.SetPasswordListener
 
     override fun onAuthenticationPasswordSuccess() {
         if(mode == PasswordMode.AUTHENTICATION.value ) {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            startActivity(intent)
-            overridePendingTransition(R.anim.slide_from_left, R.anim.slide_from_right)
+            router.goto(activity = this, intent = Intent(this, MainActivity::class.java), tranSit = TransitionScreenType.PUSH, isCloseAllScreen = true)
         } else {
             supportFragmentManager.beginTransaction()
                 .setCustomAnimations(R.anim.slide_from_left, R.anim.slide_from_right, R.anim.pop_enter, R.anim.pop_exit)

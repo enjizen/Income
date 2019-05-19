@@ -23,14 +23,19 @@ class AccountAdapter(private val accountList: ArrayList<Account>) : BaseAdapter(
         val accountName = item.findViewById<AppCompatTextView>(R.id.accountName)
         val accountNumber = item.findViewById<AppCompatTextView>(R.id.accountNumber)
         val totalBalance = item.findViewById<AppCompatTextView>(R.id.totalBalance)
-
-        val account = accountList[position]
-
         itemAccount.background = null
-        imageViewLogoBank.setImageResource(parent.context.resources.getIdentifier(account.logo, "drawable", parent.context.packageName))
-        accountName.text = account.name
-        accountNumber.text = account.accountNumber
-        totalBalance.text = account.balance.numberAccountBalanceFormat()
+        with(accountList[position]) {
+            imageViewLogoBank.setImageResource(
+                parent.context.resources.getIdentifier(
+                    this.logo,
+                    "drawable",
+                    parent.context.packageName
+                )
+            )
+            accountName.text = this.name
+            accountNumber.text = this.accountNumber
+            totalBalance.text = this.balance.numberAccountBalanceFormat()
+        }
 
         return item
     }

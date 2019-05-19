@@ -14,7 +14,6 @@ class VerifyChannelPresenter(private val view: VerifyChannelView) {
     fun checkSetupPassword(){
 
       val password = SharedPreferenceSecureUtil.getString(KeyConstant.PASSWORD.value)
-
         if(password.isNullOrBlank())
             view.haveNotSetPassword()
         else

@@ -32,7 +32,7 @@
                             android:gravity="center"
             >
                 <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/labelDate"
+                        android:id="@+id/textViewLabelDate"
                         style="@style/TextView.Black.Large"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                         android:layout_height="@dimen/default_margin_padding_32dp"
                         app:srcCompat="@drawable/ic_date_range_black_24dp"
                         app:tint="@android:color/black"
-                        android:layout_toEndOf="@id/labelDate"
+                        android:layout_toEndOf="@id/textViewLabelDate"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/default_margin_padding_16dp"
                 />

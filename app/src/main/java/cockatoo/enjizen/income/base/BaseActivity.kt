@@ -10,6 +10,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 open class BaseActivity : AppCompatActivity(), Toolbar.ToolbarListener {
 
+    protected lateinit var router: BaseRouterActivity
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         CalligraphyConfig.initDefault(CalligraphyConfig.Builder()
@@ -17,6 +19,8 @@ open class BaseActivity : AppCompatActivity(), Toolbar.ToolbarListener {
             .setFontAttrId(R.attr.fontPath)
             .build()
         )
+
+        router = BaseRouterActivity()
     }
 
     protected fun setToolbarListener(toolbar: Toolbar) {

@@ -47,23 +47,27 @@ class AccountFragment : BaseFragment(), AddAccountFragment.AddAccountListener, A
     }
 
     private fun setAccountRecycleViewAdapter() {
-        accountRecyclerView.layoutManager = LinearLayoutManager(context)
-        accountRecyclerView.itemAnimator = DefaultItemAnimator()
         accountRecyclerViewAdapter = AccountRecyclerViewAdapter(accounts)
-        accountRecyclerView.adapter = accountRecyclerViewAdapter
-        accountRecyclerView.addOnItemTouchListener(
-            RecyclerTouchListener(
-                context!!,
-                accountRecyclerView,
-                object : RecyclerTouchListener.ClickListener {
-                    override fun onClick(view: View, position: Int) {
-                        presenter.get(position)
-                    }
-                    override fun onLongClick(view: View?, position: Int) {
+        accountRecyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            itemAnimator = DefaultItemAnimator()
+            adapter = accountRecyclerViewAdapter
+            addOnItemTouchListener(
+                RecyclerTouchListener(
+                    context!!,
+                    this,
+                    object : RecyclerTouchListener.ClickListener {
+                        override fun onClick(view: View, position: Int) {
+                            presenter.get(position)
+                        }
 
-                    }
-                })
-        )
+                        override fun onLongClick(view: View?, position: Int) {
+
+                        }
+                    })
+            )
+
+        }
     }
 
     override fun onDismissAddAccount() {

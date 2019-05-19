@@ -9,30 +9,33 @@ import net.sqlcipher.Cursor
 object AccountService {
 
     fun insertAccount(bankId: Int, accountNumber: String, name: String): Boolean {
-        val values = ContentValues().apply {
+        ContentValues().apply {
             put(DBContract.AccountEntry.COLUMN_BANK_ID.value, bankId)
             put(DBContract.AccountEntry.COLUMN_ACCOUNT_NUMBER.value, accountNumber)
             put(DBContract.AccountEntry.COLUMN_NAME.value, name)
+        }.also {
+            DBHelper.getInstance().insert(DBContract.AccountEntry.TABLE_NAME.value, it)
+        }.run {
+            return true
         }
-        DBHelper.getInstance().insert(DBContract.AccountEntry.TABLE_NAME.value, values)
-        return true
+
+
     }
 
     fun get(id: Int): Account? {
         val selection = arrayOf(DBContract.AccountEntry.COLUMN_ID.value)
         val valueSelection = arrayOf(id.toString())
-
         val cursor = DBHelper.getInstance().get(DBContract.AccountEntry.TABLE_NAME.value, selection, valueSelection)
-        return if (cursor != null) {
+        return cursor?.let {
             with(cursor) {
                 moveToFirst()
-                val accountNumber = getString(getColumnIndex(DBContract.AccountEntry.COLUMN_ACCOUNT_NUMBER.value))
-                val accountName = getString(getColumnIndex(DBContract.AccountEntry.COLUMN_NAME.value))
-                val bankId = getInt(getColumnIndex(DBContract.AccountEntry.COLUMN_BANK_ID.value))
-                Account(id = id, accountNumber = accountNumber, name = accountName, bankId = bankId)
+                Account(
+                    id = id
+                    , accountNumber = getString(getColumnIndex(DBContract.AccountEntry.COLUMN_ACCOUNT_NUMBER.value))
+                    , name = getString(getColumnIndex(DBContract.AccountEntry.COLUMN_NAME.value))
+                    , bankId = getInt(getColumnIndex(DBContract.AccountEntry.COLUMN_BANK_ID.value))
+                )
             }
-        } else {
-            null
         }
     }
 

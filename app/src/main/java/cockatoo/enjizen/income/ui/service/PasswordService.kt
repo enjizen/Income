@@ -8,7 +8,8 @@ object PasswordService {
 
     fun savePassword(password: String, onSuccess: () -> Unit){
         SharedPreferenceSecureUtil.edit(KeyConstant.PASSWORD.value,  password)
-        onSuccess()
+            .run { onSuccess()  }
+
     }
 
     fun authenticationPassword(passwordInput: String) : Boolean{
