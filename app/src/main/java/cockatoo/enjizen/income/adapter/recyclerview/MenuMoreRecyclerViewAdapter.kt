@@ -1,5 +1,6 @@
 package cockatoo.enjizen.income.adapter.recyclerview
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -30,21 +31,22 @@ class MenuMoreRecyclerViewAdapter(private val moreMenuList : ArrayList<MoreMenu>
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val moreMenu =  moreMenuList[position]
-
-        when(moreMenu.menuType){
-            MoreMenuType.GROUP.type -> {
-                val groupHolder = holder as MoreMenuGroupHolder
-                groupHolder.textViewGroupMenu.text = moreMenu.menuName
-            }
-            MoreMenuType.ITEM.type -> {
-                val itemHolder = holder as MoreMenuItemHolder
-                if(moreMenu.imageIcon != 0) {
-                    itemHolder.imageViewIcon.setImageResource(moreMenu.imageIcon)
+        moreMenuList[position].let {
+            when(it.menuType){
+                MoreMenuType.GROUP.type -> {
+                    (holder as MoreMenuGroupHolder).textViewGroupMenu.text = it.menuName
                 }
-                itemHolder.textViewItemMenu.text = moreMenu.menuName
+                MoreMenuType.ITEM.type -> {
+                        (holder as MoreMenuItemHolder).apply {
+                            imageViewIcon.setImageResource(it.imageIcon)
+                            textViewItemMenu.text = it.menuName
+                    }
+                }
+                else -> Log.i(MenuMoreRecyclerViewAdapter::class.java.simpleName, "Line size box menu")
             }
         }
+
+
     }
 
     override fun getItemCount(): Int {

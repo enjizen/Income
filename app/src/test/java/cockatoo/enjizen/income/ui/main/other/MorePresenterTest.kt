@@ -29,25 +29,29 @@ class MorePresenterTest {
     @Test
     fun verifyMenuItem_MenuAccount() {
 
-        presenter.verifyMenuItem(MoreMenu(
+        MoreMenu(
             menuName = "Account",
             imageIcon = R.drawable.ic_logout,
             menuType = MoreMenuType.ITEM.type,
             target = MoreMenuTarget.ACCOUNT
-        ))
+        ).let {
+            presenter.verifyMenuItem(it)
+        }
+
 
         verify(view, timeout(1)).gotoAccount()
     }
 
     @Test
     fun verifyMenuItem_MenuSetPassword() {
-
-        presenter.verifyMenuItem(MoreMenu(
+        MoreMenu(
             menuName = "set_password",
             imageIcon = R.drawable.ic_create_password,
             menuType = MoreMenuType.ITEM.type,
             target = MoreMenuTarget.SET_PASSWORD
-        ))
+        ).let {
+            presenter.verifyMenuItem(it)
+        }
 
         verify(view, timeout(1)).gotoSetPassword()
     }
@@ -56,12 +60,15 @@ class MorePresenterTest {
     @Test
     fun verifyMenuItem_MenuChangePassword() {
 
-        presenter.verifyMenuItem(MoreMenu(
+        MoreMenu(
             menuName = "change_password",
             imageIcon = R.drawable.ic_change_password,
             menuType = MoreMenuType.ITEM.type,
             target = MoreMenuTarget.CHANGE_PASSWORD
-        ))
+        ).let {
+            presenter.verifyMenuItem(it)
+        }
+
 
         verify(view, timeout(1)).gotoChangePassword()
     }
@@ -69,12 +76,15 @@ class MorePresenterTest {
     @Test
     fun verifyMenuItem_MenuLogout() {
 
-        presenter.verifyMenuItem(MoreMenu(
+        MoreMenu(
             menuName = "change_password",
             imageIcon = R.drawable.ic_logout,
             menuType = MoreMenuType.ITEM.type,
             target = MoreMenuTarget.LOGOUT
-        ))
+        ).let {
+            presenter.verifyMenuItem(it)
+        }
+
 
         verify(view, timeout(1)).gotoLogout()
     }

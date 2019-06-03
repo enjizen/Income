@@ -22,14 +22,14 @@ class VerifyChannelActivity : BaseActivity(), VerifyChannelPresenter.VerifyChann
 
 
     override fun haveNotSetPassword() {
-        router.goto(activity = this, intent = Intent(this, MainActivity::class.java), tranSit = TransitionScreenType.PUSH, isCloseAllScreen = true)
+        router.goto(activity = this, intent = Intent(this@VerifyChannelActivity, MainActivity::class.java), tranSit = TransitionScreenType.PUSH, isCloseAllScreen = true)
     }
 
     override fun passwordAlreadySet() {
         Intent(this, PasswordActivity::class.java).apply {
             putExtra(IntentKey.PASSWORD_MODE.value, PasswordMode.AUTHENTICATION.value)
-        }.also {
-            router.goto(activity = this, intent = it, tranSit = TransitionScreenType.PUSH, isCloseAllScreen = true)
+        }.run {
+            router.goto(activity = this@VerifyChannelActivity, intent = this, tranSit = TransitionScreenType.PUSH, isCloseAllScreen = true)
         }
     }
 

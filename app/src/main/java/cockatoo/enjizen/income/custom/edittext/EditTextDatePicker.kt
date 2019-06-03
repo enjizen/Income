@@ -21,8 +21,6 @@ import kotlinx.android.synthetic.main.edit_text.view.*
 
 class EditTextDatePicker : FrameLayout {
 
-    private var isShowMask  = false
-
     constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs) {
         setup(attrs)
     }
@@ -101,13 +99,9 @@ class EditTextDatePicker : FrameLayout {
 
     fun getLabelText() = textViewLabel.text
 
-    fun setText(text: String?) {
-        editText.setText(text)
-    }
+    fun setText(text: String?) = editText.setText(text)
 
-    fun getText(): String {
-       return editText.text.toString()
-    }
+    fun getText(): String = editText.text.toString()
 
 
     fun getEditText() = editText

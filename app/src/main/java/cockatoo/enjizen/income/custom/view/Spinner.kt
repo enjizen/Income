@@ -47,10 +47,6 @@ class Spinner : FrameLayout {
         }
     }
 
-
-
-
-
     fun setLayoutTextHeight(height: String?) {
         val heightLayout = when (height) {
                                     null -> convertToDp(height = 50f)

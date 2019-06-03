@@ -90,7 +90,7 @@ class EditText : FrameLayout {
                                         convertToDp(height = height.toFloat())
                                     }
         }
-        editText.layoutParams = LinearLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, heightLayout)
+        editText.layoutParams = LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, heightLayout)
     }
 
     fun setLabelText(text: String?) {

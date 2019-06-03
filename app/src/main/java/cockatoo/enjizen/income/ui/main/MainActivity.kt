@@ -26,17 +26,21 @@ class MainActivity : BaseActivity() {
         }
 
         fabOutcome.setOnClickListener {
-            val intent = Intent(this, IncomeOutcomeActivity::class.java)
-            intent.putExtra(IntentKey.INCOME_OUTCOME_MODE.value, IncomeOutcomeMode.ADD_OUTCOME.value)
-            router.goto(activity = this, intent = intent, tranSit = TransitionScreenType.PUSH)
-
+            Intent(this, IncomeOutcomeActivity::class.java).apply {
+                putExtra(IntentKey.INCOME_OUTCOME_MODE.value, IncomeOutcomeMode.ADD_OUTCOME.value)
+            }.run {
+                router.goto(activity = this@MainActivity, intent = this, tranSit = TransitionScreenType.PUSH)
+            }
             fabMenu.close(true)
         }
 
         fabIncome.setOnClickListener {
-            val intent = Intent(this, IncomeOutcomeActivity::class.java)
-            intent.putExtra(IntentKey.INCOME_OUTCOME_MODE.value, IncomeOutcomeMode.ADD_INCOME.value)
-            router.goto(activity = this, intent = intent, tranSit = TransitionScreenType.PUSH)
+            Intent(this, IncomeOutcomeActivity::class.java).apply {
+                putExtra(IntentKey.INCOME_OUTCOME_MODE.value, IncomeOutcomeMode.ADD_INCOME.value)
+            }.run{
+                router.goto(activity = this@MainActivity, intent = this, tranSit = TransitionScreenType.PUSH)
+            }
+
             fabMenu.close(true)
         }
 
@@ -82,13 +86,12 @@ class MainActivity : BaseActivity() {
         supportFragmentManager.beginTransaction()
             .add(R.id.contentContainer, HomeFragment.newInstance(), HomeFragment.TAG)
             .commit()
-
-        val moreFragment = MoreFragment.newInstance()
-
-        supportFragmentManager.beginTransaction()
-            .add(R.id.contentContainer, moreFragment, MoreFragment.TAG)
-            .detach(moreFragment)
-            .commit()
+        MoreFragment.newInstance().run {
+            supportFragmentManager.beginTransaction()
+                .add(R.id.contentContainer, this, MoreFragment.TAG)
+                .detach(this)
+                .commit()
+        }
     }
 
 

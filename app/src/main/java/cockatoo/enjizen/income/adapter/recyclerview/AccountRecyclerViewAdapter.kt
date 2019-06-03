@@ -17,15 +17,14 @@ class AccountRecyclerViewAdapter(private val accountList: ArrayList<Account>) : 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val account =  accountList[position]
-        with(holder){
-            accountNumber.text = account.accountNumber
-            accountName.text = account.name
-            accountBalance.text = account.balance.numberAccountBalanceFormat()
-            logoBank.setImageResource(Contextor.getInstance().context!!.resources.getIdentifier(account.logo, "drawable", Contextor.getInstance().context!!.packageName))
+        holder.apply {
+            accountList[position].let {
+               accountNumber.text = it.accountNumber
+               accountName.text = it.name
+               accountBalance.text = it.balance.numberAccountBalanceFormat()
+               logoBank.setImageResource(Contextor.getInstance().context!!.resources.getIdentifier(it.logo, "drawable", Contextor.getInstance().context!!.packageName))
+           }
         }
-
-
     }
 
     override fun getItemCount(): Int = accountList.size

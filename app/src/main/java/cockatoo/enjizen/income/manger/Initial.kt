@@ -26,8 +26,8 @@ object Initial {
                         put(DBContract.BankEntry.COLUMN_LOGO.value, it.logo)
                     })
                 }
-            }.also {
-                DBHelper.getInstance().insert(DBContract.BankEntry.TABLE_NAME.value, it)
+            }.run {
+                DBHelper.getInstance().insert(DBContract.BankEntry.TABLE_NAME.value, this)
             }
         }
         cursor.close()

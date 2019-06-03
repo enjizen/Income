@@ -14,9 +14,8 @@ object IncomeOutcomeService {
             put(DBContract.IncomeEntry.COLUMN_MONEY_INCOME.value, moneyIncome)
             put(DBContract.IncomeEntry.COLUMN_ACCOUNT_ID.value, accountId)
             put(DBContract.IncomeEntry.COLUMN_CREATED_DATE.value, dateIncome.dateFormatSaveDB())
-        }.also {
-            DBHelper.getInstance().insert(DBContract.IncomeEntry.TABLE_NAME.value, it)
         }.run {
+            DBHelper.getInstance().insert(DBContract.IncomeEntry.TABLE_NAME.value, this)
             return true
         }
     }
@@ -27,9 +26,8 @@ object IncomeOutcomeService {
             put(DBContract.OutcomeEntry.COLUMN_MONEY_OUTCOME.value, moneyIncome)
             put(DBContract.OutcomeEntry.COLUMN_ACCOUNT_ID.value, accountId)
             put(DBContract.OutcomeEntry.COLUMN_CREATED_DATE.value, dateIncome.dateFormatSaveDB())
-        }.also {
-            DBHelper.getInstance().insert(DBContract.OutcomeEntry.TABLE_NAME.value, it)
         }.run {
+            DBHelper.getInstance().insert(DBContract.OutcomeEntry.TABLE_NAME.value, this)
             return true
         }
     }

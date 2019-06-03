@@ -21,15 +21,15 @@ class BankAdapter(private val bankList: ArrayList<Bank>) : BaseAdapter() {
 
         val imageLogo = item.findViewById(R.id.imageLogo) as AppCompatImageView
         val textViewName = item.findViewById(R.id.textViewName) as AppCompatTextView
-        with(bankList[position]) {
+        bankList[position].let {
             imageLogo.setImageResource(
                 parent.context.resources.getIdentifier(
-                    logo,
+                    it.logo,
                     "drawable",
                     parent.context.packageName
                 )
             )
-            textViewName.text = name
+            textViewName.text = it.name
         }
         return item
     }

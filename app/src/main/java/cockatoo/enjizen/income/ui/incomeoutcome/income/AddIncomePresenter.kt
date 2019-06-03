@@ -28,10 +28,7 @@ class AddIncomePresenter(private val view: AddIncomeView) {
     private var accountList: ArrayList<Account>? = null
 
     fun getAccount() {
-
-        accountList = AccountService.getAllAccount()
-
-        view.displayAccount(accountList!!)
+        view.displayAccount(AccountService.getAllAccount())
     }
 
     fun setDateIncome(dateFormat: Date? = null) {

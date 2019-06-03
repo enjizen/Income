@@ -57,23 +57,26 @@ class AddIncomeFragment : BaseFragment(), AddIncomePresenter.AddIncomeView , Vie
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.imageViewCalendar -> {
-                val c = Calendar.getInstance()
-                mYear = c.get(Calendar.YEAR)
-                mMonth = c.get(Calendar.MONTH)
-                mDay = c.get(Calendar.DAY_OF_MONTH)
+                Calendar.getInstance().let {
+                    mYear = it.get(Calendar.YEAR)
+                    mMonth = it.get(Calendar.MONTH)
+                    mDay = it.get(Calendar.DAY_OF_MONTH)
+                }
 
-
-                val datePickerDialog = DatePickerDialog(context!!, DatePickerDialog.OnDateSetListener
+                DatePickerDialog(context!!, DatePickerDialog.OnDateSetListener
                 { _, year, monthOfYear, dayOfMonth ->
-                    val calendar = Calendar.getInstance()
-                    calendar.set(year, monthOfYear, dayOfMonth)
-                    presenter.setDateIncome(calendar.time)
+                    Calendar.getInstance().apply {
+                        set(year, monthOfYear, dayOfMonth)
+                    }.run {
+                        presenter.setDateIncome(time)
+                    }
                 },
                     mYear,
                     mMonth,
                     mDay
-                )
-                datePickerDialog.show()
+                ).run {
+                    show()
+                }
             }
             R.id.btnSave -> {
                 presenter.saveIncome()
@@ -82,8 +85,7 @@ class AddIncomeFragment : BaseFragment(), AddIncomePresenter.AddIncomeView , Vie
     }
 
     override fun displayAccount(accounts: ArrayList<Account>) {
-        val adapter = AccountAdapter(accounts)
-        spinnerAccount.spinner.adapter = adapter
+        spinnerAccount.spinner.adapter = AccountAdapter(accounts)
     }
 
     override fun displayCurrentDate(dateValue: String) {

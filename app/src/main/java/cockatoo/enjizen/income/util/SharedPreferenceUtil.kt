@@ -13,6 +13,6 @@ object SharedPreferenceUtil {
     }
 
     fun getString(key: String) : String?{
-         return   sharedPreference.getString(key, "")
+         return   sharedPreference.getString(key, null)
     }
 }

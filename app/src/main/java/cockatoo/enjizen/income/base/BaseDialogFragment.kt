@@ -38,7 +38,6 @@ open class BaseDialogFragment : DialogFragment(), Toolbar.ToolbarListener {
 
     override fun onStart() {
         super.onStart()
-        val dialog = dialog
         if (dialog != null) {
             val width = ViewGroup.LayoutParams.MATCH_PARENT
             val height = ViewGroup.LayoutParams.MATCH_PARENT

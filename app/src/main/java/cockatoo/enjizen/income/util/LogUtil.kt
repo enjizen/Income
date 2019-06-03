@@ -9,4 +9,9 @@ object LogUtil {
         if (BuildConfig.DEBUG)
             Log.i(tag, msg)
     }
+
+    fun e(tag: String, msg: String){
+        if(BuildConfig.DEBUG)
+            Log.e(tag, msg)
+    }
 }

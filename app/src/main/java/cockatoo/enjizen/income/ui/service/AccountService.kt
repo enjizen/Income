@@ -13,9 +13,9 @@ object AccountService {
             put(DBContract.AccountEntry.COLUMN_BANK_ID.value, bankId)
             put(DBContract.AccountEntry.COLUMN_ACCOUNT_NUMBER.value, accountNumber)
             put(DBContract.AccountEntry.COLUMN_NAME.value, name)
-        }.also {
-            DBHelper.getInstance().insert(DBContract.AccountEntry.TABLE_NAME.value, it)
         }.run {
+            DBHelper.getInstance().insert(DBContract.AccountEntry.TABLE_NAME.value, this)
+        }.also {
             return true
         }
 
@@ -27,7 +27,7 @@ object AccountService {
         val valueSelection = arrayOf(id.toString())
         val cursor = DBHelper.getInstance().get(DBContract.AccountEntry.TABLE_NAME.value, selection, valueSelection)
         return cursor?.let {
-            with(cursor) {
+            with(it) {
                 moveToFirst()
                 Account(
                     id = id

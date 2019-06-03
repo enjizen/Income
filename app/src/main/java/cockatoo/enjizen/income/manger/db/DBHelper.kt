@@ -9,6 +9,7 @@ import net.sqlcipher.Cursor
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SQLiteException
 import net.sqlcipher.database.SQLiteOpenHelper
+import kotlin.text.StringBuilder
 
 class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME, null, DATABASE_VERSION) {
     override fun onCreate(sqLiteDatabase: SQLiteDatabase) {
@@ -22,21 +23,20 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
 
     }
 
-    fun insert(tableName: String, values: ContentValues ) {
-        val db = instance!!.getWritableDatabase(pass)
-        db.insert(tableName, null, values)
-        db.close()
-
+    fun insert(tableName: String, values: ContentValues) {
+        instance!!.getWritableDatabase(pass).run {
+            insert(tableName, null, values)
+            close()
+        }
     }
 
-    fun insert(tableName: String, values:  ArrayList<ContentValues> ) {
-        val db = instance!!.getWritableDatabase(pass)
-        values.forEach {
-            db.insert(tableName, null, it)
+    fun insert(tableName: String, values: ArrayList<ContentValues>) {
+        instance!!.getWritableDatabase(pass).run {
+            values.forEach {
+                insert(tableName, null, it)
+            }
+            close()
         }
-
-        db.close()
-
     }
 
     fun update(tableName: String, values: ContentValues, columnsValue: String, id: String) {
@@ -63,54 +63,52 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
 
 
     fun getAll(tableName: String): Cursor? {
-        val db = instance!!.getReadableDatabase(pass)
-
-        return try {
-            val cursor = db.query(
-                tableName
-                , null// value - null will give all
-                , null// selection
-                , null// selection arguments
-                , null// groupBy
-                , null// having
-                , null// no need or order by for now;
-            )
-
-            cursor
-        }catch (ex: SQLiteException){
-            null
+        return instance!!.getReadableDatabase(pass).run {
+            try {
+                val cursor = query(
+                    tableName
+                    , null// value - null will give all
+                    , null// selection
+                    , null// selection arguments
+                    , null// groupBy
+                    , null// having
+                    , null// no need or order by for now;
+                )
+                cursor
+            } catch (ex: SQLiteException) {
+                null
+            }
         }
     }
 
-    fun rawQuery(sql: String) : Cursor?{
-        val db = instance!!.getReadableDatabase(pass)
-        return db.rawQuery(sql, null)
+    fun rawQuery(sql: String): Cursor? {
+        return instance!!.getReadableDatabase(pass).run {
+            rawQuery(sql, null)
+        }
     }
 
 
     fun get(tableName: String, columnsValue: Array<String>, value: Array<String>): Cursor? {
-        val db = instance!!.getReadableDatabase(pass)
 
-        var selection = ""
+      val selection = StringBuilder().apply {
+          columnsValue.forEach { append("$it = ?") }
+      }
+        return  instance!!.getReadableDatabase(pass).run {
+            try {
+                val cursor = query(
+                    tableName
+                    , null// value - null will give all
+                    , selection.toString()// selection
+                    , value// selection arguments
+                    , null// groupBy
+                    , null// having
+                    , null// no need or order by for now;
+                )
 
-        columnsValue.forEach {
-            selection += "$it = ?"
-        }
-
-        return try {
-            val cursor = db.query(
-                tableName
-                , null// value - null will give all
-                , selection// selection
-                , value// selection arguments
-                , null// groupBy
-                , null// having
-                , null// no need or order by for now;
-            )
-
-            cursor
-        }catch (ex: SQLiteException){
-            null
+                cursor
+            } catch (ex: SQLiteException) {
+                null
+            }
         }
     }
 
@@ -139,14 +137,14 @@ class DBHelper : SQLiteOpenHelper(Contextor.getInstance().context, DATABASE_NAME
                 "${DBContract.BankEntry.COLUMN_INITIALS.value} TEXT," +
                 "${DBContract.BankEntry.COLUMN_LOGO.value} TEXT)"
 
-        private val SQL_CREATE_INCOME_TABLE ="CREATE TABLE ${DBContract.IncomeEntry.TABLE_NAME.value} (" +
+        private val SQL_CREATE_INCOME_TABLE = "CREATE TABLE ${DBContract.IncomeEntry.TABLE_NAME.value} (" +
                 "${DBContract.IncomeEntry.COLUMN_ID.value} INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "${DBContract.IncomeEntry.COLUMN_DETAIL.value} TEXT," +
                 "${DBContract.IncomeEntry.COLUMN_MONEY_INCOME.value} NUMERIC(10,2) NOT NULL DEFAULT 0.00," +
                 "${DBContract.IncomeEntry.COLUMN_ACCOUNT_ID.value} INT," +
                 "${DBContract.IncomeEntry.COLUMN_CREATED_DATE.value} DATE)"
 
-        private val SQL_CREATE_OUT_INCOME_TABLE ="CREATE TABLE ${DBContract.OutcomeEntry.TABLE_NAME.value} (" +
+        private val SQL_CREATE_OUT_INCOME_TABLE = "CREATE TABLE ${DBContract.OutcomeEntry.TABLE_NAME.value} (" +
                 "${DBContract.OutcomeEntry.COLUMN_ID.value} INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "${DBContract.OutcomeEntry.COLUMN_DETAIL.value} TEXT," +
                 "${DBContract.OutcomeEntry.COLUMN_MONEY_OUTCOME.value} NUMERIC(10,2) NOT NULL DEFAULT 0.00," +
